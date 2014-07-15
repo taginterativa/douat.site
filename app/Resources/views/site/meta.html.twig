@@ -9,12 +9,17 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
 
-        <link rel="shortcut icon" href="{{ asset('site/images/favicon.ico') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('site/images/favicon_72.png') }}" type="image/x-icon">
 
-        <title>{% if title %} {{ title }} {% else %} {{ "Douat" }} {% endif %}</title>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        {% if seo %}
+            {{ seo | raw}}
+        {% else %}
+            <title>{% if title %} {{ title }} {% else %} {{ "Douat Têxtil - A malha que movimenta você" }} {% endif %}</title>
+            <meta name="description" content="" />
+            <meta name="keywords" content="" />
+        {% endif %}
 
+        <meta content='{{ asset('site/images/logo-face.jpg') }}' property='og:image'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
 

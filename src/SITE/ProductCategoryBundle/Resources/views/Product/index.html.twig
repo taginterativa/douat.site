@@ -1,6 +1,11 @@
 {% extends "::site/base.html.twig" %}
 
-{% block title %}Douat - Malhas{% endblock %}
+{% block seo %}
+    <title>{{ Product.name }} - {% if Product.ProductCategory.Parent %}{{ Product.ProductCategory.Parent.name }}{% else %}{{ Product.ProductCategory.name }}{% endif %} - Douat Têxtil </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+{% endblock %}
+
 {% block body_class %}{{ "page-malha" }}{% endblock %}
 {% block body %}
     <main>

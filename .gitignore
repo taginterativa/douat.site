@@ -6,4 +6,5 @@
 !app/logs/.gitkeep
 /vendor_/*
 /vendor/*
+/web/uploads/*
 /site/*
