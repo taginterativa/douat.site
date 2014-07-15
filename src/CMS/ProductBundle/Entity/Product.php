@@ -96,6 +96,12 @@ class Product
      */
     private $productCategory;
 
+
+    /**
+     * @var \CMS\ProductBundle\Entity\Acabamento
+     */
+    private $acabamento;
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -425,6 +431,33 @@ class Product
     {
         return $this->productCategory;
     }
+
+
+
+    /**
+     * Set Acabamento
+     *
+     * @param \CMS\ProductBundle\Entity\Acabamento $acabamento
+     * @return Product
+     */
+    public function setAcabamento(\CMS\ProductBundle\Entity\Acabamento $acabamento = null)
+    {
+        $this->acabamento = $acabamento;
+
+        return $this;
+    }
+
+    /**
+     * Get Acabamento
+     *
+     * @return \CMS\ProductBundle\Entity\Acabamento
+     */
+    public function getAcabamento()
+    {
+        return $this->acabamento;
+    }
+    
+    
 
     /**
      * Add productRelated

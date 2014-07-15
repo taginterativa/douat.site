@@ -27,6 +27,7 @@ class ProductType extends AbstractType
             ->add('gramatura', 'text', array('attr' => array('class' => 'form-control')))
             ->add('largura', 'text', array('attr' => array('class' => 'form-control')))
             ->add('rendimento', 'text', array('attr' => array('class' => 'form-control')))
+            ->add('acabamento')
             //->add('attachment', 'text', array('attr' => array('class' => 'form-control')))
             ->add('isActive', 'checkbox')
             ->add('productCategory')
