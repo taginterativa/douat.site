@@ -339,6 +339,17 @@ class ProductCategory
      */
     public function getSlug()
     {
-        return $this->slug;
+        $slug = $this->slug;
+
+        if(strpos($slug, '-'))
+        {
+            $slug = explode('-', $slug);
+            return $slug[count($slug) -1];
+        }
+        else
+        {
+            return $this->slug;
+        }
+
     }
 }
