@@ -42,15 +42,17 @@ class DefaultController extends Controller
             {
                 $titulo = $entity[0]->getName();
             }
+            $image = $entity[0]->getImage();
         }
         else
         {
             $titulo = $category_slug;
+            $image  = null;
         }
         return $this->render('ProductCategoryBundle:Default:index.html.twig', array(
             'Categories'        => $entity,
             'TituloCategoria'   => $titulo,
-            'HeadImage'         => $entity[0]->getImage(),
+            'HeadImage'         => $image,
             'Familias'          => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getFamilias(),
             'Acabamentos'       => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getAcabamentos(),
             'Cores'             => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getCores(),
