@@ -112,6 +112,14 @@ CMS\ProductBundle\Entity\Product:
                 product_category_id:
                     referencedColumnName: id
             orphanRemoval: false
+        acabamento:
+            targetEntity: Acabamento
+            cascade: {  }
+            inversedBy: product
+            joinColumns:
+                acabamento_id:
+                    referencedColumnName: id
+            orphanRemoval: false
     manyToMany:
         productRelated:
             targetEntity: Product
