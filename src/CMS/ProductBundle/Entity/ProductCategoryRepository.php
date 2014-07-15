@@ -84,29 +84,36 @@ class ProductCategoryRepository extends EntityRepository
 
     public function search($request)
     {
-        $repository = $this->getEntityManager()->getRepository('CMSProductBundle:ProductCategory');
+        $repository = $this->getEntityManager()->getRepository('CMSProductBundle:Product');
 
-        $query = $repository->createQueryBuilder('c');
+        $query = $repository->createQueryBuilder('p');
 
-        if($request->get('cor'))
+        if($request->get('familia'))
         {
-            $query->andWhere("c.id = " . $request->get('cor'));
-        }
-        elseif($request->get('acabamento'))
-        {
-            $query->andWhere("c.id = " . $request->get('acabamento'));
-        }
-        elseif($request->get('familia'))
-        {
-            $query->andWhere("c.id = " . $request->get('familia'));
+            $query->innerJoin('p.productCategory', 'c');
+            $query->andWhere("c.slug LIKE '%" . $request->get('familia') . "%'");
         }
 
-        if($request->get('malha'))
+        if($request->get('malha') || $request->get('acabamento') || $request->get('cor'))
         {
-            $query->innerJoin('CMSProductBundle:Product', 'p');
-            $query->andWhere("p.name LIKE '%" . $request->get('malha') . "%'");
+            if($request->get('malha'))
+            {
+                $query->andWhere("p.name LIKE '%" . $request->get('malha') . "%'");
+            }
+
+            if($request->get('acabamento'))
+            {
+                $query->innerJoin('p.acabamento', 'a');
+                $query->andWhere("a.name LIKE '%" . $request->get('acabamento') . "%'");
+            }
+
+            if($request->get('cor'))
+            {
+                $query->innerJoin('p.productColor', 'cor');
+                $query->andWhere("cor.name LIKE '%" . $request->get('cor') . "%'");
+            }
         }
 
-        return $query->getQuery()->getResult(\Doctrine\ORM\AbstractQuery::HYDRATE_SIMPLEOBJECT);
+        return $query->getQuery()->getResult(\Doctrine\ORM\AbstractQuery::HYDRATE_OBJECT);
     }
 }

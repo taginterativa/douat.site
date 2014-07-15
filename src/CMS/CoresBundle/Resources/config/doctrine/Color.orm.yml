@@ -21,6 +21,12 @@ CMS\CoresBundle\Entity\Color:
             length: 45
             fixed: false
             comment: ''
+        image:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
         hexadecimal:
             type: string
             nullable: true

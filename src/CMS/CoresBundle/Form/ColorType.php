@@ -16,10 +16,11 @@ class ColorType extends AbstractType
     {
         $builder
             ->add('name', 'text', array('attr' => array('class' => 'form-control')))
-            ->add('hexadecimal', 'text', array('attr' => array('class' => 'form-control')))
+            ->add('image', 'file', array('required'  => false, 'data_class' => null, 'required' => false ))
+            ->add('pantone', null, array('required' => false))
+            ->add('hexadecimal', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
             ->add('code', 'text', array('attr' => array('class' => 'form-control')))
             ->add('isActive', 'checkbox')
-            ->add('pantone')
         ;
     }
     

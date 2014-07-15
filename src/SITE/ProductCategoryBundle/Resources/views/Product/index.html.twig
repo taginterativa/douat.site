@@ -44,7 +44,9 @@
                         </p>-->
                         <strong class="tit-medio">Cores disponíveis</strong>
                         {% for Cor in Product.ProductColor %}
-                            {% if Cor.Pantone %}
+                            {% if Cor.image %}
+                            <span class="bloco-cor" style="background: url({{ asset(Cor.image) }}); background-size: cover">{{ Cor.code }}</span>
+                            {% elseif Cor.Pantone %}
                             <span class="bloco-cor" style="background: #{{ Cor.Pantone.hex }};">{{ Cor.code }}</span>
                             {% else %}
                             <span class="bloco-cor" style="background: #{{ Cor.hexadecimal }};">{{ Cor.code }}</span>

@@ -42,6 +42,10 @@ class ColorController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            if(!is_null($form['image']->getData()))
+            {
+                $entity->upload();
+            }
             $em->persist($entity);
             $em->flush();
 
@@ -169,12 +173,23 @@ class ColorController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Color entity.');
         }
+        $image_file = $entity->getImage();
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+
+            if(!is_null($editForm['image']->getData()))
+            {
+                $entity->upload();
+            }
+            else
+            {
+                $entity->setImage($image_file);
+            }
+
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('title', 'Color');

@@ -54,21 +54,23 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <input type="text" name="malha" placeholder="Nome da malha">
+                    <input type="text" name="malha" placeholder="Nome da malha" value="{% if malha is not null %}{{ malha }}{% endif %}">
                     <button type="submit">Filtrar</button>
                 </form>
-                <ul class="lista-blocos">
-                {% for Category in Categories %}
-                    {% for Product in Category.Products %}
-                    <li>
-                        <a href="{{ path('product_show', {category_slug: Category.slug, product_slug: Product.slug}) }}">
-                            <span><img src="{{ asset(Product.image) }}"></span>
-                            <strong>{{ Product.name }}</strong>
-                        </a>
-                    </li>
+                {% if Products %}
+                    <ul class="lista-blocos">
+                    {% for Product in Products %}
+                        <li>
+                            <a href="{{ path('product_show', {category_slug: Product.ProductCategory.slug, product_slug: Product.slug}) }}">
+                                <span><img src="{{ asset(Product.image) }}"></span>
+                                <strong>{{ Product.name }}</strong>
+                            </a>
+                        </li>
                     {% endfor %}
-                {% endfor %}
-                </ul>
+                    </ul>
+                {% else %}
+                    <p>Nenhuma malha foi encontrada.</p>
+                {% endif %}
 
             </section>
 
