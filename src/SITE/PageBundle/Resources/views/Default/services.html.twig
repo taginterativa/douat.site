@@ -1,0 +1,46 @@
+{% extends "::site/base.html.twig" %}
+
+{% block title %}{% endblock %}
+{% block body_class %}{{ "page-servicos" }}{% endblock %}
+{% block body %}
+    <main>
+
+        <div class="wrapper">
+            <header class="header-interna">
+                <h2>Serviços Prestados</h2>
+            </header>
+            <article class="texto-servicos">
+                <ul class="lista-servicos">
+                    <li>
+                        <h2>Tinturaria e Acabamento</h2>
+                        <p>A Douat conta com maquinários de tinturaria de última geração. Movimentando-se com alta tecnologia está preparada para trabalhar com tingimento em malhas de poliamida, poliéster e suas misturas. </p>
+                        <span class="img-servico" style="background-image: url({{ asset('site/images/servico_tintura.jpg') }});"></span>
+                    </li>
+                    <li>
+                        <h2>Malharia</h2>
+                        <p>Prestando serviços de tecelagem, a Douat dispõe de teares circulares que possibilitam o trabalho em malhas de poliamida, poliéster com ou sem elastano. A Douat permite que os acabamentos fiquem à escolha do cliente, podem ser abertos ou tubulares. </p>
+                        <span class="img-servico" style="background-image: url({{ asset('site/images/servicos_malharia.jpg') }});"></span>
+                    </li>
+                    <li>
+                        <h2>Confecção de uniformes escolares</h2>
+                        <p>A Douat também atua na área de confecção de uniformes escolares em diversas regiões do Brasil, para isso, conta com uma equipe especializada em confecção para atender da melhor maneira os seus clientes. </p>
+                        <span class="img-servico" style="background-image: url({{ asset('site/images/servico_confeccao.jpg') }});"></span>
+                    </li>
+                </ul>
+                <p class="desc-bottom">
+                    Para obter mais informações sobre nossos produtos, entre em contato com um de nossos representantes por e-mail ou telefone:
+                    <br>
+                    <a href="mailto:contato@douattextil.com.br">contato@douattextil.com.br</a><br>
+                    (47) 3441.5722
+                </p>
+                <a href="contato.php" class="bt-default">Entre em contato</a>
+
+
+            </article>
+
+
+        </div>
+        {% include 'site/footer.html.twig' %}
+
+    </main>
+{% endblock %}

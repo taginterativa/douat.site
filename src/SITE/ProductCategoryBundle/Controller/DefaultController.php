@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction($category_slug = null, $subcategory_slug = null)
     {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')
@@ -19,24 +19,43 @@ class DefaultController extends Controller
             'HeadImage'         => $entity[rand(0, (count($entity) - 1))]->getImage(),
             'Familias'          => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getFamilias(),
             'Acabamentos'       => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getAcabamentos(),
-            'Cores'             => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getCores()
+            'Cores'             => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getCores(),
+            'category_slug'     => $category_slug,
+            'subcategory_slug'  => $subcategory_slug,
         ));
     }
 
 
-    public function categoryAction($category_slug)
+    public function categoryAction($category_slug, $subcategory_slug = null)
     {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')
-            ->findBySlug($category_slug);
+            ->findByCategoryAndSubCategory($category_slug, $subcategory_slug);
 
+        if(count($entity))
+        {
+            if($entity[0]->getParent())
+            {
+                $titulo = $entity[0]->getParent()->getName();
+            }
+            else
+            {
+                $titulo = $entity[0]->getName();
+            }
+        }
+        else
+        {
+            $titulo = $category_slug;
+        }
         return $this->render('ProductCategoryBundle:Default:index.html.twig', array(
             'Categories'        => $entity,
-            'TituloCategoria'   => $entity[0]->getName(),
+            'TituloCategoria'   => $titulo,
             'HeadImage'         => $entity[0]->getImage(),
             'Familias'          => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getFamilias(),
             'Acabamentos'       => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getAcabamentos(),
-            'Cores'             => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getCores()
+            'Cores'             => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getCores(),
+            'category_slug'     => $category_slug,
+            'subcategory_slug'  => $subcategory_slug,
         ));
     }
 

@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new CMS\ProductFieldsBundle\CMSProductFieldsBundle(),
             new CMS\ProductBundle\CMSProductBundle(),
             new SITE\ProductCategoryBundle\ProductCategoryBundle(),
+            new SITE\PageBundle\SITEPageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

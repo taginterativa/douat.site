@@ -1,3 +1,7 @@
+site_page:
+    resource: "@SITEPageBundle/Resources/config/routing.yml"
+    prefix:   /
+
 product_category:
     resource: "@ProductCategoryBundle/Resources/config/routing.yml"
     prefix:   /
@@ -38,3 +42,7 @@ cms_login:
     resource: "@CMSUserBundle/Controller"
     prefix:   /
     type: annotation
+
+cms_contato:
+    resource: "@CMSContatoBundle/Resources/config/routing.yml"
+    prefix:   /

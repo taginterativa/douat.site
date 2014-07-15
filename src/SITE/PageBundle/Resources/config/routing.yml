@@ -1,0 +1,11 @@
+site_page_homepage:
+    pattern:  /site_page
+    defaults: { _controller: SITEPageBundle:Default:index }
+
+site_page_about:
+    pattern:  /sobre
+    defaults: { _controller: SITEPageBundle:Default:about }
+
+site_page_services:
+    pattern:  /servicos
+    defaults: { _controller: SITEPageBundle:Default:services }

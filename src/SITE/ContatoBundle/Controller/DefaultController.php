@@ -10,23 +10,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $url = $this->container->getParameter('url');
-
-        $dados['metodo'] = 'getChannels';
-        $dados['params'] = array('limit' => 10);
-        $canais = $this->get("tools")->sentApi($url,$dados);
-
-        $dados = null;
-        $dados['metodo'] = 'getChannelsCameras';
-        $dados['params'] = array('limit' => 2);
-
-        foreach($canais->result as $canal):
-            $dados['params']['canal'][] = $canal->id;
-        endforeach;
-        $cameras = $this->get("tools")->sentApi($url,$dados);   
         return $this->render('ContatoBundle:Default:index.html.twig',array(
-        	'canais_menu' => $canais->result,
-            'cameras_menu' => $cameras->result
+            'Messages' => $this->get('session')->getFlashBag()->get('message')
         ));
     }
 
@@ -39,8 +24,8 @@ class DefaultController extends Controller
         $body .= '<strong>Mensagem: </strong><br />'. nl2br($form->get('mensagem'));
 
 
-        $from = array('no-reply@vejoaovivo.com.br' => 'Contato vejo ao vivo');
-        $to = array('fernando@taginterativa.com.br' => 'Fernando Cezar Chaves', 'contato@vejoaovivo.com.br' => 'Contato vejo ao vivo');
+        $from = array('no-reply@douattextil.com.br' => 'Contato douat');
+        $to = array('weverson@taginterativa.com.br' => 'Weverson Cachinsky');
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Contato')
@@ -51,7 +36,7 @@ class DefaultController extends Controller
         $sendMail = $this->get('mailer')->send($message);
 
         if($sendMail):
-            $this->get('session')->getFlashBag()->add('message', 'Mensagem enviado com sucesso! Logo entraremos en contato');
+            $this->get('session')->getFlashBag()->add('message', 'Mensagem enviada com sucesso! Logo entraremos em contato');
         else:
             $this->get('session')->getFlashBag()->add('message', 'Erro ao enviar email! Verifique seus dados e tente novamente');
         endif;

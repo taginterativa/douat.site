@@ -1,5 +1,5 @@
 contato_homepage:
-    pattern:  /contato.html
+    pattern:  /contato
     defaults: { _controller: ContatoBundle:Default:index }
 
 contato_send:

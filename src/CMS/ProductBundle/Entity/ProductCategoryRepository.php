@@ -45,6 +45,30 @@ class ProductCategoryRepository extends EntityRepository
             ->getResult();
     }
 
+    public function findByCategoryAndSubCategory($category, $subcategory)
+    {
+        if(is_null($subcategory))
+        {
+            return $this->findByChildren($category);
+        }
+        else
+        {
+            return $this->findBySlug($category . '-' . $subcategory);
+        }
+    }
+
+
+    public function findByChildren($parentCategory)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT c FROM CMSProductBundle:ProductCategory c WHERE c.parent IN
+                    (SELECT c2.id FROM CMSProductBundle:ProductCategory c2 WHERE c2.parent IS NULL AND c2.slug = \'' . $parentCategory . '\')
+                ORDER BY c.name ASC'
+            )
+            ->getResult();
+    }
+
 
     public function getSubCategories($category_id)
     {

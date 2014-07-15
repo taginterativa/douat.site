@@ -13,7 +13,7 @@
         <div class="wrapper">
             <section class="miolo-prod">
                 <header class="header-interna">
-                    <h3>{{ Product.ProductCategory.name }}</h3>
+                    <h3>{% if Product.ProductCategory.Parent %}{{ Product.ProductCategory.Parent.name }}{% else %}{{ Product.ProductCategory.name }}{% endif %}</h3>
                 </header>
                 <div class="topo-prod">
                     <a href="#" class="lk-voltar">Voltar</a>

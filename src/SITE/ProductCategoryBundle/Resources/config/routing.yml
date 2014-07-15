@@ -15,8 +15,12 @@ product_category_list:
     pattern:  /malhas/{category_slug}
     defaults: { _controller: ProductCategoryBundle:Default:category }
 
+product_category_sub_list:
+    pattern:  /malhas/{category_slug}/{subcategory_slug}
+    defaults: { _controller: ProductCategoryBundle:Default:category }
+
 product_show:
-    pattern:  /malhas/{category_slug}/{product_slug}
+    pattern:  /malha/{category_slug}/{product_slug}
     defaults: { _controller: ProductCategoryBundle:Product:index }
 
 

@@ -26,7 +26,7 @@
                                     <p>
                                         Tecidos que envolvem movimentos, fios que transpiram tecnologia. Inspire-se com a poliamida que desenvolve uma trama de inovação, performance e conforto.
                                     </p>
-                                    <a href="{{ path('product_category_all') }}" class="bt-default">Conheça nossas malhas</a>
+                                    <a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="bt-default">Conheça nossas malhas</a>
                                 </section>
                             </div>
                             <div class="swiper-slide" data-slide="2">
@@ -37,7 +37,7 @@
                                     <p>
                                         Desenvolvida com tecidos que combinam tradição e tecnologia às novas tendências, a linha Outono Inverno 2015 irá movimentar você.
                                     </p>
-                                    <a href="{{ path('product_category_all') }}" class="bt-default">Conheça nossos lançamentos</a>
+                                    <a href="{{ path('product_category_sub_list', {category_slug: 'lingerie', subcategory_slug: 'lancamentos'}) }}" class="bt-default">Conheça nossos lançamentos</a>
                                 </section>
                             </div>
                             <div class="swiper-slide" data-slide="3">
@@ -48,7 +48,7 @@
                                     <p>
                                         Douat Têxtil é a pioneira na indústria de fios sintéticos, envolvendo pessoas em momentos de conforto, descontração e proteção há mais de 40 anos.
                                     </p>
-                                    <a href="sobre.php" class="bt-default">Conheça a Douat</a>
+                                    <a href="{{ path('site_page_about') }}" class="bt-default">Conheça a Douat</a>
                                 </section>
                             </div>
                             <div class="swiper-slide claro" data-slide="4">
@@ -104,22 +104,22 @@
                         </header>
                         <nav class="only-desktop nav-malhas">
                             <ul>
-                                <li class="node-1"><a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-fitness"></span>Fitness</a></li>
+                                <li class="node-1"><a href="{{ path('product_category_list', {category_slug: 'fitness'}) }}" class="troca-malha" data-bg="1"><span class="icon-fitness"></span>Fitness</a></li>
                                 <li class="node-2"><a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="troca-malha" data-bg="2"><span class="icon-lingerie"></span>Lingerie</a></li>
-                                <li class="node-3"><a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="troca-malha" data-bg="3"><span class="icon-escolar"></span>Escolar</a></li>
-                                <li class="node-4"><a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="troca-malha" data-bg="4"><span class="icon-praia"></span>Praia</a></li>
+                                <li class="node-3"><a href="{{ path('product_category_list', {category_slug: 'escolar'}) }}" class="troca-malha" data-bg="3"><span class="icon-escolar"></span>Escolar</a></li>
+                                <li class="node-4"><a href="{{ path('product_category_list', {category_slug: 'praia'}) }}" class="troca-malha" data-bg="4"><span class="icon-praia"></span>Praia</a></li>
                             </ul>
-                            <span class="fake-nav node-1 troca-malha" data-bg="1" data-node="1" data-url="{{ path('product_category_list', {category_slug: 'lingerie'}) }}"></span>
+                            <span class="fake-nav node-1 troca-malha" data-bg="1" data-node="1" data-url="{{ path('product_category_list', {category_slug: 'fitness'}) }}"></span>
                             <span class="fake-nav node-2 troca-malha" data-bg="2" data-node="2" data-url="{{ path('product_category_list', {category_slug: 'lingerie'}) }}"></span>
-                            <span class="fake-nav node-3 troca-malha" data-bg="3" data-node="3" data-url="{{ path('product_category_list', {category_slug: 'lingerie'}) }}"></span>
-                            <span class="fake-nav node-4 troca-malha" data-bg="4" data-node="4" data-url="{{ path('product_category_list', {category_slug: 'lingerie'}) }}"></span>
+                            <span class="fake-nav node-3 troca-malha" data-bg="3" data-node="3" data-url="{{ path('product_category_list', {category_slug: 'escolar'}) }}"></span>
+                            <span class="fake-nav node-4 troca-malha" data-bg="4" data-node="4" data-url="{{ path('product_category_list', {category_slug: 'praia'}) }}"></span>
                         </nav>
                         <nav class="only-mobile nav-malhas">
                             <ul class="slide-mobile">
-                                <li class="node-1"><a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-fitness"></span>Fitness <br><strong>Conheça a linha</strong></a></li>
+                                <li class="node-1"><a href="{{ path('product_category_list', {category_slug: 'fitness'}) }}" class="troca-malha" data-bg="1"><span class="icon-fitness"></span>Fitness <br><strong>Conheça a linha</strong></a></li>
                                 <li class="node-2"><a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-lingerie"></span>Lingerie <br><strong>Conheça a linha</strong></a></li>
-                                <li class="node-3"><a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-escolar"></span>Escolar <br><strong>Conheça a linha</strong></a></li>
-                                <li class="node-4"><a href="{{ path('product_category_list', {category_slug: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-praia"></span>Praia <br><strong>Conheça a linha</strong></a></li>
+                                <li class="node-3"><a href="{{ path('product_category_list', {category_slug: 'escolar'}) }}" class="troca-malha" data-bg="1"><span class="icon-escolar"></span>Escolar <br><strong>Conheça a linha</strong></a></li>
+                                <li class="node-4"><a href="{{ path('product_category_list', {category_slug: 'praia'}) }}" class="troca-malha" data-bg="1"><span class="icon-praia"></span>Praia <br><strong>Conheça a linha</strong></a></li>
                             </ul>
                         </nav>
                     </article>
