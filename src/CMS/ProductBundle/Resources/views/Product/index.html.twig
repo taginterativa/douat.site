@@ -28,7 +28,7 @@
                                         <input type="checkbox">
                                     </label>
                                 </div>
-                            </th>                                <th>Id</th>                                <th>Name</th>                                <th>Description</th>                                <th>Image</th>                                <th>Composicao</th>                                <th>Gramatura</th>                                <th>Largura</th>                                <th>Rendimento</th>                                <th>Attachment</th>                                <th>Createdat</th>                                <th>Updatedat</th>                                <th>Isactive</th>
+                            </th>                                <th>Id</th>                                <th>Name</th>                                <th>Createdat</th>                                <th>Updatedat</th>                                <th>Isactive</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -45,13 +45,6 @@
 
                             <td><a href="{{ path('cms_produtos_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                             <td>{{ entity.name }}</td>
-                            <td>{{ entity.description }}</td>
-                            <td>{{ entity.image }}</td>
-                            <td>{{ entity.composicao }}</td>
-                            <td>{{ entity.gramatura }}</td>
-                            <td>{{ entity.largura }}</td>
-                            <td>{{ entity.rendimento }}</td>
-                            <td>{{ entity.attachment }}</td>
                             <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                             <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                             <td>{{ entity.isActive }}</td>

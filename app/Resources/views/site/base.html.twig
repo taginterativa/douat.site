@@ -8,5 +8,34 @@
 {% include 'site/scripts.html.twig'  %}
 
 </body>
+<script>
+    $(document).ready(function() {
+        if(!$('body').hasClass('mobile') && $('body').hasClass('page-home')) {
+            $('#fullpage').fullpage({
+                verticalCentered: false,
+                resize : true,
+                scrollingSpeed: 700,
+                easing: 'easeInQuart',
+                navigationTooltips: ['inicio', 'categorias'],
+                anchors:['inicio', 'categorias'],
+                slidesNavigation: true,
+                onLeave: function(index, nextIndex, direction){
+                    if(direction == 'down') {
+                        if($('body').hasClass('claro')) {
+                            $('body').removeClass('claro');
+                            $('body').addClass('exclaro');
+                        }
+                    } else {
+                        if($('body').hasClass('exclaro')) {
+                            $('body').removeClass('exclaro');
+                            $('body').addClass('claro');
+                        }
+                    }
+                }
+            });
+        }
+    });
+
+</script>
 </html>
 
