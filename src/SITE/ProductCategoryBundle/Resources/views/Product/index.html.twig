@@ -21,11 +21,12 @@
                     <h3>{% if Product.ProductCategory.Parent %}{{ Product.ProductCategory.Parent.name }}{% else %}{{ Product.ProductCategory.name }}{% endif %}</h3>
                 </header>
                 <div class="topo-prod">
-                    <a href="#" class="lk-voltar">Voltar</a>
+                    <a href="{{ path('product_category_sub_list', {category_slug: Product.ProductCategory.Parent.slug, subcategory_slug: Product.ProductCategory.slug}) }}" class="lk-voltar">Voltar</a>
                     <ul class="cats-prod">
-                        <li><a href="#">Família</a> /</li>
-                        <li><a href="#">Acabamento</a> /</li>
-                        <li><a href="#">Cor</a></li>
+                        <li><a href="{{ path('home_homepage') }}">Home</a> /</li>
+                        <li><a href="{{ path('product_category_list', {category_slug: Product.ProductCategory.Parent.slug}) }}">{{ Product.ProductCategory.Parent.slug }}</a> /</li>
+                        <li><a href="{{ path('product_category_sub_list', {category_slug: Product.ProductCategory.Parent.slug, subcategory_slug: Product.ProductCategory.slug}) }}">{{ Product.ProductCategory.slug }}</a>/</li>
+                        <li><a href="">{{ Product.name }}</a></li>
                     </ul>
                     <h2>{{ Product.name }}</h2>
                     <div class="figure">
