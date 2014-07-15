@@ -1,0 +1,7 @@
+cms_cores_homepage:
+    pattern:  /cms_cores
+    defaults: { _controller: CMSCoresBundle:Default:index }
+
+CMSCoresBundle_cms_cores:
+    resource: "@CMSCoresBundle/Resources/config/routing/color.yml"
+    prefix:   /cms/cores

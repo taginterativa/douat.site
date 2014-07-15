@@ -1,0 +1,62 @@
+CMS\PantoneBundle\Entity\Pantone:
+    type: entity
+    table: pantone
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+        hex:
+            type: string
+            nullable: false
+            length: 6
+            fixed: true
+            comment: ''
+        red:
+            type: string
+            nullable: false
+            length: 3
+            fixed: false
+            comment: ''
+        green:
+            type: string
+            nullable: false
+            length: 3
+            fixed: false
+            comment: ''
+        blue:
+            type: string
+            nullable: false
+            length: 3
+            fixed: false
+            comment: ''
+        createdAt:
+            type: datetime
+            column: created_at
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            column: updated_at
+            gedmo:
+                timestampable:
+                    on: update
+        isActive:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: is_active
+    lifecycleCallbacks: {  }

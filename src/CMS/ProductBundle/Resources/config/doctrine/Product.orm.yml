@@ -1,0 +1,138 @@
+CMS\ProductBundle\Entity\Product:
+    type: entity
+    table: product
+    repositoryClass: CMS\ProductBundle\Entity\ProductRepository
+    indexes:
+        fk_product_product_category1_idx:
+            columns:
+                - product_category_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        code:
+            type: string
+            nullable: true
+            length: 10
+            fixed: false
+            comment: ''
+        slug:
+            type: string
+            length: 128
+            nullable: false
+            gedmo:
+                slug:
+                    separator: -
+                    fields:
+                        - name
+                        - code
+                    updatable: true
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        image:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        composicao:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        gramatura:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        largura:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        rendimento:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        attachment:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+            gedmo:
+                timestampable:
+                  on: update
+        isActive:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: is_active
+    manyToOne:
+        productCategory:
+            targetEntity: ProductCategory
+            cascade: {  }
+            inversedBy: product
+            joinColumns:
+                product_category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        productRelated:
+            targetEntity: Product
+            cascade: {  }
+            joinTable:
+                name: product_related
+                joinColumns:
+                    product_id:
+                      referenceColumnName: id
+                inverseJoinColumns:
+                    product_id_child:
+                      referenceColumnName: id
+        productColor:
+            targetEntity: Color
+            cascade: {  }
+            joinTable:
+                name: product_color
+                joinColumns:
+                    product_id:
+                      referenceColumnName: id
+                inverseJoinColumns:
+                    color_id:
+                      referenceColumnName: id
+    lifecycleCallbacks: {  }

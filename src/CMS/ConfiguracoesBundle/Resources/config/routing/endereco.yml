@@ -1,0 +1,35 @@
+cms_endereco:
+    pattern:  /
+    defaults: { _controller: "CMSConfiguracoesBundle:Endereco:index" }
+
+cms_endereco_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSConfiguracoesBundle:Endereco:show" }
+
+cms_endereco_new:
+    pattern:  /new
+    defaults: { _controller: "CMSConfiguracoesBundle:Endereco:new" }
+
+cms_endereco_create:
+    pattern:  /create
+    defaults: { _controller: "CMSConfiguracoesBundle:Endereco:create" }
+    requirements: { _method: post }
+
+cms_endereco_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSConfiguracoesBundle:Endereco:edit" }
+
+cms_endereco_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSConfiguracoesBundle:Endereco:update" }
+    requirements: { _method: post|put }
+
+cms_endereco_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSConfiguracoesBundle:Endereco:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_endereco_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSConfiguracoesBundle:Endereco:deleteAll" }
+    requirements: { _method: post }

@@ -1,0 +1,7 @@
+cms_pantone_homepage:
+    pattern:  /cms_pantone
+    defaults: { _controller: CMSPantoneBundle:Default:index }
+
+CMSPantoneBundle_cms_pantone:
+    resource: "@CMSPantoneBundle/Resources/config/routing/pantone.yml"
+    prefix:   /cms/pantone

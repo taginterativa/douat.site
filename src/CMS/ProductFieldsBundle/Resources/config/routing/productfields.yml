@@ -1,0 +1,35 @@
+cms_product_fields:
+    pattern:  /
+    defaults: { _controller: "CMSProductFieldsBundle:ProductFields:index" }
+
+cms_product_fields_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSProductFieldsBundle:ProductFields:show" }
+
+cms_product_fields_new:
+    pattern:  /new
+    defaults: { _controller: "CMSProductFieldsBundle:ProductFields:new" }
+
+cms_product_fields_create:
+    pattern:  /create
+    defaults: { _controller: "CMSProductFieldsBundle:ProductFields:create" }
+    requirements: { _method: post }
+
+cms_product_fields_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSProductFieldsBundle:ProductFields:edit" }
+
+cms_product_fields_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSProductFieldsBundle:ProductFields:update" }
+    requirements: { _method: post|put }
+
+cms_product_fields_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSProductFieldsBundle:ProductFields:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_product_fields_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSProductFieldsBundle:ProductFields:deleteAll" }
+    requirements: { _method: post }

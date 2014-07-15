@@ -1,0 +1,25 @@
+<!-- Sidebar Menu -->
+<div id="menu" class="hidden-print hidden-xs ">
+    <div id="sidebar-discover-wrapper">
+        <ul class="list-unstyled">
+            <li class="active"><a href="surveys_multiple.html?lang=en" class="glyphicons home"><i></i><span>Dashboard</span></a></li>
+            <li>
+                <a href="#sidebar-discover-cameras" class="glyphicons plus" data-toggle="sidebar-discover"><i></i><span>Produtos</span></a>
+                <div id="sidebar-discover-cameras" class="sidebar-discover-menu">
+                    <div class="innerAll text-center border-bottom text-muted-dark">
+                        <strong>Produtos</strong>
+                        <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i>
+                        </button>
+                    </div>
+                    <ul class="animated fadeIn">
+                        <li><a href="{{ path('cms_produtos') }}"> Produtos</a></li>
+                        <li><a href="{{ path('cms_produtos_categorias') }}"> Categorias</a></li>
+                        <li><a href="{{ path('cms_cores') }}"> Cores</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="{{ path('cms_user') }}" class="glyphicons user"><i></i><span>Usuários</span></a></li>
+        </ul>
+    </div>
+</div>
+<!-- // Sidebar Menu END -->

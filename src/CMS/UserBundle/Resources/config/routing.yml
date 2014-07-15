@@ -1,0 +1,7 @@
+cms_user_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: CMSUserBundle:Default:index }
+
+CMSUserBundle_cms_user:
+        resource: "@CMSUserBundle/Resources/config/routing/user.yml"
+        prefix:   /cms/user

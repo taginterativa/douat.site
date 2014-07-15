@@ -1,0 +1,35 @@
+cms_user:
+    pattern:  /
+    defaults: { _controller: "CMSUserBundle:User:index" }
+
+cms_user_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSUserBundle:User:show" }
+
+cms_user_new:
+    pattern:  /new
+    defaults: { _controller: "CMSUserBundle:User:new" }
+
+cms_user_create:
+    pattern:  /create
+    defaults: { _controller: "CMSUserBundle:User:create" }
+    requirements: { _method: post }
+
+cms_user_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSUserBundle:User:edit" }
+
+cms_user_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSUserBundle:User:update" }
+    requirements: { _method: post|put }
+
+cms_user_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSUserBundle:User:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_user_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSUserBundle:User:deleteAll" }
+    requirements: { _method: post }

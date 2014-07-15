@@ -1,0 +1,53 @@
+{% extends "::site_base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <!-- home html:i -->
+
+    <div class='anuncie-contato contato-page'>
+        <div class='center'>
+            <div class='leftside'>
+                <h3>Entre em <b>contato</b></h3>
+                <h4>Deixe sua mensagem para nós</h4>
+                <p>Envia sua mensagem no formulário abaixo e estaremos verificando o mais rápido possível.</p>
+                <form id='contact_form' action="{{ path('contato_send') }}" method="post" onsubmit="return window.validate_contactForm();">
+                    <div class='form-row'>
+                        <label>Nome Completo*</label>
+                        <input class='contact_nome' name="nome" placeholder='Digite seu nome completo aqui' />
+                    </div>
+                    <div class='form-row'>
+                        <label>Email*</label>
+                        <input class='contact_mail' name="email" placeholder='seu@email.com' />
+                    </div>
+                    <div class='form-row'>
+                        <label>Telefone*</label>
+                        <input class='contact_fone' name="telefone" placeholder='+55 (__) ____-_____' />
+                    </div>
+                    <div class='form-row'>
+                        <label>Deixe uma mensagem*</label>
+                        <textarea name="mensagem" class='contact_msg'></textarea>
+                    </div>
+                    <div class='validation-msg'></div>
+                    <div class='form-row'>
+                        <input type='checkbox' class='checkbox contact_check' />
+                        <label class='check-label'>Aceito receber e-mails da Veja ao Vivo e seus parceiros</label>
+                        <button type='submit'>enviar</button>
+                    </div>
+                </form>
+            </div>
+            <div class='rightside'>
+                <h1>contato@vejoaovivo.com.br</h1>                
+                <div id='map-canvas'></div>
+                <script type="text/javascript">jQuery(document).ready(function(){initialize(-26.264269,-48.851168,[[-26.264269,-48.851168]]);});</script>
+                <!--<a href='#'>
+                    <img src='{{ asset('site/images/roundmap.png') }}' />
+                </a>-->
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+
+    <!-- home html:f -->
+{% endblock %}

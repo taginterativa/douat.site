@@ -1,0 +1,66 @@
+{% form_theme form _self %}
+
+{% block choice_widget_collapsed %}
+    {% spaceless %}
+        {% if required and empty_value is none and not empty_value_in_choices and not multiple %}
+            {% set required = false %}
+        {% endif %}
+        <select class="col-md-6 select2-offscreen" {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+            {% if empty_value is not none %}
+                <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+            {% endif %}
+            {% if preferred_choices|length > 0 %}
+                {% set options = preferred_choices %}
+                {{ block('choice_widget_options') }}
+                {% if choices|length > 0 and separator is not none %}
+                    <option disabled="disabled">{{ separator }}</option>
+                {% endif %}
+            {% endif %}
+            {% set options = choices %}
+            {{ block('choice_widget_options') }}
+        </select>
+    {% endspaceless %}
+{% endblock choice_widget_collapsed %}
+
+{% block file_widget %}
+    {% spaceless %}
+
+        {% set type = type|default('file') %}
+        <div style="padding-left: 0;" class="fileupload col-md-9 fileupload-new margin-none" data-provides="fileupload">
+            <div class="input-group">
+                <div style="padding-left: 0;" class="form-control col-md-3"><i class="fa fa-file fileupload-exists"></i>
+                    <span class="fileupload-preview"></span>
+                </div>
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            <span class="fileupload-new">Selecionar arquivo</span>
+                            <span class="fileupload-exists">Alterar</span>
+                            <input class="margin-none" type="{{ type }}" {{ block('widget_attributes') }} />
+                        </span>
+                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remover</a>
+                    </span>
+            </div>
+        </div>
+
+        {% if type == 'file' and form.vars.data is not null %}
+            <div class="col-md-3">
+                <img height="34" src="{{ asset(form.vars.data) }}" /><br/>
+            </div>
+        {% endif %}
+
+
+    {% endspaceless %}
+{% endblock file_widget %}
+
+{% block form_row %}
+    {% spaceless %}
+
+        <div class="form-group">
+            {{ form_label(form, null, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+            <div class="col-sm-12">
+                {{ form_errors(form) }}
+                {{ form_widget(form) }}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}

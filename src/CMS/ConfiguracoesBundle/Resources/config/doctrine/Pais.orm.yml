@@ -1,0 +1,38 @@
+CMS\ConfiguracoesBundle\Entity\Pais:
+    type: entity
+    table: pais
+    repositoryClass: CMS\ConfiguracoesBundle\Entity\PaisRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: '100'
+        slug:
+            type: string
+            length: '100'
+            gedmo:
+            slug:
+                separator: -
+                style: camel
+                fields:
+                    - nome
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+    indexes:
+        search_idx:
+            columns: slug
+
+    lifecycleCallbacks: {  }

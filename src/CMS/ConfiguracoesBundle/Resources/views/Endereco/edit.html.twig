@@ -1,0 +1,33 @@
+{% extends '::admin_template.html.twig' %}
+
+{% block title %}
+    Editar Endereco |
+{% endblock %}
+
+{% block content %}
+    <h1>
+        Editar Endereco
+                    <a class="btn btn-primary" href="{{ path('cms_endereco_new') }}">
+                Adicionar novo
+            </a>
+            </h1>
+
+    <div class="widget widget-heading-simple widget-body-white">
+        <div class="widget-body">
+            <div class="innerLR">
+                <div class="form-horizontal">
+                    {{ form(edit_form) }}
+
+                                            {{ form(delete_form) }}
+                    
+                    <div style="clear: both;"></div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+        <a class="btn btn-default go-back" href="{{ path('cms_endereco') }}">
+    Voltar
+</a>
+
+{% endblock %}

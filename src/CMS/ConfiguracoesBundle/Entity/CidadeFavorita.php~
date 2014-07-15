@@ -1,0 +1,83 @@
+<?php
+
+namespace CMS\ConfiguracoesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CidadeFavorita
+ */
+class CidadeFavorita
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @var \CMS\MembrosBundle\Entity\Membro
+     */
+    private $membro;
+
+    /**
+     * @var \CMS\ConfiguracoesBundle\Entity\Cidade
+     */
+    private $cidade;
+
+
+    /**
+     * Set membro
+     *
+     * @param \CMS\MembrosBundle\Entity\Membro $membro
+     * @return CidadeFavorita
+     */
+    public function setMembro(\CMS\MembrosBundle\Entity\Membro $membro = null)
+    {
+        $this->membro = $membro;
+
+        return $this;
+    }
+
+    /**
+     * Get membro
+     *
+     * @return \CMS\MembrosBundle\Entity\Membro 
+     */
+    public function getMembro()
+    {
+        return $this->membro;
+    }
+
+    /**
+     * Set cidade
+     *
+     * @param \CMS\ConfiguracoesBundle\Entity\Cidade $cidade
+     * @return CidadeFavorita
+     */
+    public function setCidade(\CMS\ConfiguracoesBundle\Entity\Cidade $cidade = null)
+    {
+        $this->cidade = $cidade;
+
+        return $this;
+    }
+
+    /**
+     * Get cidade
+     *
+     * @return \CMS\ConfiguracoesBundle\Entity\Cidade 
+     */
+    public function getCidade()
+    {
+        return $this->cidade;
+    }
+}

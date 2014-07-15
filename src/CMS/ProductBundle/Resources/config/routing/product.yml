@@ -1,0 +1,35 @@
+cms_produtos:
+    pattern:  /
+    defaults: { _controller: "CMSProductBundle:Product:index" }
+
+cms_produtos_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSProductBundle:Product:show" }
+
+cms_produtos_new:
+    pattern:  /new
+    defaults: { _controller: "CMSProductBundle:Product:new" }
+
+cms_produtos_create:
+    pattern:  /create
+    defaults: { _controller: "CMSProductBundle:Product:create" }
+    requirements: { _method: post }
+
+cms_produtos_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSProductBundle:Product:edit" }
+
+cms_produtos_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSProductBundle:Product:update" }
+    requirements: { _method: post|put }
+
+cms_produtos_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSProductBundle:Product:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_produtos_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSProductBundle:Product:deleteAll" }
+    requirements: { _method: post }

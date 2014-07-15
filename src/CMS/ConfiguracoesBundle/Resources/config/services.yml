@@ -1,0 +1,10 @@
+parameters:
+    tools.class: CMS\ConfiguracoesBundle\Services\Tools
+
+services:
+    tools:
+        class: "%tools.class%"
+    CMS.twig.tools_twig_extension:
+        class: CMS\ConfiguracoesBundle\Extension\ToolsTwigExtension
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,7 @@
+cms_product_fields_homepage:
+    pattern:  /cms_product_fields
+    defaults: { _controller: CMSProductFieldsBundle:Default:index }
+
+CMSProductFieldsBundle_cms_product_fields:
+    resource: "@CMSProductFieldsBundle/Resources/config/routing/productfields.yml"
+    prefix:   /cms/product_fields

@@ -1,0 +1,32 @@
+CMS\ConfiguracoesBundle\Entity\Cidade:
+    type: entity
+    table: cidade
+    repositoryClass: CMS\ConfiguracoesBundle\Entity\CidadeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: '100'
+        slug:
+            type: string
+            length: 255
+        ddd:
+            type: integer
+        image:
+            type: string
+            length: 255
+        capital:
+            type: boolean
+    manyToOne:
+        estado:
+            targetEntity: Estado
+            joinColumn:
+                name: estado_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

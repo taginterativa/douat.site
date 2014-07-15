@@ -1,0 +1,164 @@
+{% extends "::site/base.html.twig" %}
+{% block title %}{{ "Douat" }}{% endblock %}
+{% block body_class %}{{ "page-home" }}{% endblock %}
+{% block body %}
+    <!-- home html:i -->
+    <link rel="stylesheet" href="{{ asset('site/css/jquery.fullPage.css') }}" />
+    <main id="fullpage">
+
+        <section class="control-scroll control-home section">
+            <div class="bg-home home-1 ativo" style="background: url({{ asset('site/images/bg-home.jpg') }}) no-repeat center top;"></div>
+            <div class="bg-home home-2" style="background: url({{ asset('site/images/bg-home2.jpg') }}) no-repeat center top;"></div>
+            <div class="bg-home home-3" style="background: url({{ asset('site/images/bg-home3.jpg') }}) no-repeat center top;"></div>
+            <div class="bg-home home-4" style="background: url({{ asset('site/images/bg-home4.jpg') }}) no-repeat center top;"></div>
+            <div class="wrapper">
+                <span class="setas seta-esq">Esquerda</span>
+                <span class="setas seta-dir">Direita</span>
+                <article class="content-home">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide" data-slide="1">
+                                <header>
+                                    <h2>A malha que <span>movimenta você</span></h2>
+                                </header>
+                                <section>
+                                    <p>
+                                        Tecidos que envolvem movimentos, fios que transpiram tecnologia. Inspire-se com a poliamida que desenvolve uma trama de inovação, performance e conforto.
+                                    </p>
+                                    <a href="{{ path('product_category_all') }}" class="bt-default">Conheça nossas malhas</a>
+                                </section>
+                            </div>
+                            <div class="swiper-slide" data-slide="2">
+                                <header>
+                                    <h2>A malha que <span>movimenta as tendências</span></h2>
+                                </header>
+                                <section>
+                                    <p>
+                                        Desenvolvida com tecidos que combinam tradição e tecnologia às novas tendências, a linha Outono Inverno 2015 irá movimentar você.
+                                    </p>
+                                    <a href="{{ path('product_category_all') }}" class="bt-default">Conheça nossos lançamentos</a>
+                                </section>
+                            </div>
+                            <div class="swiper-slide" data-slide="3">
+                                <header>
+                                    <h2>A malha que <span>movimenta pessoas</span></h2>
+                                </header>
+                                <section>
+                                    <p>
+                                        Douat Têxtil é a pioneira na indústria de fios sintéticos, envolvendo pessoas em momentos de conforto, descontração e proteção há mais de 40 anos.
+                                    </p>
+                                    <a href="sobre.php" class="bt-default">Conheça a Douat</a>
+                                </section>
+                            </div>
+                            <div class="swiper-slide claro" data-slide="4">
+                                <header>
+                                    <h2>A malha que <span>movimenta com proteção</span></h2>
+                                </header>
+                                <section>
+                                    <p>
+                                        Performance e tecnologia aliadas para criar a linha Summer Protection UV, desenvolvida para movimentar-se ao ar livre com proteção contra os raios ultravioletas.
+                                    </p>
+                                    <a href="{{ path('product_category_all') }}" class="bt-default">Conheça a linha</a>
+                                </section>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <footer class="footer-home">
+                <div class="limiter">
+                    <div class="marcadores-home">
+                        <span class="swiper-pagination-switch ativo">1</span>
+                        <span class="swiper-pagination-switch">2</span>
+                        <span class="swiper-pagination-switch">3</span>
+                        <span class="swiper-pagination-switch">4</span>
+                    </div>
+                    <aside>
+                        <nav class="social-footer-home">
+                            <ul>
+                                <li><a href="#" class="social-facebook icon-face"><span>Facebook</span></a></li>
+                                <li><a href="#" class="social-instagram icon-instagram"><span>Instagram</span></a></li>
+                                <li><a href="#" class="social-blog icon-blog"><span>Blog</span></a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                    <span class="bt-scroll" data-index="2">Nossas Malhas</span>
+                </div>
+            </footer>
+        </section>
+
+        <section class="control-scroll secundary section" id="secundary">
+            <div class="bg-malhas malha ativo"></div>
+            <div class="bg-malhas malha-1"></div>
+            <div class="bg-malhas malha-2"></div>
+            <div class="bg-malhas malha-3"></div>
+            <div class="bg-malhas malha-4"></div>
+            <div class="limiter limiter-secundary">
+                <div class="wrapper">
+                    <article>
+                        <header>
+                            <h3>Conheça<span>Nossas Malhas</span></h3>
+                            <h3 class="sub">Nossas<span>Malhas</span></h3>
+                        </header>
+                        <nav class="only-desktop nav-malhas">
+                            <ul>
+                                <li class="node-1"><a href="{{ path('product_category_list', {category: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-fitness"></span>Fitness</a></li>
+                                <li class="node-2"><a href="{{ path('product_category_list', {category: 'lingerie'}) }}" class="troca-malha" data-bg="2"><span class="icon-lingerie"></span>Lingerie</a></li>
+                                <li class="node-3"><a href="{{ path('product_category_list', {category: 'lingerie'}) }}" class="troca-malha" data-bg="3"><span class="icon-escolar"></span>Escolar</a></li>
+                                <li class="node-4"><a href="{{ path('product_category_list', {category: 'lingerie'}) }}" class="troca-malha" data-bg="4"><span class="icon-praia"></span>Praia</a></li>
+                            </ul>
+                            <span class="fake-nav node-1 troca-malha" data-bg="1" data-node="1" data-url="{{ path('product_category_list', {category: 'lingerie'}) }}"></span>
+                            <span class="fake-nav node-2 troca-malha" data-bg="2" data-node="2" data-url="{{ path('product_category_list', {category: 'lingerie'}) }}"></span>
+                            <span class="fake-nav node-3 troca-malha" data-bg="3" data-node="3" data-url="{{ path('product_category_list', {category: 'lingerie'}) }}"></span>
+                            <span class="fake-nav node-4 troca-malha" data-bg="4" data-node="4" data-url="{{ path('product_category_list', {category: 'lingerie'}) }}"></span>
+                        </nav>
+                        <nav class="only-mobile nav-malhas">
+                            <ul class="slide-mobile">
+                                <li class="node-1"><a href="{{ path('product_category_list', {category: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-fitness"></span>Fitness <br><strong>Conheça a linha</strong></a></li>
+                                <li class="node-2"><a href="{{ path('product_category_list', {category: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-lingerie"></span>Lingerie <br><strong>Conheça a linha</strong></a></li>
+                                <li class="node-3"><a href="{{ path('product_category_list', {category: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-escolar"></span>Escolar <br><strong>Conheça a linha</strong></a></li>
+                                <li class="node-4"><a href="{{ path('product_category_list', {category: 'lingerie'}) }}" class="troca-malha" data-bg="1"><span class="icon-praia"></span>Praia <br><strong>Conheça a linha</strong></a></li>
+                            </ul>
+                        </nav>
+                    </article>
+                </div>
+            </div>
+
+            {% include 'site/footer.html.twig' %}
+
+        </section>
+
+    </main>
+    <script>
+        $(document).ready(function() {
+            if(!$('body').hasClass('mobile')) {
+                $('#fullpage').fullpage({
+                    verticalCentered: false,
+                    resize : true,
+                    scrollingSpeed: 700,
+                    easing: 'easeInQuart',
+                    navigationTooltips: ['inicio', 'categorias'],
+                    anchors:['inicio', 'categorias'],
+                    slidesNavigation: true,
+                    onLeave: function(index, nextIndex, direction){
+                        if(direction == 'down') {
+                            if($('body').hasClass('claro')) {
+                                $('body').removeClass('claro');
+                                $('body').addClass('exclaro');
+                            }
+                        } else {
+                            if($('body').hasClass('exclaro')) {
+                                $('body').removeClass('exclaro');
+                                $('body').addClass('claro');
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+    </script>
+    <!-- home html:f -->
+{% endblock %}

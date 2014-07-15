@@ -1,0 +1,29 @@
+{% block extends %}
+{{ "{% extends '::admin_template.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+{{ '{% block title %}'}}
+    Novo {{ entity }} |
+{{ '{% endblock %}' }}
+
+{{ "{% block content %}" }}
+    <h1>Novo {{ entity }}</h1>
+
+    <div class="widget widget-heading-simple widget-body-white">
+        <div class="widget-body">
+            <div class="innerLR">
+                <div class="form-horizontal">
+                    {{ '{{ form(form) }}' }}
+
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% set hide_edit, hide_delete = true, true %}
+    {% include 'crud/views/others/record_actions.html.twig.twig' %}
+{{ "{% endblock %}" }}
+{% endblock body %}
+

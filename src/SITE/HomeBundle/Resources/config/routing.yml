@@ -1,0 +1,11 @@
+home_homepage:
+    pattern:  /
+    defaults: { _controller: HomeBundle:Default:index }
+
+requestListDoubleSide:
+    pattern:  /requestListDoubleSide/{limit}
+    defaults: { _controller: HomeBundle:Default:requestListDoubleSide }
+
+home_enquete:
+    pattern:  /enquete/save
+    defaults: { _controller: HomeBundle:Default:enquete }

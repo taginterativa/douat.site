@@ -1,0 +1,11 @@
+cms_product_homepage:
+    pattern:  /cms_product
+    defaults: { _controller: CMSProductBundle:Default:index }
+
+CMSProductBundle_cms_produtos:
+    resource: "@CMSProductBundle/Resources/config/routing/product.yml"
+    prefix:   /cms/produtos
+
+CMSProductBundle_cms_produtos_categorias:
+    resource: "@CMSProductBundle/Resources/config/routing/productcategory.yml"
+    prefix:   /cms/produtos/categorias

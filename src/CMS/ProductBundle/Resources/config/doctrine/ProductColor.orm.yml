@@ -1,0 +1,47 @@
+CMS\ProductBundle\Entity\ProductColor:
+    type: entity
+    table: product_color
+    repositoryClass: CMS\ProductBundle\Entity\ProductColorRepository
+    indexes:
+        fk_color_has_product_product1_idx:
+            columns:
+                - product_id
+        fk_color_has_product_color1_idx:
+            columns:
+                - color_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        image:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+    manyToOne:
+        color:
+            targetEntity: Color
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                color_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

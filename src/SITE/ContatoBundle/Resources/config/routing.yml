@@ -1,0 +1,7 @@
+contato_homepage:
+    pattern:  /contato.html
+    defaults: { _controller: ContatoBundle:Default:index }
+
+contato_send:
+    pattern:  /contato/send
+    defaults: { _controller: ContatoBundle:Default:send }

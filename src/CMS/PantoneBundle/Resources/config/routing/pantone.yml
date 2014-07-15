@@ -1,0 +1,35 @@
+cms_pantone:
+    pattern:  /
+    defaults: { _controller: "CMSPantoneBundle:Pantone:index" }
+
+cms_pantone_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSPantoneBundle:Pantone:show" }
+
+cms_pantone_new:
+    pattern:  /new
+    defaults: { _controller: "CMSPantoneBundle:Pantone:new" }
+
+cms_pantone_create:
+    pattern:  /create
+    defaults: { _controller: "CMSPantoneBundle:Pantone:create" }
+    requirements: { _method: post }
+
+cms_pantone_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSPantoneBundle:Pantone:edit" }
+
+cms_pantone_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSPantoneBundle:Pantone:update" }
+    requirements: { _method: post|put }
+
+cms_pantone_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSPantoneBundle:Pantone:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_pantone_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSPantoneBundle:Pantone:deleteAll" }
+    requirements: { _method: post }

@@ -1,0 +1,42 @@
+/**
+{% block phpdoc_method_header %}
+    * Deletes a {{ entity }} entity.
+{% endblock phpdoc_method_header %}
+*
+{% block phpdoc_method_annotations %}
+    {% if 'annotation' == format %}
+        * @Route("/", name="{{ route_name_prefix }}_delete_all")
+        * @Method("POST")
+    {% endif %}
+{% endblock phpdoc_method_annotations %}
+*/
+{% block method_definition %}
+    public function deleteAllAction(Request $request)
+{% endblock method_definition %}
+{
+{% block method_body %}
+    $data_delete = $request->request->get('record');
+
+    if($data_delete){
+        foreach($data_delete as $data){
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('{{ bundle }}:{{ entity }}')->find($data);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find {{ entity }} entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+
+            $this->get('session')->getFlashBag()->add('title', '{{ entity }}');
+            $this->get('session')->getFlashBag()->add('message', 'Lista de {{ entity }} excluidos com sucesso');
+        }
+    }
+
+{% endblock method_body %}
+
+{% block method_return %}
+    return $this->redirect($this->generateUrl('{{ route_name_prefix }}'));
+{% endblock method_return %}
+}

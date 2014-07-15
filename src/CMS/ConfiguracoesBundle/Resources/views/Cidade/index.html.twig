@@ -1,0 +1,82 @@
+{% extends '::admin_template.html.twig' %}
+
+
+{% block title %}
+    Listando Cidades |
+{% endblock %}
+
+{% block content %}
+    <h1>
+        Listando Cidade
+                    <a class="btn btn-primary" href="{{ path('cms_cidade_new') }}">
+                Adicionar novo
+            </a>
+            </h1>
+
+    <div class="widget widget-heading-simple widget-body-white">
+        <div class="widget-body">
+            <div class="innerLR">
+                <div class="form-horizontal">
+                    {{ form(form) }}
+
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="form-list" action="{{ path('cms_cidade_delete_all') }}" method="post">
+        <!-- Widget -->
+        <div class="widget widget-body-white widget-heading-simple">
+            <div class="widget-body">
+                <!-- Table -->
+                <table class="dynamicTable tableTools table table-striped checkboxs records_list">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                <div class="checkbox checkbox-single margin-none">
+                                    <label class="checkbox-custom">
+                                        <i class="fa fa-fw fa-square-o"></i>
+                                        <input type="checkbox">
+                                    </label>
+                                </div>
+                            </th>                                <th>Id</th>                                <th>Nome</th>                                <th>Ddd</th>                                <th>Capital</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for entity in entities %}
+                        <tr class="gradeC">                            <td class="text-center">
+                                <div class="checkbox checkbox-single margin-none">
+                                    <label class="checkbox-custom">
+                                        <i class="fa fa-fw fa-square-o"></i>
+                                        <input type="checkbox" name="record[]" value="{{ entity.id }}">
+                                    </label>
+                                </div>
+                            </td>
+
+                            <td><a href="{{ path('cms_cidade_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.nome }}</td>
+                            <td>{{ entity.ddd }}</td>
+                            <td>{{ entity.capital }}</td>
+                            <td>    <a href="{{ path('cms_cidade_edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
+    <a href="{{ path('cms_cidade_delete', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-danger delete"  data-toggle="tooltip" data-original-title="Excluir" data-placement="top" ><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <!-- // Table END -->
+            </div>
+        </div>
+
+                    <a class="btn btn-primary" href="{{ path('cms_cidade_new') }}">
+                Adicionar novo
+            </a>
+        
+                    <button type="submit" class="btn btn-danger delete">
+                Excluir selecionados
+            </button>
+        </form>
+
+{% endblock %}

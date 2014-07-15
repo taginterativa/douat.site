@@ -1,0 +1,35 @@
+cms_pais:
+    pattern:  /
+    defaults: { _controller: "CMSConfiguracoesBundle:Pais:index" }
+
+cms_pais_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSConfiguracoesBundle:Pais:show" }
+
+cms_pais_new:
+    pattern:  /new
+    defaults: { _controller: "CMSConfiguracoesBundle:Pais:new" }
+
+cms_pais_create:
+    pattern:  /create
+    defaults: { _controller: "CMSConfiguracoesBundle:Pais:create" }
+    requirements: { _method: post }
+
+cms_pais_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSConfiguracoesBundle:Pais:edit" }
+
+cms_pais_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSConfiguracoesBundle:Pais:update" }
+    requirements: { _method: post|put }
+
+cms_pais_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSConfiguracoesBundle:Pais:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_pais_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSConfiguracoesBundle:Pais:deleteAll" }
+    requirements: { _method: post }

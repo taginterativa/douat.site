@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function() {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+        })();
+        </script>
+
+        <script type='text/javascript'>
+        googletag.cmd.push(function() {
+        googletag.defineSlot('/48202892/300x250_Todo_Site', [300, 250], 'div-gpt-ad-1402507802753-0').addService(googletag.pubads());
+        googletag.defineSlot('/48202892/728x90_Todo_Site', [728, 90], 'div-gpt-ad-1402508026753-0').addService(googletag.pubads());
+        googletag.defineSlot('/48202892/todo_site_banner_inferior728x90', [728, 90], 'div-gpt-ad-1402508271086-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+        });
+        </script>
+
+        {% block head %}
+
+
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE; chrome=1"/>
+            <meta http-equiv="Distribution" content="Global"/>
+            <meta http-equiv="Copyright" content="Vejo ao Vivo"/>
+            <meta http-equiv="Author" content="Vejo ao Vivo"/>
+            <meta http-equiv="Revisit-After" content="1 Days"/>
+            <meta http-equiv="Connection" content="Keep-Alive"/>
+            <meta http-equiv="Keep-Alive" content="timeout=300"/>
+            <meta http-equiv="Rating" content="General"/>
+            <meta http-equiv="Distribution" content="Global"/>
+            <meta name="google-site-verification" content="6BeOpzqh6WjQsAaNi9JsUVvZwYLOJfL2BUdji2LGqxs"/>
+            <meta name="application-name" content="VejoaoVivo.com.br"/>
+            <link rel="shortcut icon" href="{{ asset('site/images/favicon.jpg') }}" type="image/x-icon">
+            <meta name="keywords" content="C&acirc;meras ao vivo, vejo ao vivo, vejoaovivo, praias, rodovias, animais, tr&acirc;nsito, surf, skate, aeroportos"/>
+            <meta name="description" content="As melhores c&acirc;meras ao vivo, antes de sair confira as condi&ccedil;&otilde;es do tr&acirc;nsito veja o clima e movimenta&ccedil;&atilde;o nas praias. Conhe&ccedil;a o Brasil sem sair de casa, s&atilde;o mais de 600 c&acirc;meras ao vivo para voc&ecirc; se divertir."/>
+            <meta name="layout" content="user-layout"/>
+
+
+            {% if metas_facebook %} {{ metas_facebook | raw }} {% endif %}
+
+            {% block stylesheets %}
+                <link type='text/css' rel='stylesheet' href='{{ asset('site/css/jquery.mCustomScrollbar.css') }}' />
+                <link type='text/css' rel='stylesheet' href='{{ asset('site/css/jquery.magnific-popup.css') }}' />
+                <link type='text/css' rel='stylesheet' href='{{ asset('site/css/master.css') }}' />
+                <link type='text/css' rel='stylesheet' href='{{ asset('site/css/idangerous.swiper.css') }}' />
+                <link rel="stylesheet" type="text/css" href="{{ asset('site/css/jqClock.css') }}">
+                <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+            {% endblock %}
+
+            {% block javascripts %}
+                <script type="text/javascript">
+                    window.global_path = '{{ path("home_homepage") }}';
+                    window.global_ImagePath = '{{ asset("site/images") }}';
+                    window.global_requestListDoubleSide = '{{ path("home_homepage") }}';
+                </script>
+                <!--<script type="text/javascript" src="http://files.cdn.upx.net.br/sandbox/static/library/flowplayer/flowplayer-3.2.4.min.js"></script>-->
+                <script type="text/javascript" src="{{ asset('site/js/jquery.js') }}"></script>
+                <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>                
+                <script type="text/javascript" src="{{ asset('site/js/jquery.maskedinput.min.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/player/flowplayer-3.2.6.min.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/player/flowplayer.ipad.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.backgroundpos.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.color.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.easing.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.mCustomScrollbar.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.text-overflow.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery-dateFormat.min.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jqClock.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/idangerous.swiper.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/ZeroClipboard.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/master.js') }}"></script>
+            {% endblock %}
+
+            <title>{% if title %} {{ title }} {% else %} {{ "Vejo ao Vivo - Trânsito, praias, surf, skate, rodovias, aeroportos tudo ao vivo" }} {% endif %}</title>
+        {% endblock %}
+
+    <!--
+        <script type='text/javascript'>
+        googletag.cmd.push(function() {
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+        });
+        </script>
+
+        <script type='text/javascript'>
+        googletag.cmd.push(function() {
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+        });
+        </script>
+    -->
+
+        {% set messages = app.session.flashbag.get("message") %}        
+        {% if (messages is not empty) %}
+
+            <script type="text/javascript">
+                {% for message in messages  %}
+                    //alert('{{ message }}');
+                    jQuery(document).ready(function($){
+                        window.customMessage('{{ message }}');
+                    });
+                {% endfor %}
+            </script>
+        {% endif %}
+
+    </head>
+    <body class="{% block classbody %}{% endblock %}">
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABnwbXXUlvyG8VNXkEIFwL9uA10bPxkmE&amp;v=3.9&amp;sensor=false"></script>
+        
+    <!-- start of html -->
+
+    <div class='top-struct'>
+        <div class='center'>
+            <!--<img class='pub' src='{{ asset('site/images/itau.jpg') }}'/>-->
+            <!-- 728x90_Todo_Site --> 
+            <div id='div-gpt-ad-1402508026753-0' style='width:728px; height:90px;margin:0px auto;'>
+            <script type='text/javascript'>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1402508026753-0'); });
+            </script>
+            </div> 
+
+            <!--<div class='social'>
+                <ul>
+                    <li>
+                        <a href='#' class='facebook'></a>
+                    </li>
+                    <li>
+                        <a href='#' class='twitter'></a>
+                    </li>
+                    <li>
+                        <a href='#' class='gplus'></a>
+                    </li>
+                </ul>
+            </div>-->
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='menu-struct'>
+        <div class='video-menu-struct'>
+            <div class='logo'>
+                <a href='{{ path("home_homepage") }}'><img src='{{ asset('site/images/Logo_VAV_04.png') }}'/></a>
+            </div>
+            <div class='video-left-menu'>
+                <h1 class='menu-title'>canais</h1>
+
+                <div class='btslide top'></div>
+                <div class='menu-container swiper-container'>
+                    <div class='container swiper-wrapper'>
+                        {% set aux = 0 %}
+                        {% for item in canais_menu %}
+
+                        <div class='icon swiper-slide'>
+                            <div class='category-icon' style="background-image:url( {{ asset(item.icone_menu) }});"></div>
+                            <div class='category-icon-hover' style="background-image:url({{ asset(item.icone_menu) }});" ></div>
+                            <div class='notification-icon'>0</div>
+                            <div class='notification-block'>
+                                <div class='bullet-struct'>
+                                    <div class='bullet'></div>
+                                </div>
+                                <div class='box'>
+                                    <div class='content' style='background:url( {{ asset(item.icone_menu) }}) no-repeat -80px 10px;'>
+                                        <h1>{{ item.nome }}</h1>
+                                        <a class='login' href='{{ path('canal_homepage', {slug: item.slug }) }}'><span>entrar</span></a>
+                                        <h2>Breve descritivo do canal em até 70 caracteres lorem ipsum dolor sit.</h2>
+                                        {% set count = 1 %}
+                                        {% for camera in attribute(cameras_menu.cameras, aux) %}
+                                        <div class="minicam {% if count == 1 %} {{ 'first' }} {% endif %}">
+                                            <a href="{{ path('camera_homepage',{'estado': camera.estado_sigla|lower, 'cidade': camera.cidade_slug, 'slug': camera.slug } ) }}">
+                                                <div class='image'>
+                                                    <img width="140" height="74" src='{{ asset(camera.image) }}' />
+                                                    <div class='cover'>
+                                                        <img src='{{ asset('site/images/play.png') }}' />
+                                                    </div>
+                                                </div>
+                                                <h1>{{ camera.titulo }}</h1>
+                                                <h2>{{ camera.cidade ~'/'~ camera.estado_sigla }}</h2>
+                                            </a>
+                                            </div>
+                                            {% set count = count + 1 %}
+                                            {% endfor %}
+
+                                            <div class='clear'></div>
+                                        </div>
+                                        <!--<div class='notifications'>
+                                            <div class='struct'>
+                                                <h3>3 novas <span>notificações</span></h3>
+                                                <ul>
+                                                    <li><span>01.</span> Sed ut perspiciatis unde omnis iste natus error sit</li>
+                                                    <li><span>02.</span> Sed ut perspiciatis unde omnis iste natus error sit</li>
+                                                    <li><span>03.</span> Sed ut perspiciatis unde omnis iste natus error sit</li>
+                                                </ul>
+                                            </div>
+                                        </div>-->
+                                    </div>
+                                    <div class='clear'></div>
+                                </div>
+                            </div>
+                            {% set aux = aux + 1 %}
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+                <div class='btslide bottom'></div>
+
+            </div>
+        </div>
+        <div class='center'>
+            <div class='menu-struct-inner'>
+                <form action='{{ path("busca_homepage") }}' autocomplete='off'>
+                    <input name='search_string' class='searchstring-ajax' placeholder='Busque por uma câmera ou canal:' onkeyup="window.AjaxQueryMenu.query({'search_string':this.value});" />
+                    <button type='submit'></button>
+                    <div class='query-ajax-response-container'>
+                        <div class='query-ajax-response'>
+
+                            <div class='cameras-list'>
+                                <div class='camera'>
+                                    <a href="#">
+                                        <div class='left'>
+                                            <div class='image'>
+                                                <img src="{{ asset('site/images/minicam.jpg') }}" />
+                                                <div class='cover'></div>
+                                                <div class='play'></div>
+                                            </div>
+                                        </div>
+                                        <div class='right'>
+                                            <h1>Nome da Câmera</h1>
+                                            <h2>cidade / uf</h2>
+                                            <h3>Nome do canal</h3>
+                                        </div>
+                                    </a>
+                                    <div class='clear'></div>
+                                </div>
+                            </div>
+
+                            <div class='channel-list'>
+                                <h1>Canais</h1>
+                                <div class='channel'>
+                                    <img src="{{ asset('site/images/channel-search.png') }}" />
+                                    <span>Nome do Canal</span>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                <div class='buttons-head-struct'>
+                    <!--<a href='#' class='menu-button'>Publique sua câmera</a>-->
+                    <div class='social'>
+                        <ul>
+                            <li>
+                                <a href='https://www.facebook.com/vejoaovivo' class='facebook'></a>
+                            </li>
+                            <li>
+                                <a href='https://twitter.com/vejoaovivo' class='twitter'></a>
+                            </li>
+                            <li>
+                                <a href='#' class='gplus'></a>
+                            </li>
+                        </ul>
+                    </div>
+                    {% set user = app.session.get('user') %}
+                    {% if user.nome is defined %}
+                        <div class='menu-top-logado'>
+                            <div class='bullet-logado'></div>
+                            <div class='bullet-logado-box'>
+                                <ul>
+                                    <li><a href="{{ path('membro_updateuser') }}">Admnistrar</a></li>
+                                    <li><a href="{{ path('membro_homepage') }}">Dashboard</a></li>
+                                    <li><a href="{{ path('membro_logout') }}">Sair</a></li>
+                                </ul>
+                            </div>
+                            <div class='user-logado'>Olá, {{ user.nome }}</div>
+                            <div class='user-image-logado'>
+                                <a href="{{ path('membro_homepage') }}">
+                                {% if user.image != '' %}
+                                    <img width="28" height="28" src="{{ asset('uploads/membro/'~user.image) }}" />
+                                {% else %}
+                                    <img src="{{ asset('site/images/user_icon.png') }}" />
+                                {% endif %}
+                                </a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href='#' class='menu-button menu-create-account'>Criar conta</a>
+                        <a href='#' class='menu-button menu-login'>Login</a>
+                    {% endif %}
+
+
+
+                </div>
+                <div class='clear'></div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,29 @@
+{% extends "::cms_base.html.twig" %}
+
+{% block htmlbody %}sidebar sidebar-discover{% endblock %}
+
+{% block body %}
+	{% set vars = {'foo': 'bar'} %}
+
+	{% include 'menu.html.twig' with vars  %}
+    <!-- Content -->
+    <div id="content">
+        
+    	{% include 'navbar.html.twig' with vars  %}
+
+        <div class="innerLR">
+        	{% block content %} {% endblock %}
+        </div>
+    </div>
+    <!-- // Content END -->
+    <div class="clearfix"></div>
+    <!-- // Sidebar menu & content wrapper END -->
+    <div id="footer" class="hidden-print">
+        <!--  Copyright Line -->
+        <div class="copy">
+            &copy; 2014 - <a href="http://www.taginterativa.com.br" target="_blank">TAG</a> - Todos os direitos reservados. Gerenciado de conteúdos - Versão: 1.0
+        </div>
+        <!--  End Copyright Line -->
+    </div>
+    <!-- // Footer END -->
+{% endblock %}

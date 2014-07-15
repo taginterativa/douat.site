@@ -1,0 +1,35 @@
+cms_produtos_categorias:
+    pattern:  /
+    defaults: { _controller: "CMSProductBundle:ProductCategory:index" }
+
+cms_produtos_categorias_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSProductBundle:ProductCategory:show" }
+
+cms_produtos_categorias_new:
+    pattern:  /new
+    defaults: { _controller: "CMSProductBundle:ProductCategory:new" }
+
+cms_produtos_categorias_create:
+    pattern:  /create
+    defaults: { _controller: "CMSProductBundle:ProductCategory:create" }
+    requirements: { _method: post }
+
+cms_produtos_categorias_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSProductBundle:ProductCategory:edit" }
+
+cms_produtos_categorias_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSProductBundle:ProductCategory:update" }
+    requirements: { _method: post|put }
+
+cms_produtos_categorias_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSProductBundle:ProductCategory:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_produtos_categorias_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSProductBundle:ProductCategory:deleteAll" }
+    requirements: { _method: post }

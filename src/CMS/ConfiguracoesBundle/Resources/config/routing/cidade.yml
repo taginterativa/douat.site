@@ -1,0 +1,35 @@
+cms_cidade:
+    pattern:  /
+    defaults: { _controller: "CMSConfiguracoesBundle:Cidade:index" }
+
+cms_cidade_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSConfiguracoesBundle:Cidade:show" }
+
+cms_cidade_new:
+    pattern:  /new
+    defaults: { _controller: "CMSConfiguracoesBundle:Cidade:new" }
+
+cms_cidade_create:
+    pattern:  /create
+    defaults: { _controller: "CMSConfiguracoesBundle:Cidade:create" }
+    requirements: { _method: post }
+
+cms_cidade_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSConfiguracoesBundle:Cidade:edit" }
+
+cms_cidade_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSConfiguracoesBundle:Cidade:update" }
+    requirements: { _method: post|put }
+
+cms_cidade_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSConfiguracoesBundle:Cidade:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_cidade_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSConfiguracoesBundle:Cidade:deleteAll" }
+    requirements: { _method: post }

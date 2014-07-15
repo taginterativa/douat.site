@@ -1,0 +1,73 @@
+{% extends "::site/base.html.twig" %}
+
+{% block title %}Douat - Malhas{% endblock %}
+{% block body_class %}{{ "page-malha" }}{% endblock %}
+{% block body %}
+    <main>
+        <div class="img-destaque-topo" style="background: url({{ asset(HeadImage) }});">
+            <!--
+              images/topo-fitness.png
+              images/topo-lingerie.png
+              images/topo-praia.png
+            -->
+        </div>
+        <div class="wrapper">
+            <section class="miolo-prod">
+                <header class="header-interna">
+                    <h2>{{ TituloCategoria }}</h2>
+                </header>
+                <nav class="filtros-links">
+                    <a href="#" class="ativo">Lançamentos</a>
+                    <a href="#">Nossa Coleção</a>
+                    <a href="#" class="last">Todos</a>
+                </nav>
+                <form class="filtro">
+                    <input type="hidden" name="familia" id="familia">
+                    <input type="hidden" name="acabamento" id="acabamento">
+                    <input type="hidden" name="cor" id="cor">
+                    <div class="selectbox">
+                        <a href="#" class="label">Familia</a>
+                        <div class="opc-selectbox" data-input="familia">
+                            {% for Familia in Familias %}
+                            <a href="#" data-value="{{ Familia.id }}">{{ Familia.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="selectbox">
+                        <a href="#" class="label">Acabamento</a>
+                        <div class="opc-selectbox" data-input="acabamento">
+                            {% for Acabamento in Acabamentos %}
+                            <a href="#" data-value="{{ Acabamento.id }}">{{ Acabamento.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="selectbox">
+                        <a href="#" class="label">Cor</a>
+                        <div class="opc-selectbox" data-input="cor">
+                            {% for Cor in Cores %}
+                                <a href="#" data-value="{{ Cor.id }}">{{ Cor.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Nome da malha">
+                    <button type="submit">Filtrar</button>
+                </form>
+                <ul class="lista-blocos">
+                {% for Category in Categories %}
+                    {% for Product in Category.Products %}
+                    <li>
+                        <a href="{{ path('product_show', {category_slug: Category.slug, product_slug: Product.slug}) }}">
+                            <span><img src="{{ asset(Product.image) }}"></span>
+                            <strong>{{ Product.name }}</strong>
+                        </a>
+                    </li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+
+            </section>
+
+        </div>
+        {% include 'site/footer.html.twig' %}
+    </main>
+{% endblock %}

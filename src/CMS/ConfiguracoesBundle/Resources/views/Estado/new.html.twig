@@ -1,0 +1,27 @@
+{% extends '::admin_template.html.twig' %}
+
+{% block title %}
+    Novo Estado |
+{% endblock %}
+
+{% block content %}
+    <h1>Novo Estado</h1>
+
+    <div class="widget widget-heading-simple widget-body-white">
+        <div class="widget-body">
+            <div class="innerLR">
+                <div class="form-horizontal">
+                    {{ form(form) }}
+
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <a class="btn btn-default go-back" href="{{ path('cms_estado') }}">
+    Voltar
+</a>
+
+{% endblock %}
+

@@ -1,0 +1,35 @@
+cms_contato:
+    pattern:  /
+    defaults: { _controller: "CMSContatoBundle:Contato:index" }
+
+cms_contato_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSContatoBundle:Contato:show" }
+
+cms_contato_new:
+    pattern:  /new
+    defaults: { _controller: "CMSContatoBundle:Contato:new" }
+
+cms_contato_create:
+    pattern:  /create
+    defaults: { _controller: "CMSContatoBundle:Contato:create" }
+    requirements: { _method: post }
+
+cms_contato_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSContatoBundle:Contato:edit" }
+
+cms_contato_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSContatoBundle:Contato:update" }
+    requirements: { _method: post|put }
+
+cms_contato_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSContatoBundle:Contato:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_contato_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSContatoBundle:Contato:deleteAll" }
+    requirements: { _method: post }

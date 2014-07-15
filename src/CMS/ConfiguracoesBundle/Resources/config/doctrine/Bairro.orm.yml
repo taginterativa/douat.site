@@ -1,0 +1,26 @@
+CMS\ConfiguracoesBundle\Entity\Bairro:
+    type: entity
+    table: null
+    repositoryClass: CMS\ConfiguracoesBundle\Entity\BairroRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: 255
+    manyToOne:
+        estado:
+            targetEntity: Estado
+            joinColumn:
+                name: estado_id
+                referencedColumnName: id
+        cidade:
+            targetEntity: Cidade
+            joinColumn:
+                name: cidade_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

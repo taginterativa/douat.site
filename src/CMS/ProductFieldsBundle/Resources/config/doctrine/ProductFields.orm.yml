@@ -1,0 +1,48 @@
+CMS\ProductFieldsBundle\Entity\ProductFields:
+    type: entity
+    table: product_fields
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+        padrao:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+            gedmo:
+                timestampable:
+                    on: update
+        isActive:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: is_active
+    lifecycleCallbacks: {  }

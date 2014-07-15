@@ -1,0 +1,7 @@
+parameters:
+#    cms_cores.example.class: CMS\CoresBundle\Example
+
+services:
+#    cms_cores.example:
+#        class: %cms_cores.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

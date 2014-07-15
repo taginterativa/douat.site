@@ -1,0 +1,27 @@
+security:
+    encoders:
+        CMS\UserBundle\Entity\User: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        database:
+            entity: { class: CMSUserBundle:User, property: username }
+
+    firewalls:
+        secured_area:
+            pattern:    ^/cms
+            form_login:
+                check_path: /cms/login_check
+                login_path: /cms/login
+            logout:
+                path:   /cms/logout
+                target: /cms/login
+            anonymous: ~
+
+    access_control:
+        - { path: ^/cms/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/cms/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/cms, roles: ROLE_USER }

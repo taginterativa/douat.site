@@ -1,0 +1,11 @@
+cms_dashboard_home:
+    pattern:  /cms
+    defaults: { _controller: CMSDashboardBundle:Default:index }
+
+cms_dashboard_home2:
+    pattern:  /cms/
+    defaults: { _controller: CMSDashboardBundle:Default:index }
+
+cms_dashboard_homepage:
+    pattern:  /cms/dashboard
+    defaults: { _controller: CMSDashboardBundle:Default:index }

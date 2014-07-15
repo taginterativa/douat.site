@@ -1,0 +1,12 @@
+{% include 'site/meta.html.twig' with {title: block('title'), metas_facebook: block('metas_facebook')} %}
+</head>
+<body class="{% block body_class %}page-home{% endblock %}">
+
+{% include 'site/topo.html.twig'  %}
+{% block body %}{% endblock %}
+
+{% include 'site/scripts.html.twig'  %}
+
+</body>
+</html>
+

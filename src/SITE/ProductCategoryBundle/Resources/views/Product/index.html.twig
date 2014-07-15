@@ -1,0 +1,84 @@
+{% extends "::site/base.html.twig" %}
+
+{% block title %}Douat - Malhas{% endblock %}
+{% block body_class %}{{ "page-malha" }}{% endblock %}
+{% block body %}
+    <main>
+
+    <main>
+
+        <figure class="img-destaque-topo">
+            <img src="{{ asset(Product.ProductCategory.image) }}">
+        </figure>
+        <div class="wrapper">
+            <section class="miolo-prod">
+                <header class="header-interna">
+                    <h3>{{ Product.ProductCategory.name }}</h3>
+                </header>
+                <div class="topo-prod">
+                    <a href="#" class="lk-voltar">Voltar</a>
+                    <ul class="cats-prod">
+                        <li><a href="#">Família</a> /</li>
+                        <li><a href="#">Acabamento</a> /</li>
+                        <li><a href="#">Cor</a></li>
+                    </ul>
+                    <h2>{{ Product.name }}</h2>
+                    <div class="figure">
+                        <div class="img-malha" data-altura="627" style="background-image: url({{ asset(Product.image) }});"><span class="fechar-foto"></span></div>
+                    </div>
+                    <a href="#" class="icon-zoom"></a>
+                </div>
+
+                <article class="desc-prod">
+                    <div>
+                        <!--
+                        <strong class="tit-medio">Sobre o tecido</strong>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>-->
+                        <strong class="tit-medio">Cores disponíveis</strong>
+                        {% for Cor in Product.ProductColor %}
+                            {% if Cor.Pantone %}
+                            <span class="bloco-cor" style="background: #{{ Cor.Pantone.hex }};">{{ Cor.code }}</span>
+                            {% else %}
+                            <span class="bloco-cor" style="background: #{{ Cor.hexadecimal }};">{{ Cor.code }}</span>
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
+                    <aside>
+                        <strong class="tit-medio">Código: {{ Product.code }}</strong>
+                        <p>
+                            Composição: {{ Product.composicao }}<br>
+                            Gramatura: {{ Product.gramatura }}<br>
+                            Largura: {{ Product.largura }}<br>
+                            Rendimento: {{ Product.rendimento }}
+                        </p>
+                        PA = Poliamamida | PES = Poliéster<br>
+                        PUE = Elastano | CV = Viscose
+                        <!--<a href="#" class="bt-default open-ficha">Ficha técnica</a>-->
+                    </aside>
+                </article>
+                <div class="float-malha"><span class="fechar-foto"></span><img src="{{ asset(Product.image) }}"></div>
+                {% if Product.ProductRelated.count %}
+                <strong class="tit-medio">Malhas semelhantes</strong>
+                <ul class="lista-blocos">
+                    {% for Related in Product.ProductRelated %}
+                    <li>
+                        <a href="{{ path('product_show', {category_slug: Related.ProductCategory.slug, product_slug: Related.slug}) }}">
+                            <span><img src="{{ asset(Related.image) }}"></span>
+                            <strong>{{ Related.name }}</strong>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+            </section>
+
+        </div>
+        <{% include 'site/footer.html.twig' %}
+
+    </main>
+
+{% endblock %}

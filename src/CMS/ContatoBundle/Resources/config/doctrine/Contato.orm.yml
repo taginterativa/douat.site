@@ -1,0 +1,20 @@
+CMS\ContatoBundle\Entity\Contato:
+    type: entity
+    table: null
+    repositoryClass: CMS\ContatoBundle\Entity\ContatoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        descricao:
+            type: text
+    lifecycleCallbacks: {  }

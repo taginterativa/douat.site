@@ -1,0 +1,46 @@
+CMS\ProductBundle\Entity\ProductRelated:
+    type: entity
+    table: product_related
+    repositoryClass: CMS\ProductBundle\Entity\ProductRelatedRepository
+    indexes:
+        fk_product_related_product1_idx:
+            columns:
+                - product_id
+        fk_product_related_product2_idx:
+            columns:
+                - product_id_child
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        position:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: '0'
+    manyToOne:
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        productChild:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id_child:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

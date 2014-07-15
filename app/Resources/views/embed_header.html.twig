@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class='embed-html'>
+    <head>
+
+        {% block head %}
+
+
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />            
+            <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE; chrome=1"/>
+            <meta http-equiv="Distribution" content="Global"/>
+            <meta http-equiv="Copyright" content="Vejo ao Vivo"/>
+            <meta http-equiv="Author" content="Vejo ao Vivo"/>
+            <meta http-equiv="Revisit-After" content="1 Days"/>
+            <meta http-equiv="Connection" content="Keep-Alive"/>
+            <meta http-equiv="Keep-Alive" content="timeout=300"/>
+            <meta http-equiv="Rating" content="General"/>       
+            <meta http-equiv="Distribution" content="Global"/>
+            <meta name="google-site-verification" content="6BeOpzqh6WjQsAaNi9JsUVvZwYLOJfL2BUdji2LGqxs"/>
+            <meta name="application-name" content="VejoaoVivo.com.br"/>
+            <link rel="shortcut icon" href="{{ asset('site/images/favicon.jpg') }}" type="image/x-icon">
+            <meta name="keywords" content="C&acirc;meras ao vivo, vejo ao vivo, vejoaovivo, praias, rodovias, animais, tr&acirc;nsito, surf, skate, aeroportos"/>
+            <meta name="description" content="As melhores c&acirc;meras ao vivo, antes de sair confira as condi&ccedil;&otilde;es do tr&acirc;nsito veja o clima e movimenta&ccedil;&atilde;o nas praias. Conhe&ccedil;a o Brasil sem sair de casa, s&atilde;o mais de 600 c&acirc;meras ao vivo para voc&ecirc; se divertir."/>    
+            <meta name="layout" content="user-layout"/>
+            
+            {% if metas_facebook %} {{ metas_facebook | raw }} {% endif %}
+
+            {% block stylesheets %}
+                <link type='text/css' rel='stylesheet' href='{{ asset('site/css/jquery.mCustomScrollbar.css') }}' />
+                <link type='text/css' rel='stylesheet' href='{{ asset('site/css/jquery.magnific-popup.css') }}' />
+                <link type='text/css' rel='stylesheet' href='{{ asset('site/css/master.css') }}' />
+                <link type='text/css' rel='stylesheet' href='{{ asset('site/css/idangerous.swiper.css') }}' />
+                <link rel="stylesheet" type="text/css" href="{{ asset('site/css/jqClock.css') }}">
+                <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+            {% endblock %}
+
+            {% block javascripts %}
+                <script type="text/javascript">
+                    window.global_path = '{{ path("home_homepage") }}';
+                    window.global_ImagePath = '{{ asset("site/images") }}';
+                    window.global_BuscaGeral = '{{ path("busca_ajax") }}';
+                    window.global_BuscaCameraGrid = '{{ path("busca_cameragrid") }}';
+                    window.global_requestListDoubleSide = '{{ path("home_homepage") }}';
+                </script>
+                <!--<script type="text/javascript" src="http://files.cdn.upx.net.br/sandbox/static/library/flowplayer/flowplayer-3.2.4.min.js"></script>-->
+                <script type="text/javascript" src="{{ asset('site/js/jquery.js') }}"></script>
+                <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>                
+                <script type="text/javascript" src="{{ asset('site/js/jquery.maskedinput.min.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/player/flowplayer-3.2.6.min.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/player/flowplayer.ipad.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.backgroundpos.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.color.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.easing.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.mCustomScrollbar.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery.text-overflow.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jquery-dateFormat.min.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/jqClock.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/idangerous.swiper.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('site/js/master.js') }}"></script>
+            {% endblock %}
+
+            <title>{% if title %} {{ title }} {% else %} {{ "Vejo ao Vivo - Trânsito, praias, surf, skate, rodovias, aeroportos tudo ao vivo" }} {% endif %}</title>
+        {% endblock %}
+
+    </head>
+    <body class="{% block classbody %}{% endblock %}">
+
+    {% block body %}{% endblock %}

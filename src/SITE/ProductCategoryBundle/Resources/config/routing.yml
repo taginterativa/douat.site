@@ -1,0 +1,23 @@
+product_category_all:
+    pattern:  /malhas
+    defaults: { _controller: ProductCategoryBundle:Default:index }
+
+product_get_subcategories:
+    pattern:  /malhas/subs/{category_id}
+    defaults: { _controller: ProductCategoryBundle:Default:subs }
+
+product_category_search:
+    pattern:  /malhas/busca
+    defaults: { _controller: ProductCategoryBundle:Default:busca }
+
+
+product_category_list:
+    pattern:  /malhas/{category_slug}
+    defaults: { _controller: ProductCategoryBundle:Default:category }
+
+product_show:
+    pattern:  /malhas/{category_slug}/{product_slug}
+    defaults: { _controller: ProductCategoryBundle:Product:index }
+
+
+

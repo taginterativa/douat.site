@@ -1,0 +1,35 @@
+cms_estado:
+    pattern:  /
+    defaults: { _controller: "CMSConfiguracoesBundle:Estado:index" }
+
+cms_estado_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSConfiguracoesBundle:Estado:show" }
+
+cms_estado_new:
+    pattern:  /new
+    defaults: { _controller: "CMSConfiguracoesBundle:Estado:new" }
+
+cms_estado_create:
+    pattern:  /create
+    defaults: { _controller: "CMSConfiguracoesBundle:Estado:create" }
+    requirements: { _method: post }
+
+cms_estado_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSConfiguracoesBundle:Estado:edit" }
+
+cms_estado_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSConfiguracoesBundle:Estado:update" }
+    requirements: { _method: post|put }
+
+cms_estado_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSConfiguracoesBundle:Estado:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_estado_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSConfiguracoesBundle:Estado:deleteAll" }
+    requirements: { _method: post }

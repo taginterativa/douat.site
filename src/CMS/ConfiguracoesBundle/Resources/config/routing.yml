@@ -1,0 +1,23 @@
+cms_configuracoes_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: CMSConfiguracoesBundle:Default:index }
+
+CMSConfiguracoesBundle_cms_pais:
+    resource: "@CMSConfiguracoesBundle/Resources/config/routing/pais.yml"
+    prefix:   /cms/pais
+
+CMSConfiguracoesBundle_cms_estado:
+    resource: "@CMSConfiguracoesBundle/Resources/config/routing/estado.yml"
+    prefix:   /cms/estado
+
+CMSConfiguracoesBundle_cms_cidade:
+    resource: "@CMSConfiguracoesBundle/Resources/config/routing/cidade.yml"
+    prefix:   /cms/cidade
+
+CMSConfiguracoesBundle_cms_bairro:
+   resource: "@CMSConfiguracoesBundle/Resources/config/routing/bairro.yml"
+   prefix:   /cms/bairro
+
+CMSConfiguracoesBundle_cms_endereco:
+   resource: "@CMSConfiguracoesBundle/Resources/config/routing/endereco.yml"
+   prefix:   /cms/endereco

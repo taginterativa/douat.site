@@ -1,0 +1,37 @@
+CMS\ConfiguracoesBundle\Entity\Endereco:
+    type: entity
+    table: null
+    repositoryClass: CMS\ConfiguracoesBundle\Entity\EnderecoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: 255
+        numero:
+            type: string
+            length: '30'
+        cep:
+            type: string
+            length: '30'
+    manyToOne:
+        estado:
+            targetEntity: Estado
+            joinColumn:
+                name: estado_id
+                referencedColumnName: id
+        cidade:
+            targetEntity: Cidade
+            joinColumn:
+                name: cidade_id
+                referencedColumnName: id
+        bairro:
+            targetEntity: Bairro
+            joinColumn:
+                name: bairo_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

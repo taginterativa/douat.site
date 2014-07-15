@@ -1,0 +1,7 @@
+cms_contato_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: CMSContatoBundle:Default:index }
+
+CMSContatoBundle_cms_contato:
+        resource: "@CMSContatoBundle/Resources/config/routing/contato.yml"
+        prefix:   /cms/contato

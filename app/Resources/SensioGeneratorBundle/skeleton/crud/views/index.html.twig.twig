@@ -1,0 +1,101 @@
+{% block extends %}
+{{ "{% extends '::admin_template.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+
+{{ '{% block title %}' }}
+    Listando {{ entity }}s |
+{{ '{% endblock %}' }}
+
+{{ "{% block content %}" }}
+    <h1>
+        Listando {{ entity }}
+        {% if 'new' in actions %}
+            <a class="btn btn-primary" href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">
+                Adicionar novo
+            </a>
+        {% endif %}
+    </h1>
+
+    <form id="form-list" action="{{ "{{ path('" ~ route_name_prefix ~ "_delete_all') }}" }}" method="post">
+        <!-- Widget -->
+        <div class="widget widget-body-white widget-heading-simple">
+            <div class="widget-body">
+                <!-- Table -->
+                <table class="dynamicTable tableTools table table-striped checkboxs records_list">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                <div class="checkbox checkbox-single margin-none">
+                                    <label class="checkbox-custom">
+                                        <i class="fa fa-fw fa-square-o"></i>
+                                        <input type="checkbox">
+                                    </label>
+                                </div>
+                            </th>
+                        {%- for field, metadata in fields %}
+                                <th>{{ field|capitalize }}</th>
+                        {%- endfor %}
+
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{ '{% for entity in entities %}' }}
+                        <tr class="gradeC">
+                    {%- for field, metadata in fields %}
+                        {%- if loop.first and ('show' in actions) %}
+                            <td class="text-center">
+                                <div class="checkbox checkbox-single margin-none">
+                                    <label class="checkbox-custom">
+                                        <i class="fa fa-fw fa-square-o"></i>
+                                        <input type="checkbox" name="record[]" value="{{ '{{ entity.id }}'}}">
+                                    </label>
+                                </div>
+                            </td>
+
+                            <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
+
+                        {%- elseif metadata.type in ['date', 'datetime'] %}
+
+                            <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                        {%- else %}
+
+                            <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+                        {%- endif %}
+
+                        {%- if loop.last %}
+
+                            <td>
+                                {%- include "crud/views/others/actions.html.twig.twig" %}
+                            </td>
+
+                        {%- endif %}
+                    {%- endfor %}
+
+                        </tr>
+                    {{ '{% endfor %}' }}
+                    </tbody>
+                </table>
+                <!-- // Table END -->
+            </div>
+        </div>
+
+        {% if 'new' in actions %}
+            <a class="btn btn-primary" href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">
+                Adicionar novo
+            </a>
+        {% endif %}
+
+        {% if 'delete' in actions %}
+            <button type="submit" class="btn btn-danger delete">
+                Excluir selecionados
+            </button>
+    {% endif %}
+    </form>
+
+{{ "{% endblock %}" }}
+{% endblock body %}

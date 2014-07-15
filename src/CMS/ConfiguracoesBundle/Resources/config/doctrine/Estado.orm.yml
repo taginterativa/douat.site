@@ -1,0 +1,25 @@
+CMS\ConfiguracoesBundle\Entity\Estado:
+    type: entity
+    table: estado
+    repositoryClass: CMS\ConfiguracoesBundle\Entity\EstadoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: '100'
+        sigla:
+            type: string
+            length: '2'
+    manyToOne:
+        pais:
+            targetEntity: Pais
+            joinColumn:
+                name: pais_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

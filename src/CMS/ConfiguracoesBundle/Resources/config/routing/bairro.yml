@@ -1,0 +1,35 @@
+cms_bairro:
+    pattern:  /
+    defaults: { _controller: "CMSConfiguracoesBundle:Bairro:index" }
+
+cms_bairro_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSConfiguracoesBundle:Bairro:show" }
+
+cms_bairro_new:
+    pattern:  /new
+    defaults: { _controller: "CMSConfiguracoesBundle:Bairro:new" }
+
+cms_bairro_create:
+    pattern:  /create
+    defaults: { _controller: "CMSConfiguracoesBundle:Bairro:create" }
+    requirements: { _method: post }
+
+cms_bairro_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSConfiguracoesBundle:Bairro:edit" }
+
+cms_bairro_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSConfiguracoesBundle:Bairro:update" }
+    requirements: { _method: post|put }
+
+cms_bairro_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSConfiguracoesBundle:Bairro:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_bairro_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSConfiguracoesBundle:Bairro:deleteAll" }
+    requirements: { _method: post }

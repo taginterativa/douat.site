@@ -1,0 +1,39 @@
+{% block extends %}
+{{ "{% extends '::admin_template.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+{{ '{% block title %}' }}
+    Editar {{ entity }} |
+{{ '{% endblock %}' }}
+
+{{ "{% block content %}" }}
+    <h1>
+        Editar {{ entity }}
+        {% if 'new' in actions %}
+            <a class="btn btn-primary" href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">
+                Adicionar novo
+            </a>
+        {% endif %}
+    </h1>
+
+    <div class="widget widget-heading-simple widget-body-white">
+        <div class="widget-body">
+            <div class="innerLR">
+                <div class="form-horizontal">
+                    {{ '{{ form(edit_form) }}' }}
+
+                    {% if 'delete' in actions %}
+                        {{ '{{ form(delete_form) }}' }}
+                    {% endif %}
+
+                    <div style="clear: both;"></div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    {% set hide_edit, hide_delete = true, false %}
+    {% include 'crud/views/others/record_actions.html.twig.twig' %}
+{{ "{% endblock %}" }}
+{% endblock body %}

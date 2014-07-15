@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Cidade</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ entity.nome }}</td>
+            </tr>
+            <tr>
+                <th>Ddd</th>
+                <td>{{ entity.ddd }}</td>
+            </tr>
+            <tr>
+                <th>Capital</th>
+                <td>{{ entity.capital }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <a class="btn btn-default go-back" href="{{ path('cms_cidade') }}">
+    Voltar
+</a>
+
+    <li>
+        <a  href="{{ path('cms_cidade_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+{% endblock %}

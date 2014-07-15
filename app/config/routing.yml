@@ -1,0 +1,40 @@
+product_category:
+    resource: "@ProductCategoryBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cms_product:
+    resource: "@CMSProductBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cms_cores:
+    resource: "@CMSCoresBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cms_pantone:
+    resource: "@CMSPantoneBundle/Resources/config/routing.yml"
+    prefix:   /
+
+contato:
+    resource: "@ContatoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+home:
+    resource: "@HomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cms_configuracoes:
+    resource: "@CMSConfiguracoesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cms_dashboard:
+    resource: "@CMSDashboardBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cms_user:
+    resource: "@CMSUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cms_login:
+    resource: "@CMSUserBundle/Controller"
+    prefix:   /
+    type: annotation

@@ -1,0 +1,35 @@
+cms_cores:
+    pattern:  /
+    defaults: { _controller: "CMSCoresBundle:Color:index" }
+
+cms_cores_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSCoresBundle:Color:show" }
+
+cms_cores_new:
+    pattern:  /new
+    defaults: { _controller: "CMSCoresBundle:Color:new" }
+
+cms_cores_create:
+    pattern:  /create
+    defaults: { _controller: "CMSCoresBundle:Color:create" }
+    requirements: { _method: post }
+
+cms_cores_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSCoresBundle:Color:edit" }
+
+cms_cores_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSCoresBundle:Color:update" }
+    requirements: { _method: post|put }
+
+cms_cores_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSCoresBundle:Color:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_cores_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSCoresBundle:Color:deleteAll" }
+    requirements: { _method: post }
