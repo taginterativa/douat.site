@@ -27,7 +27,6 @@ class LoginController extends Controller
         // get the login error if there is one
         $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
         $session->remove(SecurityContext::AUTHENTICATION_ERROR);
-
         if($error):
             $error = null;
             $error['message'] = "Usuário e/ou senha incorretas";
