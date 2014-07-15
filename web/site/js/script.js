@@ -114,6 +114,16 @@ $(function() {
         ajustaMenu();
     });
 
+
+    $('.bt-default-conheca').click(function() {
+        if($('body').hasClass('mobile')) {
+            window.location = "#secundary";
+        } else {
+           $.fn.fullpage.moveTo($(this).data("index"));
+        }
+        return false;
+    });
+
     $('.bt-scroll').click(function() {
         if($('body').hasClass('mobile')) {
             window.location = "#secundary";
