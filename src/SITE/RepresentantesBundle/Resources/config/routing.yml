@@ -5,3 +5,7 @@ site_representantes_homepage:
 site_representantes_get_cidades:
     pattern:  /representantes/get_cidades/{estado}
     defaults: { _controller: SITERepresentantesBundle:Default:getCidades }
+
+site_representantes_json:
+    pattern:  /representantes/json
+    defaults: { _controller: SITERepresentantesBundle:Default:json }

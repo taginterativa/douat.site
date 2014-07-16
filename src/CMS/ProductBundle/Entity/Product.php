@@ -454,7 +454,7 @@ class Product
      */
     public function getAcabamento()
     {
-        return $this->$acabamento;
+        return $this->acabamento;
     }
     
     

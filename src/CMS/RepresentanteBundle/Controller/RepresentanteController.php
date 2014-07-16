@@ -8,12 +8,36 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use CMS\RepresentanteBundle\Entity\Representante;
 use CMS\RepresentanteBundle\Form\RepresentanteType;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 /**
  * Representante controller.
  *
  */
 class RepresentanteController extends Controller
 {
+
+    public function ajaxAction(Request $request)
+    {
+        if (! $request->isXmlHttpRequest()) {
+            throw new NotFoundHttpException();
+        }
+
+        // Get the province ID
+        $id = $request->query->get('estado_id');
+
+        $result = array();
+
+        // Return a list of cities, based on the selected province
+        $repo = $this->getDoctrine()->getManager()->getRepository('CMSConfiguracoesBundle:Cidade');
+        $cities = $repo->findByEstado($id, array('nome' => 'asc'));
+        foreach ($cities as $city) {
+            $result[$city->getNome()] = $city->getId();
+        }
+
+        return new JsonResponse($result);
+    }
 
     /**
      * Lists all Representante entities.
@@ -43,6 +67,7 @@ class RepresentanteController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            $em->setLatitudeLongitude($this->getLatitudeLongitude($em));
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('title', 'Representante');
@@ -66,7 +91,7 @@ class RepresentanteController extends Controller
     */
     private function createCreateForm(Representante $entity)
     {
-        $form = $this->createForm(new RepresentanteType(), $entity, array(
+        $form = $this->createForm(new RepresentanteType($this->getDoctrine()->getManager()), $entity, array(
             'action' => $this->generateUrl('cms_representantes_create'),
             'method' => 'POST',
         ));
@@ -147,7 +172,7 @@ class RepresentanteController extends Controller
     */
     private function createEditForm(Representante $entity)
     {
-        $form = $this->createForm(new RepresentanteType(), $entity, array(
+        $form = $this->createForm(new RepresentanteType($this->getDoctrine()->getManager()), $entity, array(
             'action' => $this->generateUrl('cms_representantes_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
@@ -169,6 +194,8 @@ class RepresentanteController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Representante entity.');
         }
+
+        $entity->setLatitudeLongitude($this->getLatitudeLongitude($entity));
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
@@ -275,4 +302,24 @@ class RepresentanteController extends Controller
 
 
     return $this->redirect($this->generateUrl('cms_representantes'));
-}}
+}
+
+    public function getLatitudeLongitude($entity)
+    {
+        $url = sprintf("http://maps.googleapis.com/maps/api/geocode/json?address=%s,%s,%s&sensor=true",
+            ($entity->getAddress()),
+            ($entity->getCidade()->getNome()),
+            ($entity->getEstado()->getNome()));
+
+
+        $url = str_replace(' ' , '+', $url);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $geoloc = json_decode(curl_exec($ch), true);
+
+        return $geoloc['results'][0]['geometry']['location'];
+    }
+
+
+}
