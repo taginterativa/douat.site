@@ -12,6 +12,7 @@ body.page-home {overflow: auto !important;}
 .content-home p {display: none;}
 .content-home h2 {width: 100%; text-align: center; font-size: 105px; padding: 0 65px 0 65px;}
 .bt-default {float: none; display: inline-block; font-size: 47px; padding: 35px 15px 30px 15px; background: none !important; color: #fff !important;}
+.claro .bt-default {color: #000 !important;}
 .footer-home {z-index: 100;}
 .marcadores-home {right: 20px;}
 .secundary header {display: none;}
@@ -148,22 +149,32 @@ body.page-home {overflow: auto !important;}
 .filtro.filtro-mapa .selectbox .label {width: 100%; background-position: 90% center;}
 .browse-wrap {display: none}
 
+
 .setas {
 	position: absolute;
-	width: 50px;
-	height: 50px;
-	background: url(../images/setas-secundario.png) no-repeat 0 0;
+	width: 63px;
+	height: 63px;
+	background: url(../images/setashome.png) no-repeat 0 0;
 	text-indent: -9999px;
 	top: 100px;
 	z-index: 100;
 	cursor: pointer;
 	margin-top: 120px;
 }
+	.claro .setas {
+		background: url(../images/setashome_preto.png) no-repeat 0 0;
+	}
+	.setas.seta-esq {left: -125px;}
+	.setas.seta-esq:hover {background-position: left bottom;}
+	.setas.seta-dir {
+		right: -125px;
+		background-position: right 0;
+	}
+	.setas.seta-dir:hover {background-position: right bottom;}
 	.setas.seta-esq {
 		left: 10px;
 	}
 	.setas.seta-dir {
 		right: 10px;
-		background-position: right 0;
 	}
 
