@@ -25,7 +25,11 @@ function initialize() {
 	params.map = map;
 	var url = $('#frame_mapa').data('url');
 	//mostraPins();
-	$.get(baseUrl + 'representantes/json?estado=SC', function(data) {
+	var urlJson = baseUrl + 'representantes/json';
+	if($('#estado').val() != '' || $('#cidade').val() != '') {
+		urlJson = urlJson+'?estado='+$('#estado').val()+'&cidade='+$('#cidade').val();
+	}
+	$.get(urlJson, function(data) {
 		$.each(data, function(index, item) {
 			//console.log(item);
 			var image = baseUrl.replace('app_dev.php', '')+'/site/images/pin.png';
