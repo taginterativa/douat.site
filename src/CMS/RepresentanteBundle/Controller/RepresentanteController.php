@@ -67,7 +67,7 @@ class RepresentanteController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
-            $em->setLatitudeLongitude($this->getLatitudeLongitude($em));
+
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('title', 'Representante');

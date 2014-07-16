@@ -25,7 +25,7 @@ function initialize() {
 	params.map = map;
 	var url = $('#frame_mapa').data('url');
 	//mostraPins();
-	$.get(baseUrl + 'representantes/json', function(data) {
+	$.get(baseUrl + 'representantes/json?estado=SC', function(data) {
 		$.each(data, function(index, item) {
 			//console.log(item);
 			var image = baseUrl.replace('app_dev.php', '')+'/site/images/pin.png';

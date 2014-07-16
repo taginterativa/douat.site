@@ -389,12 +389,12 @@ class Representante
         return $this->email;
     }
     /**
-     * @var \CMS\RepresentanteBundle\Entity\Cidade
+     * @var \CMS\ConfiguracoesBundle\Entity\Cidade
      */
     private $cidade;
 
     /**
-     * @var \CMS\RepresentanteBundle\Entity\Estado
+     * @var \CMS\ConfiguracoesBundle\Entity\Estado
      */
     private $estado;
 
@@ -402,10 +402,10 @@ class Representante
     /**
      * Set cidade
      *
-     * @param \CMS\RepresentanteBundle\Entity\Cidade $cidade
+     * @param \CMS\ConfiguracoesBundle\Entity\Cidade $cidade
      * @return Representante
      */
-    public function setCidade(\CMS\RepresentanteBundle\Entity\Cidade $cidade = null)
+    public function setCidade(\CMS\ConfiguracoesBundle\Entity\Cidade $cidade = null)
     {
         $this->cidade = $cidade;
 
@@ -415,7 +415,7 @@ class Representante
     /**
      * Get cidade
      *
-     * @return \CMS\RepresentanteBundle\Entity\Cidade 
+     * @return \CMS\ConfiguracoesBundle\Entity\Cidade
      */
     public function getCidade()
     {
@@ -425,10 +425,10 @@ class Representante
     /**
      * Set estado
      *
-     * @param \CMS\RepresentanteBundle\Entity\Estado $estado
+     * @param \CMS\ConfiguracoesBundle\Entity\Estado $estado
      * @return Representante
      */
-    public function setEstado(\CMS\RepresentanteBundle\Entity\Estado $estado = null)
+    public function setEstado(\CMS\ConfiguracoesBundle\Entity\Estado $estado = null)
     {
         $this->estado = $estado;
 
@@ -438,7 +438,7 @@ class Representante
     /**
      * Get estado
      *
-     * @return \CMS\RepresentanteBundle\Entity\Estado 
+     * @return \CMS\ConfiguracoesBundle\Entity\Estado
      */
     public function getEstado()
     {
@@ -448,7 +448,10 @@ class Representante
 
     public function setLatitudeLongitude($geometry)
     {
-        $this->setLatitude($geometry['lat']);
-        $this->setLongitude($geometry['lng']);
+        if(isset($geometry['lat']) && isset($geometry['lng']))
+        {
+            $this->setLatitude($geometry['lat']);
+            $this->setLongitude($geometry['lng']);
+        }
     }
 }

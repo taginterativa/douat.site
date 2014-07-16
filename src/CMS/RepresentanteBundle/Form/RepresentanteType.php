@@ -57,8 +57,7 @@ class RepresentanteType extends AbstractType
         $form->add('estado', 'entity', array(
                 'data' => $estado,
                 'empty_value' => '-- Escolha --',
-                'class' => 'CMSConfiguracoesBundle:Estado',
-                'mapped' => false)
+                'class' => 'CMSConfiguracoesBundle:Estado')
         );
 
         // Cities are empty, unless we actually supplied a province
