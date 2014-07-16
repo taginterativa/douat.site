@@ -1,0 +1,7 @@
+parameters:
+#    site_representantes.example.class: SITE\RepresentantesBundle\Example
+
+services:
+#    site_representantes.example:
+#        class: %site_representantes.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

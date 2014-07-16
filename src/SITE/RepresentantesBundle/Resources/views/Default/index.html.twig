@@ -1,0 +1,69 @@
+{% extends "::site/base.html.twig" %}
+
+{% block seo %}
+    <title>Douat Têxtil - A malha que movimenta você</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+{% endblock %}
+
+{% block body_class %}{{ "page-representantes" }}{% endblock %}
+
+{% block body %}
+    <main>
+
+        <div class="wrapper">
+            <header class="header-interna">
+                <h2>Representantes</h2>
+            </header>
+            <form class="filtro filtro-mapa" method="get" action="{{ path('site_representantes_homepage') }}">
+                <input type="hidden" name="estado" id="estado" value="{% if estado is not empty %}{{ estado.sigla }}{% endif %}">
+                <input type="hidden" name="cidade" id="cidade" value="{% if cidade is not empty %}{{ cidade }}{% endif %}">
+                <div class="selectbox">
+                    <a href="#" class="label">{% if estado is not empty %}{{ estado.nome }}{% else %}Estado{% endif %}</a>
+                    <div id="estados" class="opc-selectbox" data-input="estado">
+                        {% for Estado in Estados %}
+                        <a href="#" data-value="{{ Estado.sigla }}">{{ Estado.nome }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="selectbox">
+                    <a href="#" class="label">{% if cidade is not empty %}{{ cidade }}{% else %}Cidade{% endif %}</a>
+                    <div id="cidades" class="opc-selectbox" data-input="cidade">
+                        {% for Cidade in Cidades %}
+                            <a href="#" data-value="{{ Cidade.nome }}">{{ Cidade.nome }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <button type="submit">Filtrar</button>
+            </form>
+            <div class="mapa">
+                <div id="frame_mapa" style="width:100%; height:480px;" data-url="images"></div>
+            </div>
+
+            <div id="dados_map">
+                <div class="dados_map">
+                    <div class="controla_dados" id="controla_dados">
+                        {% for Representante in Representantes %}
+                        <strong id="unidade_map">{{ Representante.name }}</strong><br />
+                        <span id="endereco">{{ Representante.address }}</span> <span id="bairro">{{ Representante.bairro }}</span><br>
+                        <span id="cidade">{{ Representante.city }}</span> - <span id="estado">SC</span><br>
+                        <span id="telefone">{{ Representante.phone }}</span><br>
+                        <span id="latitude">{{ Representante.latitude }}</span>
+                        <span id="longitude">{{ Representante.longitude }}</span>
+                        <a href="Representante.email" id="email">{{ Representante.email }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% include 'site/footer.html.twig' %}
+
+    </main>
+{% endblock %}
+
+{% block pageScripts %}
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="{{ asset('site/js/infobox.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('site/js/maps.js?1') }}"></script>
+{% endblock %}

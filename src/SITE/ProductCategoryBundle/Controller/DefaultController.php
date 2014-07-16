@@ -89,7 +89,8 @@ class DefaultController extends Controller
             'familia'           => $request->get('familia'),
             'acabamento'        => $request->get('acabamento'),
             'cor'               => $request->get('cor'),
-            'malha'             => $request->get('malha')
+            'malha'             => $request->get('malha'),
+            'listar'            => $request->get('listar')
         ));
     }
 

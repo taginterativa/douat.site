@@ -1,0 +1,43 @@
+{% extends '::admin_template.html.twig' %}
+
+{% block title %}
+    Novo Representante |
+{% endblock %}
+
+{% block content %}
+    <h1>Novo Representante</h1>
+
+    <div class="widget widget-heading-simple widget-body-white">
+        <div class="widget-body">
+            <div class="innerLR">
+                <div class="form-horizontal">
+                    {{ form(form) }}
+
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <a class="btn btn-default go-back" href="{{ path('cms_representantes') }}">
+    Voltar
+</a>
+    <script>
+        $(document).ready(function () {
+            $('#cms_representantebundle_representante_estado').change(function(){
+                $('#city_state option:gt(0)').remove();
+                if($(this).val()){
+                    $.ajax({
+                        type: "GET",
+                        data: "estado_id=" + $(this).val(),
+                        url: Routing.generate('estado_list'),
+                        success: function(data){
+                            $('#cms_representantebundle_representante_cidade').append(data);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}
+

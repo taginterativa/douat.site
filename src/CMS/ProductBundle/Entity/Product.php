@@ -442,7 +442,7 @@ class Product
      */
     public function setAcabamento(\CMS\ProductBundle\Entity\Acabamento $acabamento = null)
     {
-        $this->acabamento = $acabamento;
+        $this->$acabamento = $acabamento;
 
         return $this;
     }
@@ -454,7 +454,7 @@ class Product
      */
     public function getAcabamento()
     {
-        return $this->acabamento;
+        return $this->$acabamento;
     }
     
     

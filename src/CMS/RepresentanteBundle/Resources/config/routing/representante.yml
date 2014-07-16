@@ -1,0 +1,35 @@
+cms_representantes:
+    pattern:  /
+    defaults: { _controller: "CMSRepresentanteBundle:Representante:index" }
+
+cms_representantes_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSRepresentanteBundle:Representante:show" }
+
+cms_representantes_new:
+    pattern:  /new
+    defaults: { _controller: "CMSRepresentanteBundle:Representante:new" }
+
+cms_representantes_create:
+    pattern:  /create
+    defaults: { _controller: "CMSRepresentanteBundle:Representante:create" }
+    requirements: { _method: post }
+
+cms_representantes_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSRepresentanteBundle:Representante:edit" }
+
+cms_representantes_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSRepresentanteBundle:Representante:update" }
+    requirements: { _method: post|put }
+
+cms_representantes_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSRepresentanteBundle:Representante:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_representantes_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSRepresentanteBundle:Representante:deleteAll" }
+    requirements: { _method: post }

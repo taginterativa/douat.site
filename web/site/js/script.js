@@ -450,3 +450,23 @@ function getCookie(name) {
 }
 
 
+//REPRESENTANTES
+$(document).ready(function(){
+    $('#estados a').click(function(){
+        $.ajax({
+            type: "GET",
+            url: baseUrl + "representantes/get_cidades/" + $('#estado').val() ,
+            dataType: "JSON"
+        })
+            .done(function( data ) {
+                var html = '';
+
+                $(data).each(function(i, item){
+                    html += '<a href="#" data-value="' + item.nome + '">' + item.nome + '</a>';
+                });
+
+                $("#cidades").html(html);
+            });
+    });
+});
+

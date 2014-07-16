@@ -25,10 +25,10 @@ function initialize() {
 	params.map = map;
 	var url = $('#frame_mapa').data('url');
 	//mostraPins();
-	$.get('js/unidades.json?3', function(data) {
+	$.get('site/js/unidades.json?3', function(data) {
 		$.each(data, function(index, item) {
 			//console.log(item);
-			var image = url+'/pin.png';
+			var image = baseUrl+'/site/images/pin.png';
 			var titulo = item.name;
 			//var marcador = new google.maps.LatLng(-26.305088, -48.846093);
 			var marcador = new google.maps.LatLng(item.lat, item.lng);

@@ -31,24 +31,26 @@
                     <input type="hidden" name="acabamento" id="acabamento" value="{% if acabamento is not null %}{{ acabamento }}{% endif %}">
                     <input type="hidden" name="cor" id="cor" value="{% if cor is not null %}{{ cor }}{% endif %}">
                     <div class="selectbox">
-                        <a href="#" class="label">Familia</a>
+                        <a href="#" class="label">{% if familia is not null %}{{ familia }}{% else %}Familia{% endif %}</a>
                         <div class="opc-selectbox" data-input="familia">
                             {% for Familia in Familias %}
-                            <a href="#" data-value="{{ Familia.slug }}">{{ Familia.name }}</a>
+                                <a href="#" data-value="{{ Familia.slug }}">{{ Familia.name }}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="selectbox">
-                        <a href="#" class="label">Acabamento</a>
+                        <a href="#" class="label">{% if acabamento %}{{ acabamento }}{% else %}Acabamento{% endif %}</a>
                         <div class="opc-selectbox" data-input="acabamento">
+                            <a href="#" data-value="">Todos</a>
                             {% for Acabamento in Acabamentos %}
-                            <a href="#" data-value="{{ Acabamento.name }}">{{ Acabamento.name }}</a>
+                                <a href="#" data-value="{{ Acabamento.name }}">{{ Acabamento.name }}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="selectbox">
-                        <a href="#" class="label">Cor</a>
+                        <a href="#" class="label">{% if cor %}{{ cor }}{% else %}Cor{% endif %}</a>
                         <div class="opc-selectbox" data-input="cor">
+                            <a href="#" data-value="">Todas</a>
                             {% for Cor in Cores %}
                                 <a href="#" data-value="{{ Cor.name }}">{{ Cor.name }}</a>
                             {% endfor %}
@@ -59,14 +61,14 @@
                 </form>
                 {% if Products %}
                     <ul class="lista-blocos">
-                    {% for Product in Products %}
-                        <li>
-                            <a href="{{ path('product_show', {category_slug: Product.ProductCategory.slug, product_slug: Product.slug}) }}">
-                                <span><img src="{{ asset(Product.image) }}"></span>
-                                <strong>{{ Product.name }}</strong>
-                            </a>
-                        </li>
-                    {% endfor %}
+                        {% for Product in Products %}
+                            <li>
+                                <a href="{{ path('product_show', {category_slug: Product.ProductCategory.slug, product_slug: Product.slug}) }}">
+                                    <span><img src="{{ asset(Product.image) }}"></span>
+                                    <strong>{{ Product.name }}</strong>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 {% else %}
                     <p>Nenhuma malha foi encontrada.</p>

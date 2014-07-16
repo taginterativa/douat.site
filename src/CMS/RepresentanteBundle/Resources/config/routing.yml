@@ -1,0 +1,7 @@
+cms_representante_homepage:
+    pattern:  /cms_representante
+    defaults: { _controller: CMSRepresentanteBundle:Default:index }
+
+CMSRepresentanteBundle_cms_representantes:
+    resource: "@CMSRepresentanteBundle/Resources/config/routing/representante.yml"
+    prefix:   /cms/representantes

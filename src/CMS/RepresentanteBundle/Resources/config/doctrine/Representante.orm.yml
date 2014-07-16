@@ -1,0 +1,115 @@
+CMS\RepresentanteBundle\Entity\Representante:
+    type: entity
+    table: representante
+    repositoryClass: CMS\RepresentanteBundle\Entity\RepresentanteRepository
+    indexes:
+        fk_representante_cidade1_idx:
+            columns:
+                - cidade_id
+        fk_representante_estado1_idx:
+            columns:
+                - estado_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+        address:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        latitude:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        longitude:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        bairro:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        email:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        phone:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        slug:
+            type: string
+            length: 128
+            nullable: false
+            gedmo:
+                slug:
+                    separator: -
+                    fields:
+                      - name
+                    updatable: true
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+            gedmo:
+                timestampable:
+                  on: create
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+            gedmo:
+                timestampable:
+                  on: update
+        isActive:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: is_active
+    manyToOne:
+        cidade:
+            targetEntity: CMS\ConfiguracoesBundle\Entity\Cidade
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cidade_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        estado:
+            targetEntity: CMS\ConfiguracoesBundle\Entity\Estado
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                estado_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

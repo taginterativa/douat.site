@@ -94,6 +94,11 @@ class ProductCategoryRepository extends EntityRepository
             $query->andWhere("c.slug LIKE '%" . $request->get('familia') . "%'");
         }
 
+        if($request->get('listar'))
+        {
+            $query->andWhere("c.slug LIKE '%" . $request->get('listar') . "%'");
+        }
+
         if($request->get('malha') || $request->get('acabamento') || $request->get('cor'))
         {
             if($request->get('malha'))

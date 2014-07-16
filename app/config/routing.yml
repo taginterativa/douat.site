@@ -1,3 +1,11 @@
+site_representantes:
+    resource: "@SITERepresentantesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cms_representante:
+    resource: "@CMSRepresentanteBundle/Resources/config/routing.yml"
+    prefix:   /
+
 site_page:
     resource: "@SITEPageBundle/Resources/config/routing.yml"
     prefix:   /
