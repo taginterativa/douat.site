@@ -30,4 +30,28 @@
     Voltar
 </a>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#cms_representantebundle_representante_estado').change(function(){
+                var val = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url('cms_representantes_ajax_estados') }}?estado_id=" + val,
+                    success: function(data) {
+
+                        // Remove current options
+                        $('#cms_representantebundle_representante_cidade').html('');
+
+                        $.each(data, function(k, v) {
+                            $('#cms_representantebundle_representante_cidade').append('<option value="' + v + '">' + k + '</option>');
+                        });
+                    }
+                });
+
+                return false;
+            });
+        });
+
+    </script>
+
 {% endblock %}

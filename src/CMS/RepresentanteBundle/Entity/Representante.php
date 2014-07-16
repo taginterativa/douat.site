@@ -444,4 +444,11 @@ class Representante
     {
         return $this->estado;
     }
+
+
+    public function setLatitudeLongitude($geometry)
+    {
+        $this->setLatitude($geometry['lat']);
+        $this->setLongitude($geometry['lng']);
+    }
 }
