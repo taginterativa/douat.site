@@ -66,6 +66,8 @@ class RepresentanteController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $entity->setLatitudeLongitude($this->getLatitudeLongitude($entity));
             $em->persist($entity);
 
             $em->flush();

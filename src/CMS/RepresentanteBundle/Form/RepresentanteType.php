@@ -32,10 +32,10 @@ class RepresentanteType extends AbstractType
     {
         $builder
             ->add('name', 'text', array('attr' => array('class' => 'form-control')))
-            ->add('phone', 'text', array('attr' => array('class' => 'form-control')))
-            ->add('email', 'text', array('attr' => array('class' => 'form-control')))
+            ->add('phone', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
+            ->add('email', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
             ->add('address', 'text', array('attr' => array('class' => 'form-control')))
-            ->add('bairro', 'text', array('attr' => array('class' => 'form-control')))
+            ->add('bairro', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
             //->add('estado')
             //->add('cidade', 'choice')
             //->add('latitude', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
