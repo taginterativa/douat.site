@@ -23,10 +23,10 @@
                 <div class="topo-prod">
                     <a href="{{ path('product_category_sub_list', {category_slug: Product.ProductCategory.Parent.slug, subcategory_slug: Product.ProductCategory.slug}) }}" class="lk-voltar">Voltar</a>
                     <ul class="cats-prod">
-                        <li><a href="{{ path('home_homepage') }}">Home</a> /</li>
+                        <li><a href="{{ path('home_homepage') }}">Página Inicial</a> /</li>
                         <li><a href="{{ path('product_category_list', {category_slug: Product.ProductCategory.Parent.slug}) }}">{{ Product.ProductCategory.Parent.slug }}</a> /</li>
                         <li><a href="{{ path('product_category_sub_list', {category_slug: Product.ProductCategory.Parent.slug, subcategory_slug: Product.ProductCategory.slug}) }}">{{ Product.ProductCategory.slug }}</a>/</li>
-                        <li><a href="">{{ Product.name }}</a></li>
+                        <li>{{ Product.name }}</li>
                     </ul>
                     <h2>{{ Product.name }}</h2>
                     <div class="figure">
@@ -62,7 +62,7 @@
                             Largura: {{ Product.largura }}<br>
                             Rendimento: {{ Product.rendimento }}
                         </p>
-                        PA = Poliamamida | PES = Poliéster<br>
+                        PA = Poliamida | PES = Poliéster<br>
                         PUE = Elastano | CV = Viscose
                         <!--<a href="#" class="bt-default open-ficha">Ficha técnica</a>-->
                     </aside>
