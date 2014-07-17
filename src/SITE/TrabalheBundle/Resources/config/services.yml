@@ -1,0 +1,7 @@
+parameters:
+#    site_trabalhe.example.class: SITE\TrabalheBundle\Example
+
+services:
+#    site_trabalhe.example:
+#        class: %site_trabalhe.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,11 @@
+site_trabalhe_homepage:
+    pattern:  /trabalhe-conosco
+    defaults: { _controller: SITETrabalheBundle:Default:index }
+
+site_trabalhe_ajaxcall:
+    pattern:  /trabalhe-conosco/ajax/{estado}
+    defaults: { _controller: SITETrabalheBundle:Default:ajax }
+
+site_trabalhe_send:
+    pattern:  /trabalhe-conosco/send
+    defaults: { _controller: SITETrabalheBundle:Default:send }

@@ -10,7 +10,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ContatoBundle:Default:index.html.twig',array(
+        return $this->render('ContatoBundle:Default:index.html.twig', array(
             'Messages' => $this->get('session')->getFlashBag()->get('message')
         ));
     }

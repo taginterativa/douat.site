@@ -452,10 +452,31 @@ function getCookie(name) {
 
 //REPRESENTANTES
 $(document).ready(function(){
-    $('#estados a').click(function(){
+    $('.page-representantes #estados a').click(function(){
         $.ajax({
             type: "GET",
             url: baseUrl + "representantes/get_cidades/" + $('#estado').val() ,
+            dataType: "JSON"
+        })
+            .done(function( data ) {
+                var html = '';
+
+                $(data).each(function(i, item){
+                    html += '<a href="#" data-value="' + item.nome + '">' + item.nome + '</a>';
+                });
+
+                $("#cidades").html(html);
+            });
+    });
+});
+
+
+//Trabalhe conosco
+$(document).ready(function(){
+    $('.page-trabalhe #estados a').click(function(){
+        $.ajax({
+            type: "GET",
+            url: baseUrl + "trabalhe-conosco/ajax/" + $('#estado').val() ,
             dataType: "JSON"
         })
             .done(function( data ) {
