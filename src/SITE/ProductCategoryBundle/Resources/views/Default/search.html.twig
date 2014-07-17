@@ -51,8 +51,11 @@
                         <a href="#" class="label">{% if cor %}{{ cor }}{% else %}Cor{% endif %}</a>
                         <div class="opc-selectbox" data-input="cor">
                             <a href="#" data-value="">Todas</a>
+                            <a href="#" data-value="Estampados">Estampados</a>
                             {% for Cor in Cores %}
-                                <a href="#" data-value="{{ Cor.name }}">{{ Cor.name }}</a>
+                                {% if 'estampa' not in Cor.name|lower %}
+                                    <a href="#" data-value="{{ Cor.name }}">{{ Cor.code }} - {{ Cor.name }}</a>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </div>

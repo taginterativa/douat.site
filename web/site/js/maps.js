@@ -60,7 +60,7 @@ function initialize() {
 					content: $('#dados_map').html()
 					,pixelOffset: new google.maps.Size(-10, 0)
 					,closeBoxMargin: "-35px 2px 2px 2px"
-					,closeBoxURL: "images/close-menu.png"
+					,closeBoxURL: baseUrl.replace('app_dev.php', '')+'/site/images/close-menu.png'
 					,isHidden: false
 				};
 				$('.infoBox').hide();

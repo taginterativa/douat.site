@@ -70,7 +70,7 @@ class RepresentanteType extends AbstractType
 
         // Add the city element
         $form->add('cidade', 'entity', array(
-            'empty_value' => '-- Selecione um estado --',
+            'empty_value' => '-- Primeiro selecione um estado --',
             'class' => 'CMSConfiguracoesBundle:Cidade',
             'choices' => $cities,
         ));

@@ -115,7 +115,7 @@ class ProductCategoryRepository extends EntityRepository
             if($request->get('cor'))
             {
                 $query->innerJoin('p.productColor', 'cor');
-                $query->andWhere("cor.name LIKE '%" . $request->get('cor') . "%'");
+                $query->andWhere("cor.name LIKE '%" . str_replace('Estampados', 'Estampa', $request->get('cor')) . "%'");
             }
         }
 

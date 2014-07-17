@@ -39,13 +39,14 @@ class DefaultController extends Controller
             if($entity[0]->getParent())
             {
                 $titulo = $entity[0]->getParent()->getName();
+                $category_id = $entity[0]->getParent()->getId();
             }
             else
             {
                 $titulo = $entity[0]->getName();
+                $category_id = $entity[0]->getId();
             }
             $image = $entity[0]->getImage();
-            $category_id = $entity[0]->getId();
         }
         else
         {
