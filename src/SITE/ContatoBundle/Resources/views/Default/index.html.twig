@@ -28,11 +28,11 @@
 
             </p>
             {% if(Messages) %}
-                <p>
+                <span class="mensagem-sucesso">
                     {% for Mensagem in Messages %}
                         {{ Mensagem }}
                     {% endfor %}
-                </p>
+                </span>
             {% endif %}
             <form class="form-default" action="{{ path('contato_send') }}" method="post">
                 <input type="hidden" name="estado" id="estado">

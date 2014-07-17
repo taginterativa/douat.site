@@ -42,10 +42,11 @@
                         <p>
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>-->
+                        <div class="estampa-zoom"><span class="fechar-foto"></span></div>
                         <strong class="tit-medio">{% if Product.ProductColor[0].image %}Estampas{% else %}Cores{% endif %} disponíveis</strong>
                         {% for Cor in Product.ProductColor %}
                             {% if Cor.image %}
-                            <span class="bloco-cor" style="background: url('{{ asset(Cor.image) }}'); background-size: cover">{{ Cor.code }}</span>
+                            <a href="#" class="bloco-cor bloco-estampas" data-bg="{{ asset(Cor.image) }}" style="background: url('{{ asset(Cor.image) }}'); background-size: cover">{{ Cor.code }}</a>
                             {% elseif Cor.Pantone %}
                             <span class="bloco-cor" style="background: #{{ Cor.Pantone.hex }};">{{ Cor.code }}</span>
                             {% else %}

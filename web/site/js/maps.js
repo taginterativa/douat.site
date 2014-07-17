@@ -5,7 +5,7 @@ var markers = {};
 function initialize() {
 	var myLatlng = new google.maps.LatLng(-26.321011, -48.8524804);
 	var myOptions = {
-		zoom: 7,
+		zoom: 13,
 		center: myLatlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		scrollwheel: false,
@@ -29,10 +29,15 @@ function initialize() {
 	if($('#estado').val() != '' || $('#cidade').val() != '') {
 		urlJson = urlJson+'?estado='+$('#estado').val()+'&cidade='+$('#cidade').val();
 	}
+	var cont = 0;
 	$.get(urlJson, function(data) {
 		$.each(data, function(index, item) {
 			//console.log(item);
 			var image = baseUrl.replace('app_dev.php', '')+'/site/images/pin.png';
+			if(cont == 0) {
+				map.setCenter(new google.maps.LatLng(item.lat, item.lng));
+				cont++;
+			}
 			var titulo = item.name;
 			//var marcador = new google.maps.LatLng(-26.305088, -48.846093);
 			var marcador = new google.maps.LatLng(item.lat, item.lng);

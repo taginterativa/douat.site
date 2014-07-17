@@ -71,6 +71,15 @@ $(function() {
         $('.img-malha').css('height', altura+'px');
         return false;
     });
+    $('.bloco-estampas').click(function() {
+        var bg = $(this).data('bg');
+        $('.estampa-zoom').append('<img src="'+bg+'">');
+        $('.estampa-zoom').show();
+        $('.overlay').show();
+        $('.estampa-zoom .fechar-foto').show();
+        return false;
+    });
+
     $('.fechar-foto').click(function() {
         $('.overlay').fadeOut();
         $('.fechar-foto').fadeOut();
@@ -78,6 +87,8 @@ $(function() {
         $('.img-malha').css('top', 0);
         $('.img-malha').css('height', 185+'px');
         $('.float-malha').fadeOut();
+        $('.estampa-zoom').hide();
+        $('.estampa-zoom img').remove();
     });
 
     $('.open-ficha').click(function() {
@@ -449,6 +460,13 @@ function getCookie(name) {
 	return cookie;
 }
 
+ function trocaLabelcidade(cidade) {
+    var place = $(this).html();
+    var alvo = 'cidade';
+    $('#'+alvo).val(cidade);
+    $('#cidades').slideUp();
+    $('#cidades').parent().find('.label').html(cidade);
+}
 
 //REPRESENTANTES
 $(document).ready(function(){
@@ -462,12 +480,13 @@ $(document).ready(function(){
                 var html = '';
 
                 $(data).each(function(i, item){
-                    html += '<a href="#" data-value="' + item.nome + '">' + item.nome + '</a>';
+                    html += '<a href="#" onClick="trocaLabelcidade(\''+item.nome+'\'); return false;" data-value="' + item.nome + '">' + item.nome + '</a>';
                 });
 
                 $("#cidades").html(html);
             });
     });
+
 });
 
 
@@ -483,7 +502,7 @@ $(document).ready(function(){
                 var html = '';
 
                 $(data).each(function(i, item){
-                    html += '<a href="#" data-value="' + item.nome + '">' + item.nome + '</a>';
+                    html += '<a href="#"  onClick="trocaLabelcidade(\''+item.nome+'\'); return false;" data-value="' + item.nome + '">' + item.nome + '</a>';
                 });
 
                 $("#cidades").html(html);
