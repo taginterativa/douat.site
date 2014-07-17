@@ -28,7 +28,7 @@ class DefaultController extends Controller
         $to = array('weverson@taginterativa.com.br' => 'Weverson Cachinsky', 'camila@taginterativa.com.br' => 'Doutora Camila');
 
         $message = \Swift_Message::newInstance()
-            ->setSubject('Contato')
+            ->setSubject('Douat | Contato')
             ->setFrom($from)
             ->setTo($to)
             ->addReplyTo($form->get('email'))

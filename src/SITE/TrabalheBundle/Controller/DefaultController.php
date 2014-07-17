@@ -21,8 +21,17 @@ class DefaultController extends Controller
 
     public function sendAction(Request $request)
     {
+        if($request->get('estado') == "")
+        {
+            $uf = 24;
+        }
+        else
+        {
+            $uf = $request->get('estado');
+        }
+
         $em = $this->getDoctrine()->getManager();
-        $Estado = $em->getRepository('CMS\ConfiguracoesBundle\Entity\Estado')->find($request->get('estado'));
+        $Estado = $em->getRepository('CMS\ConfiguracoesBundle\Entity\Estado')->find($uf);
 
         $form = $this->get('request')->request;
         $body = '<strong>Nome: </strong>'. $form->get('nome').'<br />';
@@ -39,13 +48,13 @@ class DefaultController extends Controller
         $to = array('weverson@taginterativa.com.br' => 'Weverson Cachinsky',  'camila@taginterativa.com.br' => 'Doutora Camila');
 
         $message = \Swift_Message::newInstance()
-            ->setSubject('Contato')
+            ->setSubject('Douat | Trabalhe Conosco')
             ->setFrom($from)
             ->setTo($to)
             ->addReplyTo($form->get('email'))
             ->setBody($body, 'text/html');
 
-        if(isset($_FILES['upload']))
+        if(isset($_FILES['upload']['name']) && $_FILES['upload']['name'] != "")
         {
             $message->attach(\Swift_Attachment::fromPath($_FILES['upload']['tmp_name'])->setFilename($_FILES['upload']['name']));
         }
