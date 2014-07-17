@@ -30,35 +30,27 @@
                     <input type="hidden" name="familia" id="familia" value="{% if familia is not null %}{{ familia }}{% endif %}">
                     <input type="hidden" name="acabamento" id="acabamento" value="{% if acabamento is not null %}{{ acabamento }}{% endif %}">
                     <input type="hidden" name="cor" id="cor" value="{% if cor is not null %}{{ cor }}{% endif %}">
-                    <div class="selectbox">
-                        <a href="#" class="label">{% if familia is not null %}{{ familia }}{% else %}Familia{% endif %}</a>
-                        <div class="opc-selectbox" data-input="familia">
-                            {% for Familia in Familias %}
-                                <a href="#" data-value="{{ Familia.slug }}">{{ Familia.name }}</a>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="selectbox">
-                        <a href="#" class="label">{% if acabamento %}{{ acabamento }}{% else %}Acabamento{% endif %}</a>
-                        <div class="opc-selectbox" data-input="acabamento">
-                            <a href="#" data-value="">Todos</a>
-                            {% for Acabamento in Acabamentos %}
-                                <a href="#" data-value="{{ Acabamento.name }}">{{ Acabamento.name }}</a>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="selectbox">
-                        <a href="#" class="label">{% if cor %}{{ cor }}{% else %}Cor{% endif %}</a>
-                        <div class="opc-selectbox" data-input="cor">
-                            <a href="#" data-value="">Todas</a>
-                            <a href="#" data-value="Estampados">Estampados</a>
-                            {% for Cor in Cores %}
-                                {% if 'estampa' not in Cor.name|lower %}
-                                    <a href="#" data-value="{{ Cor.name }}">{{ Cor.code }} - {{ Cor.name }}</a>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
+                    <select name="familia" id="familia" class="select">
+                        <option value="">Família</option>
+                        {% for Familia in Familias %}
+                            <option value="{{ Familia.slug }}" {% if familia == Familia.slug %}selected{% endif %}>{{ Familia.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="acabamento" id="acabamento" class="select">
+                        <option value="">Acabamento</option>
+                        {% for Acabamento in Acabamentos %}
+                            <option value="{{ Acabamento.name }}" {% if acabamento == Acabamento.name %}selected{% endif %}>{{ Acabamento.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="cor" id="cor" class="select">
+                        <option value="">Cor</option>
+                        <option value="Estampados" {% if cor == 'Estampados' %}selected{% endif %}>Estampados</option>
+                        {% for Cor in Cores %}
+                            {% if 'estampa' not in Cor.name|lower %}
+                                <option value="{{ Cor.name }}" {% if cor == Cor.name %}selected{% endif %}>{{ Cor.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
                     <input type="text" name="malha" placeholder="Nome da malha" value="{% if malha is not null %}{{ malha }}{% endif %}">
                     <button type="submit">Filtrar</button>
                 </form>

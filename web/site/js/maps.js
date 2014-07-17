@@ -29,15 +29,16 @@ function initialize() {
 	if($('#estado').val() != '' || $('#cidade').val() != '') {
 		urlJson = urlJson+'?estado='+$('#estado').val()+'&cidade='+$('#cidade').val();
 	}
+
 	var cont = 0;
 	$.get(urlJson, function(data) {
 		$.each(data, function(index, item) {
 			//console.log(item);
 			var image = baseUrl.replace('app_dev.php', '')+'/site/images/pin.png';
-			if(cont == 0) {
+			/*if(cont == 0) {
 				map.setCenter(new google.maps.LatLng(item.lat, item.lng));
 				cont++;
-			}
+			}*/
 			var titulo = item.name;
 			//var marcador = new google.maps.LatLng(-26.305088, -48.846093);
 			var marcador = new google.maps.LatLng(item.lat, item.lng);
@@ -57,8 +58,8 @@ function initialize() {
 				$('#dados_map #endereco').html(item.endereco);
 				$('#dados_map #bairro').html(item.bairro);
 				$('#dados_map #cep').html(item.cep);
-				$('#dados_map #cidade').html(item.cidade);
-                $('#dados_map #estado').html(item.estado);
+				$('#dados_map #cidaderep').html(item.cidade);
+                $('#dados_map #estadorep').html(item.estado);
 				$('#dados_map #telefone').html(item.telefone);
 				$('#dados_map #email').html(item.email);
 

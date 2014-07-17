@@ -31,27 +31,26 @@
                 </p>
             {% endif %}
             <form class="form-default" action="{{ path('site_trabalhe_send') }}" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="estado" id="estado">
-                <input type="hidden" name="cidade" id="cidade">
+
                 <input type="text" placeholder="Nome" name="nome" required>
                 <input type="text" placeholder="E-mail" name="email" required>
                 <input type="text" placeholder="Telefone" name="telefone" class="tel">
                 <input type="text" placeholder="Data de nascimento" class="input-half data" name="datanasc" id="datanasc">
                 <input type="text" placeholder="Sexo" class="input-half nomargin" name="sexo">
-                <div class="selectbox">
-                    <a href="#" class="label">Estado</a>
-                    <div class="opc-selectbox" data-input="estado" id="estados">
+                <div class="control-select">
+                    <select name="estado" id="estado" class="select">
+                        <option value="">Estado</option>
                         {% for Estado in Estados %}
-                        <a href="#" data-value="{{ Estado.id }}">{{ Estado.nome }}</a>
+                            <option value="{{ Estado.id }}">{{ Estado.nome }}</option>
                         {% endfor %}
-                    </div>
+                    </select>
                 </div>
-                <div class="selectbox nomargin">
-                    <a href="#" class="label">Cidade</a>
-                    <div class="opc-selectbox" data-input="cidade" id="cidades">
-                        <a href="#" data-value="">Primeiro selecione um estado</a>
-                    </div>
+                <div class="control-select">
+                    <select name="cidade" id="cidade" class="select" style="margin-right: 0;">
+                        <option value="">Primeiro selecione um estado</option>
+                    </select>
                 </div>
+
                 <div class="browse-wrap">
                     <div class="title">Anexar CV</div>
                     <input type="file" name="upload" class="upload" title="Choose a file to upload">

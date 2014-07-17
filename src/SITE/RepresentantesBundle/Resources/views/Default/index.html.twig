@@ -16,24 +16,18 @@
                 <h2>Representantes</h2>
             </header>
             <form class="filtro filtro-mapa" method="get" action="{{ path('site_representantes_homepage') }}">
-                <input type="hidden" name="estado" id="estado" value="{% if estado is not empty %}{{ estado.sigla }}{% endif %}">
-                <input type="hidden" name="cidade" id="cidade" value="{% if cidade is not empty %}{{ cidade }}{% endif %}">
-                <div class="selectbox">
-                    <a href="#" class="label">{% if estado is not empty %}{{ estado.nome }}{% else %}Estado{% endif %}</a>
-                    <div id="estados" class="opc-selectbox" data-input="estado">
-                        {% for Estado in Estados %}
-                        <a href="#" data-value="{{ Estado.sigla }}">{{ Estado.nome }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="selectbox">
-                    <a href="#" class="label">{% if cidade is not empty %}{{ cidade }}{% else %}Cidade{% endif %}</a>
-                    <div id="cidades" class="opc-selectbox" data-input="cidade">
-                        {% for Cidade in Cidades %}
-                            <a href="#" data-value="{{ Cidade.nome }}">{{ Cidade.nome }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
+                <select name="estado" id="estado" class="select">
+                    <option value="">Estado</option>
+                    {% for Estado in Estados %}
+                        <option value="{{ Estado.sigla }}" {% if estado == Estado.nome %}selected{% endif %}>{{ Estado.nome }}</option>
+                    {% endfor %}
+                </select>
+                <select name="cidade" id="cidade" class="select">
+                    <option value="">Cidade</option>
+                    {% for Cidade in Cidades %}
+                        <option value="{{ Cidade.nome }}" {% if cidade == Cidade.nome %}selected{% endif %}>{{ Cidade.nome }}</option>
+                    {% endfor %}
+                </select>
                 <button type="submit">Filtrar</button>
             </form>
             <div class="mapa">
@@ -45,7 +39,7 @@
                     <div class="controla_dados" id="controla_dados">
                         <strong id="unidade_map"></strong><br />
                         <span id="endereco"></span> <span id="bairro"></span><br>
-                        <span id="cidade"></span> - <span id="estado"></span><br>
+                        <span id="cidaderep"></span> - <span id="estadorep"></span><br>
                         <span id="telefone"></span><br>
                         <span id="latitude"></span>
                         <span id="longitude"></span>

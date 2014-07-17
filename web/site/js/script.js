@@ -99,6 +99,8 @@ $(function() {
         return false;
     });
 
+    $('.select').customSelect();
+
 
 
 	/**
@@ -470,20 +472,22 @@ function getCookie(name) {
 
 //REPRESENTANTES
 $(document).ready(function(){
-    $('.page-representantes #estados a').click(function(){
+    $('.page-representantes #estado').change(function(){
+        console.log('aaaa');
         $.ajax({
             type: "GET",
             url: baseUrl + "representantes/get_cidades/" + $('#estado').val() ,
             dataType: "JSON"
         })
             .done(function( data ) {
-                var html = '';
+                var html = '<option value="">Selecione</option>';
 
                 $(data).each(function(i, item){
-                    html += '<a href="#" onClick="trocaLabelcidade(\''+item.nome+'\'); return false;" data-value="' + item.nome + '">' + item.nome + '</a>';
+                    html += '<option value="'+item.nome+'">'+item.nome+'</option>';
+                    //html += '<a href="#" onClick="trocaLabelcidade(\''+item.nome+'\'); return false;" data-value="' + item.nome + '">' + item.nome + '</a>';
                 });
 
-                $("#cidades").html(html);
+                $("#cidade").html(html);
             });
     });
 
@@ -492,20 +496,21 @@ $(document).ready(function(){
 
 //Trabalhe conosco
 $(document).ready(function(){
-    $('.page-trabalhe #estados a').click(function(){
+    $('.page-trabalhe #estado').change(function(){
         $.ajax({
             type: "GET",
             url: baseUrl + "trabalhe-conosco/ajax/" + $('#estado').val() ,
             dataType: "JSON"
         })
             .done(function( data ) {
-                var html = '';
+                var html = '<option value="">Selecione</option>';
 
                 $(data).each(function(i, item){
-                    html += '<a href="#"  onClick="trocaLabelcidade(\''+item.nome+'\'); return false;" data-value="' + item.nome + '">' + item.nome + '</a>';
+                    html += '<option value="'+item.nome+'">'+item.nome+'</option>';
+                    //html += '<a href="#"  onClick="trocaLabelcidade(\''+item.nome+'\'); return false;" data-value="' + item.nome + '">' + item.nome + '</a>';
                 });
 
-                $("#cidades").html(html);
+                $("#cidade").html(html);
             });
     });
 });

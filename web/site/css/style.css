@@ -734,6 +734,38 @@ main {
 	width: 100%;
 	padding: 0 0 40px 0;
 }
+	.filtro select.select {
+		width: 175px;
+		float: left;
+		font-family: Tahoma;
+		color: #999999;
+		font-size: 14px !important;
+		height: 48px;
+		padding: 18px 10px 0 10px;
+		letter-spacing: 1px;
+		background: url(../images/seta-select.png) no-repeat 145px center #fff;
+		margin-right: 20px;
+	}
+	.filtro span.select {
+		font-family: 'bebas_neueregular';
+		width: 175px;
+		float: left;
+		color: #999999;
+		font-size: 18px;
+		height: 48px;
+		padding: 18px 10px 0 10px;
+		letter-spacing: 1px;
+		background: url(../images/seta-select.png) no-repeat 145px center #fff;
+		margin-right: 20px;
+	}
+	.filtro.filtro-mapa select.select {
+		width: 370px;
+	}
+	.filtro.filtro-mapa span.select {
+		width: 370px;
+		background: url(../images/seta-select.png) no-repeat 330px center #fff;
+	}
+
 	.filtro .selectbox {
 		float: left;
 		width: 175px;
@@ -1112,11 +1144,12 @@ label.error {display: none !important;}
 		margin: 0 0 20px 0;
 		padding: 15px 15px 10px 15px;
 		font-family: Tahoma;
-		letter-spacing: -1px;
+		letter-spacing: 0.5px;
 		color: #999999;
-		font-size: 16px;
+		font-size: 18px;
 		line-height: 20px;
 		transition: all 0.5s;
+		font-family: 'bebas_neueregular';
 	}
 		.form-default input.error {
 			background: #b7b7b7;
@@ -1143,6 +1176,34 @@ label.error {display: none !important;}
 		.form-default textarea.error {
 			background: #b7b7b7;
 		}
+	.form-default select.select {
+		width: 247px;
+		float: left;
+		font-family: Tahoma;
+		color: #999999;
+		font-size: 14px !important;
+		height: 48px;
+		padding: 18px 10px 0 10px;
+		letter-spacing: 1px;
+		background: url(../images/seta-select.png) no-repeat 230px center #fff;
+		margin-right: 20px;
+	}
+	.form-default span.select {
+		font-family: 'bebas_neueregular';
+		width: 247px;
+		float: left;
+		color: #999999;
+		font-size: 18px;
+		height: 48px;
+		padding: 18px 10px 0 10px;
+		letter-spacing: 1px;
+		background: url(../images/seta-select.png) no-repeat 220px center #fff;
+		margin-right: 20px;
+	}
+	.form-default .control-select {
+		position: relative;
+		float: left;
+	}
 	.form-default .selectbox {
 		float: left;
 		width: 247px;
