@@ -25,12 +25,13 @@ class DefaultController extends Controller
 
 
         $from = array('no-reply@douattextil.com.br' => 'Contato douat');
-        $to = array('weverson@taginterativa.com.br' => 'Weverson Cachinsky');
+        $to = array('weverson@taginterativa.com.br' => 'Weverson Cachinsky', 'camila@taginterativa.com.br' => 'Doutora Camila');
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Contato')
             ->setFrom($from)
             ->setTo($to)
+            ->addReplyTo($form->get('email'))
             ->setBody($body, 'text/html');
 
         $sendMail = $this->get('mailer')->send($message);

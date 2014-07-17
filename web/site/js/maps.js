@@ -53,6 +53,7 @@ function initialize() {
 				$('#dados_map #bairro').html(item.bairro);
 				$('#dados_map #cep').html(item.cep);
 				$('#dados_map #cidade').html(item.cidade);
+                $('#dados_map #estado').html(item.estado);
 				$('#dados_map #telefone').html(item.telefone);
 				$('#dados_map #email').html(item.email);
 

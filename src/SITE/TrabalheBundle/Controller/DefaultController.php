@@ -36,7 +36,7 @@ class DefaultController extends Controller
 
 
         $from = array('no-reply@douattextil.com.br' => 'Contato douat');
-        $to = array('weverson@taginterativa.com.br' => 'Weverson Cachinsky');
+        $to = array('weverson@taginterativa.com.br' => 'Weverson Cachinsky',  'camila@taginterativa.com.br' => 'Doutora Camila');
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Contato')
