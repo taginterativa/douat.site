@@ -52,7 +52,12 @@ class DefaultController extends Controller
             ->setFrom($from)
             ->setTo($to)
             ->addReplyTo($form->get('email'))
-            ->setBody($body, 'text/html');
+            ->setBody(
+                $this->renderView(
+                    'ContatoBundle:Templates:trabalhe-conosco.html.twig',
+                    array('form' => $this->get('request')->request->all(), 'Estado' => $Estado)
+                ), 'text/html'
+            );
 
         if(isset($_FILES['upload']['name']) && $_FILES['upload']['name'] != "")
         {

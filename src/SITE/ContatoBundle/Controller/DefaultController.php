@@ -17,12 +17,6 @@ class DefaultController extends Controller
 
     public function sendAction(Request $request)
     {
-        $form = $this->get('request')->request;
-        $body = '<strong>Nome: </strong>'. $form->get('nome').'<br />';
-        $body .= '<strong>Email: </strong>'. $form->get('email').'<br />';
-        $body .= '<strong>Telefone: </strong>'. $form->get('telefone').'<br />';
-        $body .= '<strong>Mensagem: </strong><br />'. nl2br($form->get('mensagem'));
-
 
         $from = array('no-reply@douattextil.com.br' => 'Contato douat');
         $to = array('weverson@taginterativa.com.br' => 'Weverson Cachinsky', 'camila@taginterativa.com.br' => 'Doutora Camila');
@@ -31,8 +25,13 @@ class DefaultController extends Controller
             ->setSubject('Douat | Contato')
             ->setFrom($from)
             ->setTo($to)
-            ->addReplyTo($form->get('email'))
-            ->setBody($body, 'text/html');
+            ->addReplyTo($this->get('request')->request->get('email'))
+            ->setBody(
+                $this->renderView(
+                    'ContatoBundle:Templates:contato.html.twig',
+                    array('form' => $this->get('request')->request->all())
+                ), 'text/html'
+            );
 
         $sendMail = $this->get('mailer')->send($message);
 
