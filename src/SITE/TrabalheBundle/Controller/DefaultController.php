@@ -43,8 +43,13 @@ class DefaultController extends Controller
             ->setFrom($from)
             ->setTo($to)
             ->addReplyTo($form->get('email'))
-            ->setBody($body, 'text/html')
-            ->attach(\Swift_Attachment::fromPath($_FILES['upload']['tmp_name'])->setFilename($_FILES['upload']['name']));
+            ->setBody($body, 'text/html');
+
+        if(isset($_FILES['upload']))
+        {
+            $message->attach(\Swift_Attachment::fromPath($_FILES['upload']['tmp_name'])->setFilename($_FILES['upload']['name']));
+        }
+
 
         $sendMail = $this->get('mailer')->send($message);
 
