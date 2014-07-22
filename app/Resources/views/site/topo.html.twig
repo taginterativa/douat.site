@@ -11,12 +11,12 @@
             <ul>
                 <li class="node-1"><a href="sobre.php">A Douat</a></li>
                 <li class="node-2 parent">
-                    <a href="malha.php">Malhas</a>
+                    <a href="{{ path('product_category_sub_list', {category_slug: 'fitness', subcategory_slug: 'colecao'}) }}">Malhas</a>
                     <ul>
-                        <li><a href="{{ path('product_category_sub_list', {category_slug: 'fitness', subcategory_slug: 'lancamentos'}) }}">Fitness</a></li>
-                        <li><a href="{{ path('product_category_sub_list', {category_slug: 'lingerie', subcategory_slug: 'lancamentos'}) }}">Lingerie</a></li>
-                        <li><a href="{{ path('product_category_sub_list', {category_slug: 'escolar', subcategory_slug: 'lancamentos'}) }}">Escolar</a></li>
-                        <li><a href="{{ path('product_category_sub_list', {category_slug: 'praia', subcategory_slug: 'lancamentos'}) }}">Praia</a></li>
+                        <li><a href="{{ path('product_category_sub_list', {category_slug: 'fitness', subcategory_slug: 'colecao'}) }}">Fitness</a></li>
+                        <li><a href="{{ path('product_category_sub_list', {category_slug: 'lingerie', subcategory_slug: 'colecao'}) }}">Lingerie</a></li>
+                        <li><a href="{{ path('product_category_sub_list', {category_slug: 'escolar', subcategory_slug: 'colecao'}) }}">Escolar</a></li>
+                        <li><a href="{{ path('product_category_sub_list', {category_slug: 'praia', subcategory_slug: 'colecao'}) }}">Praia</a></li>
                     </ul>
                 </li>
                 <li class="node-3"><a href="{{ path('site_page_services') }}">Serviços prestados</a></li>
