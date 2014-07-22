@@ -3,7 +3,9 @@
 namespace CMS\ProductBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 use CMS\ProductBundle\Entity\Product;
 use CMS\ProductBundle\Form\ProductType;
@@ -14,6 +16,56 @@ use CMS\ProductBundle\Form\ProductType;
  */
 class ProductController extends Controller
 {
+
+    public function paginationajaxAction(Request $request)
+    {
+        if(!$request->isXmlHttpRequest()){
+            //return false;
+        }
+        $page = $request->get('draw') != "" ? $request->get('draw') : 1;
+        $em = $this->getDoctrine()->getManager();
+
+        $dql = "SELECT COUNT(p) as total FROM CMSProductBundle:Product p";
+
+        $query = $em->createQuery($dql)->getResult();
+        $count = $query[0]['total'];
+
+        $dql = "SELECT p FROM CMSProductBundle:Product p";
+
+
+        if($request->get('search'))
+        {
+            //$search = $request->get('search');
+            //$dql .= " WHERE p.name LIKE '%" . $search['value'] . "%'";
+        }
+
+        $query = $em->createQuery($dql)->setFirstResult(($page-1)*10)
+            ->setMaxResults(10);
+
+        $entities = new Paginator($query, $fetchJoinCollection = true);
+        $Data = array(
+            'data' => array(),
+            'draw' => $page,
+            'recordsTotal' => $count,
+            'recordsFiltered' => count($entities)
+        );
+
+        foreach($entities as $Entity)
+        {
+            $Data['data'][] = array(
+                $Entity->getId(),
+                $Entity->getId(),
+                $Entity->getName(),
+                $Entity->getCreatedAt()->format('dmy'),
+                $Entity->getUpdatedAt()->format('dmy'),
+                $Entity->getIsActive(),
+                $Entity->getId()
+            );
+        }
+
+        return new Response(json_encode($Data));
+    }
+
 
     /**
      * Lists all Product entities.

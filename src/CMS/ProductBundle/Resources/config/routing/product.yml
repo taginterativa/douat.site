@@ -33,3 +33,8 @@ cms_produtos_delete_all:
     pattern:  /delete_all
     defaults: { _controller: "CMSProductBundle:Product:deleteAll" }
     requirements: { _method: post }
+
+cms_produtos_index_ajax:
+    pattern:  /index_ajax
+    defaults: { _controller: "CMSProductBundle:Product:paginationajax" }
+    requirements: { _method: post|get }

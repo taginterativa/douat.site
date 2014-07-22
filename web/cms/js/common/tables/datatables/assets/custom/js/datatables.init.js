@@ -1,6 +1,6 @@
+var gerado = false;
 (function($, window)
 {
-
 	$(window).on('load', function()
 	{
 		function fnInitCompleteCallback(that)
@@ -20,14 +20,37 @@
 		}
 
 		/* DataTables */
-		if ($('.dynamicTable').size() > 0)
+		if ($('#form-list').size() > 0 && $('.dynamicTable').size() > 0 && gerado == false)
 		{
+            gerado = true;
 			$('.dynamicTable').each(function()
 			{
+                if ($(this).is('.ajax'))
+                {
+                    var tableAjaxUrl = $(this).attr('rel');
+                    $(this).dataTable().fnDestroy();
+                    $(this).dataTable({
+                        "sPaginationType": "bootstrap",
+                        "sDom": "<'row separator bottom'<'col-md-5'T><'col-md-3'l><'col-md-4'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+                        "oLanguage": {
+                            "sLengthMenu": "_MENU_ Mostrar"
+                        },
+                        "processing": true,
+                        "serverSide": true,
+                        "ajax": rootPath + tableAjaxUrl,
+                        "sScrollX": "100%",
+                        "sScrollXInner": "100%",
+                        "bScrollCollapse": true,
+                        "fnInitComplete": function () {
+                            fnInitCompleteCallback(this);
+                        }
+                    });
+                }
 				// DataTables with TableTools
-				if ($(this).is('.tableTools'))
+				else if ($(this).is('.tableTools'))
 				{
 					$(this).dataTable().fnDestroy();
+
 					$(this).dataTable({
 						"sPaginationType": "bootstrap",
 						"sDom": "<'row separator bottom'<'col-md-5'T><'col-md-3'l><'col-md-4'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
@@ -85,22 +108,6 @@
 				        }
 					});
 				}
-				else if ($(this).is('.ajax'))
-				{
-					$(this).dataTable().fnDestroy();
-					$(this).dataTable({
-						"sPaginationType": "bootstrap",
-						"bProcessing": true,
-						"sAjaxSource": rootPath + 'admin/ajax/DataTables.json',
-				       	"sDom": "<'row separator bottom'<'col-md-12'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-				       	"sScrollX": "100%",
-				       	"sScrollXInner": "100%",
-				        "bScrollCollapse": true,
-				       	"fnInitComplete": function () {
-					    	fnInitCompleteCallback(this);
-				        }
-					});
-				}
 				else if ($(this).is('.fixedHeaderColReorder'))
 				{
 					$(this).dataTable().fnDestroy();
@@ -140,5 +147,5 @@
 			});
 		}
 	});
-	
+
 })(jQuery, window);

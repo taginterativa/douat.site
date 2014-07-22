@@ -57,12 +57,14 @@
                 {% if Products %}
                     <ul class="lista-blocos">
                         {% for Product in Products %}
+                        {% if Product.isActive == 1 %}
                             <li>
                                 <a href="{{ path('product_show', {category_slug: Product.ProductCategory.slug, product_slug: Product.slug}) }}">
                                     <span><img src="{{ asset(Product.image) }}"></span>
                                     <strong>{{ Product.name }}</strong>
                                 </a>
                             </li>
+                        {% endif %}
                         {% endfor %}
                     </ul>
                 {% else %}
