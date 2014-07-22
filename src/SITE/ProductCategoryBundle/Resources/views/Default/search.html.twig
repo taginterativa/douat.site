@@ -22,8 +22,8 @@
                     <h2>{{ TituloCategoria }}</h2>
                 </header>
                 <nav class="filtros-links">
-                    <a href="{{ path('product_category_sub_list', {category_slug: category_slug, subcategory_slug: 'lancamentos'}) }}" {% if subcategory_slug == 'lancamentos' %}class="ativo" {% endif %}>Lançamentos</a>
                     <a href="{{ path('product_category_sub_list', {category_slug: category_slug, subcategory_slug: 'colecao'}) }}"{% if subcategory_slug == 'colecao' %}class="ativo" {% endif %}>Nossa Coleção</a>
+                    <a href="{{ path('product_category_sub_list', {category_slug: category_slug, subcategory_slug: 'lancamentos'}) }}" {% if subcategory_slug == 'lancamentos' %}class="ativo" {% endif %}>Lançamentos</a>
                     <a href="{{ path('product_category_list', {category_slug: category_slug}) }}" class="{% if subcategory_slug is null %}ativo {% endif %} last">Todos</a>
                 </nav>
                 <form class="filtro" method="get" action="{{ path('product_category_search') }}">
