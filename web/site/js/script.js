@@ -15,6 +15,13 @@ $(function() {
 	//$('[data-background-image]').css('background-image', dataBackgroundImage);
 	//$('[data-img-src]').each(dataImgSrc);
 
+    // controla rodape
+    var altura_conteudo = $('.miolo-prod').height();
+    var altura_janela = $(window).height();
+    if(altura_conteudo < altura_janela) {
+        $('.footer-container').addClass('fixed');
+    }
+
 	if ($('.fancybox').length) {
 		$('.fancybox').fancybox({
 			padding: 5,
