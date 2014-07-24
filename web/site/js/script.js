@@ -47,6 +47,7 @@ $(function() {
         pagination: '.marcadores-home',
         createPagination: false,
         paginationClickable: true,
+        autoplay: 10000,
         onSlideChangeStart: function(swiper, direction) {
             //console.log(swiper.activeIndex);
             var active = swiper.activeLoopIndex+1;

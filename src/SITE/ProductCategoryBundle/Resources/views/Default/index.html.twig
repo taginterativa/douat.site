@@ -50,9 +50,9 @@
                     <input type="text" name="malha" placeholder="Nome da malha">
                     <button type="submit">Filtrar</button>
                 </form>
-                {% for Category in Categories %}
-                    {% if Category.Products.count %}
-                        <ul class="lista-blocos">
+                <ul class="lista-blocos">
+                    {% for Category in Categories %}
+                        {% if Category.Products.count %}
                             {% for Product in Category.Products %}
                             {% if Product.isActive == 1 %}
                             <li>
@@ -63,11 +63,11 @@
                             </li>
                             {% endif %}
                             {% endfor %}
-                        </ul>
-                    {% else %}
-                        <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
-                    {% endif %}
-                {% endfor %}
+                        {% else %}
+                            <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
 
             </section>
 
