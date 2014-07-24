@@ -51,18 +51,22 @@
                     <button type="submit">Filtrar</button>
                 </form>
                 <ul class="lista-blocos">
-                {% for Category in Categories %}
-                    {% for Product in Category.Products %}
-                    {% if Product.isActive == 1 %}
-                    <li>
-                        <a href="{{ path('product_show', {category_slug: Category.slug, product_slug: Product.slug}) }}">
-                            <span><img src="{{ asset(Product.image) }}"></span>
-                            <strong>{{ Product.name }}</strong>
-                        </a>
-                    </li>
-                    {% endif %}
+                    {% for Category in Categories %}
+                        {% if Category.Products.count %}
+                            {% for Product in Category.Products %}
+                            {% if Product.isActive == 1 %}
+                            <li>
+                                <a href="{{ path('product_show', {category_slug: Category.slug, product_slug: Product.slug}) }}">
+                                    <span><img src="{{ asset(Product.image) }}"></span>
+                                    <strong>{{ Product.name }}</strong>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
+                        {% endif %}
                     {% endfor %}
-                {% endfor %}
                 </ul>
 
             </section>

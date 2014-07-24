@@ -572,6 +572,11 @@ main {
 		padding: 10px 0 0 0;
 		margin: 0;
 	}
+	.footer-container.fixed {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+	}
 .lk-tag {
 	color: #c6c9c9;
 	text-decoration: none;
@@ -866,6 +871,17 @@ main {
 	}
 
 .tit-medio {
+	float: left;
+	width: 100%;
+	font-size: 24px;
+	color: #fff;
+	font-weight:  normal;
+	text-transform: uppercase;
+	font-family: 'bebas_neueregular';
+	margin: 0 0 10px 0;
+	letter-spacing: 1px;
+}
+.nada-encontrado {
 	float: left;
 	width: 100%;
 	font-size: 24px;
