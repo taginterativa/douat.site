@@ -1,12 +1,12 @@
 <?php
 
-namespace CMS\UserBundle\Form;
+namespace CMS\PageBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserType extends AbstractType
+class PaginasType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -16,8 +16,9 @@ class UserType extends AbstractType
     {
         $builder
             ->add('nome', 'text', array('attr' => array('class' => 'form-control')))
-            ->add('username', 'text', array('attr' => array('class' => 'form-control')))
-            ->add('password', 'password', array('attr' => array('class' => 'form-control', 'required' => false)))
+            //->add('imagem', 'file', array('required'  => false, 'data_class' => null ))
+            ->add('descricao', 'textarea', array( 'attr' => array('class' => 'wysihtml5 form-control', 'style' => 'width: 100%; height: 500px;')) )
+            ->add('isActive', 'checkbox', array('attr' => array('required' => false), 'label' => 'Ativo'))
         ;
     }
     
@@ -27,7 +28,7 @@ class UserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'CMS\UserBundle\Entity\User'
+            'data_class' => 'CMS\PageBundle\Entity\Paginas'
         ));
     }
 
@@ -36,6 +37,6 @@ class UserType extends AbstractType
      */
     public function getName()
     {
-        return 'cms_userbundle_user';
+        return 'cms_pagebundle_paginas';
     }
 }

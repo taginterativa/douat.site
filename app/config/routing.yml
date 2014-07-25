@@ -1,3 +1,7 @@
+cms_page:
+    resource: "@CMSPageBundle/Resources/config/routing.yml"
+    prefix:   /
+
 site_trabalhe:
     resource: "@SITETrabalheBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,0 +1,53 @@
+CMS\PageBundle\Entity\Paginas:
+    type: entity
+    table: paginas
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nome:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        imagem:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        isActive:
+            type: boolean
+            nullable: false
+            comment: ''
+            column: is_active
+        descricao:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+            gedmo:
+                timestampable:
+                  on: create
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+            gedmo:
+                timestampable:
+                  on: update
+    lifecycleCallbacks: {  }

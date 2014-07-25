@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new CMS\RepresentanteBundle\CMSRepresentanteBundle(),
             new SITE\RepresentantesBundle\SITERepresentantesBundle(),
             new SITE\TrabalheBundle\SITETrabalheBundle(),
+            new CMS\PageBundle\CMSPageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

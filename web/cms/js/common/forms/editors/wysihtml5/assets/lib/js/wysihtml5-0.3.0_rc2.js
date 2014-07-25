@@ -4898,7 +4898,7 @@ wysihtml5.dom.parse = (function() {
     if (setAttributes) {
       attributes = wysihtml5.lang.object(setAttributes).clone();
     }
-    
+    /*
     if (checkAttributes) {
       for (attributeName in checkAttributes) {
         method = attributeCheckMethods[checkAttributes[attributeName]];
@@ -4910,7 +4910,23 @@ wysihtml5.dom.parse = (function() {
           attributes[attributeName] = newAttributeValue;
         }
       }
-    }
+    }*/
+      if (checkAttributes) {
+          for (attributeName in checkAttributes) {
+              if(checkAttributes[attributeName] == 'allow')
+                  method = 'allow';
+              else
+                  method = attributeCheckMethods[checkAttributes[attributeName]];
+
+              if (!method) {
+                  continue;
+              }
+              newAttributeValue = (method == 'allow' ? _getAttribute(oldNode, attributeName) : method(_getAttribute(oldNode, attributeName)));
+              if (typeof(newAttributeValue) === "string") {
+                  attributes[attributeName] = newAttributeValue;
+              }
+          }
+      }
     
     if (setClass) {
       classes.push(setClass);
