@@ -253,7 +253,6 @@ $(function() {
             $(this).addClass('ativo');
             $('.filtros-links').prepend(this);
             $('.mobile .filtros-links a:not(.ativo)').hide();
-            return false;
         }
     });
 

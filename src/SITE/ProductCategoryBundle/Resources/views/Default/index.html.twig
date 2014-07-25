@@ -64,7 +64,11 @@
                             {% endif %}
                             {% endfor %}
                         {% else %}
-                            <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
+                            {% if subcategory_slug is null %}
+
+                            {% else %}
+                                <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </ul>
