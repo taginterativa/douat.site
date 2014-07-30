@@ -18,7 +18,7 @@
         <div class="widget widget-body-white widget-heading-simple">
             <div class="widget-body">
                 <!-- Table -->
-                <table class="dynamicTable tableTools table table-striped checkboxs records_list" rel="produtos/index_ajax">
+                <table class="table table-striped checkboxs records_list" rel="produtos/index_ajax">
                     <thead>
                         <tr>
                             <th class="text-center">
@@ -61,6 +61,48 @@
                     </tbody>
                 </table>
                 <!-- // Table END -->
+
+                {% if num_rows > 10 %}
+                    {% set pages = (num_rows/10)|round(0, 'ceil') %}
+                    {% if page > 1 %}
+                        {% set prev = page - 1 %}
+                    {% else %}
+                        {% set prev = 1 %}
+                    {% endif %}
+
+                    {% if page < pages %}
+                        {% set next = page + 1 %}
+                    {% else %}
+                        {% set next = pages %}
+                    {% endif %}
+
+                    <div class=" margin-none">
+                        <ul style="float: right;" class="pagination pagination-right margin-none">
+                            <li {% if page == 1 %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_product_paginate',{'page': 1}) }}">«</a></li>
+                            <li {% if page == 1 %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_product_paginate',{'page': prev}) }}">&lsaquo;</a></li>
+                            {% if page > 7 and (page + 7) < pages %}
+                                {% set inicio = page - 7 %}
+                                {% set fim = page + 7 %}
+                            {% elseif page > 7 and (page + 7) >= pages %}
+                                {% set inicio = pages - 15 %}
+                                {% set fim = pages %}
+                            {% else %}
+                                {% set inicio = 1 %}
+                                {% set fim = 15 %}
+                            {% endif %}
+
+                            {% for i in inicio..fim %}
+                                <li {% if i == page %}{{ 'class="active"' }}{% endif %}><a href="{{ path('cms_product_paginate',{'page': i}) }}">{{ i }}</a></li>
+                            {% endfor %}
+                            <li {% if page == pages %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_product_paginate',{'page': next}) }}">&rsaquo;</a></li>
+                            <li {% if page == pages %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_product_paginate',{'page': pages}) }}">»</a></li>
+                        </ul>
+                        <div style="clear: both;"></div>
+
+                    </div>
+                {% endif %}
+
+
             </div>
         </div>
 

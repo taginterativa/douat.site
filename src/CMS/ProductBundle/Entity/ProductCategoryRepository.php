@@ -70,13 +70,22 @@ class ProductCategoryRepository extends EntityRepository
     }
 
 
-    public function getSubCategories($category_id)
+    public function getSubCategories($category_id = null)
     {
-        $q = $this->getEntityManager()
-            ->createQuery(
-                'SELECT c FROM CMSProductBundle:ProductCategory c WHERE c.parent = '. $category_id .' ORDER BY c.name ASC'
-            );
-
+        if(!is_null($category_id))
+        {
+            $q = $this->getEntityManager()
+                ->createQuery(
+                    'SELECT c FROM CMSProductBundle:ProductCategory c WHERE c.parent = '. $category_id .' ORDER BY c.name ASC'
+                );
+        }
+        else
+        {
+            $q = $this->getEntityManager()
+                ->createQuery(
+                    'SELECT c FROM CMSProductBundle:ProductCategory c WHERE c.parent IS NOT NULL ORDER BY c.name ASC'
+                );
+        }
         return $q->getResult();
     }
 

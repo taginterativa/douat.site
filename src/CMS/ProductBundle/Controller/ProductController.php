@@ -75,11 +75,29 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('CMSProductBundle:Product')->findAll();
+        $all_results = $em->getRepository('CMSProductBundle:Product')->findAll();
+        $entities = $em->getRepository('CMSProductBundle:Product')->findBy(array(),array(),10);
 
         return $this->render('CMSProductBundle:Product:index.html.twig', array(
             'entities' => $entities,
-            'error' => null
+            'error' => null,
+            'page' => '1',
+            'num_rows' => count($all_results)
+        ));
+    }
+
+
+    public function paginateAction($page)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $all_results = $entities = $em->getRepository('CMSProductBundle:Product')->findAll();
+        $entities = $em->getRepository('CMSProductBundle:Product')->findBy(array(),array(),10, ($page-1)*10);
+
+        return $this->render('CMSProductBundle:Product:index.html.twig', array(
+            'entities' => $entities,
+            'error' => null,
+            'page' => $page,
+            'num_rows' => count($all_results)
         ));
     }
     /**
@@ -122,7 +140,9 @@ class ProductController extends Controller
     */
     private function createCreateForm(Product $entity)
     {
-        $form = $this->createForm(new ProductType(), $entity, array(
+        $em = $this->getDoctrine()->getManager();
+
+        $form = $this->createForm(new ProductType($em), $entity, array(
             'action' => $this->generateUrl('cms_produtos_create'),
             'method' => 'POST',
         ));
@@ -203,7 +223,9 @@ class ProductController extends Controller
     */
     private function createEditForm(Product $entity)
     {
-        $form = $this->createForm(new ProductType(), $entity, array(
+        $em = $this->getDoctrine()->getManager();
+
+        $form = $this->createForm(new ProductType($em), $entity, array(
             'action' => $this->generateUrl('cms_produtos_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));

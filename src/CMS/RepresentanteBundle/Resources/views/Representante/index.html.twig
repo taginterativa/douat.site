@@ -28,7 +28,13 @@
                                         <input type="checkbox">
                                     </label>
                                 </div>
-                            </th>                                <th>Id</th>                                <th>Name</th>                                <th>Address</th>                                <th>Latitude</th>                                <th>Longitude</th>                                <th>Bairro</th>                                <th>Email</th>                                <th>Phone</th>                                <th>Slug</th>                                <th>Createdat</th>                                <th>Updatedat</th>                                <th>Isactive</th>
+                            </th>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Ativo?</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -46,14 +52,8 @@
                             <td><a href="{{ path('cms_representantes_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                             <td>{{ entity.name }}</td>
                             <td>{{ entity.address }}</td>
-                            <td>{{ entity.latitude }}</td>
-                            <td>{{ entity.longitude }}</td>
-                            <td>{{ entity.bairro }}</td>
                             <td>{{ entity.email }}</td>
                             <td>{{ entity.phone }}</td>
-                            <td>{{ entity.slug }}</td>
-                            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                             <td>{{ entity.isActive }}</td>
                             <td>    <a href="{{ path('cms_representantes_edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
     <a href="{{ path('cms_representantes_delete', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-danger delete"  data-toggle="tooltip" data-original-title="Excluir" data-placement="top" ><i class="fa fa-trash-o"></i></a>

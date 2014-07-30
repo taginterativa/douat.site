@@ -2,6 +2,7 @@
 
 namespace CMS\ProductBundle\Form;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -12,7 +13,15 @@ use CMS\ProductBundle\Entity\Product;
 
 class ProductType extends AbstractType
 {
-        /**
+
+    private $em;
+
+    public function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
+
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -30,10 +39,23 @@ class ProductType extends AbstractType
             ->add('acabamento')
             //->add('attachment', 'text', array('attr' => array('class' => 'form-control')))
             ->add('isActive', 'checkbox', array('required'=> false) )
-            ->add('productCategory')
+            ->add('productCategory', 'choice', array('choices'=> $this->getCategoryChoices()))
             ->add('productRelated', null, array('required' => false))
             ->add('productColor')
         ;
+    }
+
+
+    private function getCategoryChoices()
+    {
+        $choices = array();
+        $Cats = $this->em->getRepository('CMSProductBundle:ProductCategory')->getSubCategories();
+
+        foreach ($Cats as $Cat) {
+            $choices[$Cat->getId()] = $Cat->getName();
+        }
+
+        return $choices;
     }
     
     /**
