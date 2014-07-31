@@ -38,3 +38,8 @@ cms_representantes_ajax_estados:
     pattern:  /ajax_estados
     defaults: { _controller: "CMSRepresentanteBundle:Representante:ajax" }
     requirements: { _method: post }
+
+cms_representantes_paginate:
+     pattern:  /pagina/{page}
+     defaults: { _controller: "CMSRepresentanteBundle:Representante:paginate" }
+     requirements: { _method: get|post }

@@ -21,15 +21,32 @@ class UserController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('CMSUserBundle:User')->findAll();
+        $em       = $this->getDoctrine()->getManager();
+        $num_rows = count($em->getRepository('CMSUserBundle:User')->findAll());
+        $entities = $em->getRepository('CMSUserBundle:User')->findBy(array(),array(),10);
 
         return $this->render('CMSUserBundle:User:index.html.twig', array(
             'entities' => $entities,
-            'error' => null
+            'error' => null,
+            'page' => '1',
+            'num_rows' => $num_rows
         ));
     }
+
+    public function paginateAction($page)
+    {
+        $em       = $this->getDoctrine()->getManager();
+        $num_rows = count($em->getRepository('CMSUserBundle:User')->findAll());
+        $entities = $em->getRepository('CMSUserBundle:User')->findBy(array(),array(),10, ($page-1)*10);
+
+        return $this->render('CMSUserBundle:User:index.html.twig', array(
+            'entities' => $entities,
+            'error' => null,
+            'page' => $page,
+            'num_rows' => $num_rows
+        ));
+    }
+
     /**
      * Creates a new User entity.
      *

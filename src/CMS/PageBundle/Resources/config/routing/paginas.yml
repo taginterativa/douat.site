@@ -33,3 +33,8 @@ cms_paginas_delete_all:
     pattern:  /delete_all
     defaults: { _controller: "CMSPageBundle:Paginas:deleteAll" }
     requirements: { _method: post }
+
+cms_paginas_paginate:
+     pattern:  /pagina/{page}
+     defaults: { _controller: "CMSPageBundle:Paginas:paginate" }
+     requirements: { _method: get|post }

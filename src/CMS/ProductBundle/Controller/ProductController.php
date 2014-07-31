@@ -73,31 +73,30 @@ class ProductController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $all_results = $em->getRepository('CMSProductBundle:Product')->findAll();
+        $em       = $this->getDoctrine()->getManager();
+        $num_rows = count($em->getRepository('CMSProductBundle:Product')->findAll());
         $entities = $em->getRepository('CMSProductBundle:Product')->findBy(array(),array(),10);
 
         return $this->render('CMSProductBundle:Product:index.html.twig', array(
             'entities' => $entities,
             'error' => null,
             'page' => '1',
-            'num_rows' => count($all_results)
+            'num_rows' => $num_rows
         ));
     }
 
 
     public function paginateAction($page)
     {
-        $em = $this->getDoctrine()->getManager();
-        $all_results = $entities = $em->getRepository('CMSProductBundle:Product')->findAll();
+        $em       = $this->getDoctrine()->getManager();
+        $num_rows = count($em->getRepository('CMSProductBundle:Product')->findAll());
         $entities = $em->getRepository('CMSProductBundle:Product')->findBy(array(),array(),10, ($page-1)*10);
 
         return $this->render('CMSProductBundle:Product:index.html.twig', array(
             'entities' => $entities,
             'error' => null,
             'page' => $page,
-            'num_rows' => count($all_results)
+            'num_rows' => $num_rows
         ));
     }
     /**

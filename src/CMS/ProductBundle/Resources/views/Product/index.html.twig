@@ -88,7 +88,11 @@
                                 {% set fim = pages %}
                             {% else %}
                                 {% set inicio = 1 %}
-                                {% set fim = 15 %}
+                                {% set fim = pages %}
+                            {% endif %}
+
+                            {% if inicio < 1 %}
+                                {% set inicio = 1 %}
                             {% endif %}
 
                             {% for i in inicio..fim %}

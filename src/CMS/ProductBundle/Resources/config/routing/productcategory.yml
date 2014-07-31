@@ -33,3 +33,8 @@ cms_produtos_categorias_delete_all:
     pattern:  /delete_all
     defaults: { _controller: "CMSProductBundle:ProductCategory:deleteAll" }
     requirements: { _method: post }
+
+cms_produtos_categorias_paginate:
+    pattern:  /pagina/{page}
+    defaults: { _controller: "CMSProductBundle:ProductCategory:paginate" }
+    requirements: { _method: get|post }

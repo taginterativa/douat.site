@@ -33,3 +33,8 @@ cms_user_delete_all:
     pattern:  /delete_all
     defaults: { _controller: "CMSUserBundle:User:deleteAll" }
     requirements: { _method: post }
+
+cms_user_paginate:
+     pattern:  /pagina/{page}
+     defaults: { _controller: "CMSUserBundle:User:paginate" }
+     requirements: { _method: get|post }
