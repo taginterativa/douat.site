@@ -11,7 +11,13 @@ $(document).ready(function(){
    });
 
     $('#form-list button.delete').click(function(){
-        abreConfirm("Deseja relamente excluir todos os registros selecionados?", 'form', $('#form-list'));
+        if($('.checkbox-single input:checked').size() > 0) {
+            abreConfirm("Deseja relamente excluir todos os registros selecionados?", 'form', $('#form-list'));
+            $('.modal-footer button[data-bb-handler="Excluir"]').show();
+        } else {
+            abreConfirm("Você precisa marcar ao menos um registro para excluir.", 'form', '');
+            $('.modal-footer button[data-bb-handler="Excluir"]').hide();
+        }
         return false;
     });
 
@@ -23,6 +29,7 @@ $(document).ready(function(){
     if ($('.select2-offscreen').length) { $('.select2-offscreen').select2(); }
 
     if ($('textarea.wysihtml5').size() > 0) { $('textarea.wysihtml5').wysihtml5() };
+
 
 });
 
