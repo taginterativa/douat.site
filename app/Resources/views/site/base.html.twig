@@ -11,7 +11,7 @@
 </script>
 
 </head>
-<body class="{% block body_class %}page-home{% endblock %}">
+<body class="{% block body_class %}page-home{% endblock %}" style="{% block body_style %}{% endblock %}">
 
 {% include 'site/topo.html.twig'  %}
 {% block body %}{% endblock %}

@@ -6,12 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1>
-        Listando Paginas
-                    <a class="btn btn-primary" href="{{ path('cms_paginas_new') }}">
-                Adicionar novo
-            </a>
-            </h1>
+    <h1>Listando Paginas</h1>
 
     <form id="form-list" action="{{ path('cms_paginas_delete_all') }}" method="post">
         <!-- Widget -->
@@ -105,14 +100,6 @@
                 {% endif %}
             </div>
         </div>
-
-                    <a class="btn btn-primary" href="{{ path('cms_paginas_new') }}">
-                Adicionar novo
-            </a>
-        
-                    <button type="submit" class="btn btn-danger delete">
-                Excluir selecionados
-            </button>
-        </form>
+    </form>
 
 {% endblock %}

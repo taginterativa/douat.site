@@ -44,6 +44,18 @@ class Paginas
      */
     private $updatedAt;
 
+    /**
+     * Set id
+     *
+     * @param integer $id
+     * @return Paginas
+     */
+    public function setId($id)
+    {
+        $this->nome = $nome;
+        return $this;
+    }
+
 
     /**
      * Get id
@@ -191,5 +203,28 @@ class Paginas
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/background';
+    }
+
+
+    public function upload() {
+        if (null === $this->getImagem()) {
+            return;
+        }
+
+        $extension = $this->getImagem()->guessExtension();
+
+        $this->getImagem()->move($this->getUploadRootDir(), $this->getId() . "." . $extension);
+        $this->imagem = $this->getUploadDir() . '/' . $this->getId() . "." . $extension;
     }
 }

@@ -522,15 +522,11 @@ main {
 	opacity: 0;
 	transition: all 0.5s;
 }
-	.malha {background: url(../images/malhas.jpg) no-repeat center top #333;}
-	.malha-1 {background: url(../images/malhas-fitness.jpg) no-repeat center top #333;}
-	.malha-2 {background: url(../images/malhas2.jpg) no-repeat center top #333;}
-	.malha-3 {background: url(../images/malhas-escolar.jpg) no-repeat center top #333;}
-	.malha-4 {background: url(../images/bg-home4.jpg) no-repeat center top #333;}
 
-	.bg-malhas.ativo {
-		opacity: 1;
-	}
+.bg-malhas.ativo {
+	opacity: 1;
+}
+
 .secundary {
 	float: left;
 	width: 100%;
@@ -1114,7 +1110,6 @@ main {
 	padding: 255px 0 0 0;
 }
 .page-sobre {
-	background: url(../images/bg-sobre.jpg) no-repeat center top fixed;
 	padding: 255px 0 0 0;
 }
 .page-representantes {
@@ -1122,7 +1117,6 @@ main {
 	padding: 255px 0 0 0;
 }
 .page-servicos {
-	background: url(../images/bg-servicos.jpg) no-repeat center top #b7b7b7;
 	padding: 255px 0 0 0;
 }
 
@@ -1145,9 +1139,10 @@ main {
 	font-family: 'bebas_neueregular';
 	font-size: 22px;
 	letter-spacing: 0.5px;
-	color: #1c7800;
 	padding: 0 0 15px 0;
+	color: #1c7800;
 }
+
 label.error {display: none !important;}
 .form-default {
 	float: left;

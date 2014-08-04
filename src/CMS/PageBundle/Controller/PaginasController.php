@@ -58,6 +58,11 @@ class PaginasController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
+            if(!is_null($form['imagem']->getData())) {
+                $entity->upload();
+            }
+
             $em->persist($entity);
             $em->flush();
 
@@ -90,22 +95,6 @@ class PaginasController extends Controller
         $form->add('submit', 'submit', array('label' => 'Salvar', 'attr' => array('class' => 'btn btn-success')));
 
         return $form;
-    }
-
-    /**
-     * Displays a form to create a new Paginas entity.
-     *
-     */
-    public function newAction()
-    {
-        $entity = new Paginas();
-        $form   = $this->createCreateForm($entity);
-
-        return $this->render('CMSPageBundle:Paginas:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-            'error' => null
-        ));
     }
 
     /**
@@ -181,6 +170,7 @@ class PaginasController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('CMSPageBundle:Paginas')->find($id);
+        $image_file = $entity->getImagem();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Paginas entity.');
@@ -191,6 +181,12 @@ class PaginasController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            if(!is_null($editForm['imagem']->getData())) {
+                $entity->upload();
+            } else {
+                $entity->setImagem($image_file);
+            }
+
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('title', 'Paginas');

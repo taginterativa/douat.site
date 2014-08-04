@@ -1,0 +1,7 @@
+parameters:
+#    cms_banner.example.class: CMS\BannerBundle\Example
+
+services:
+#    cms_banner.example:
+#        class: %cms_banner.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,3 +1,7 @@
+cms_banner:
+    resource: "@CMSBannerBundle/Resources/config/routing.yml"
+    prefix:   /
+
 cms_page:
     resource: "@CMSPageBundle/Resources/config/routing.yml"
     prefix:   /
