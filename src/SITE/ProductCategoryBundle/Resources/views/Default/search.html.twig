@@ -47,7 +47,7 @@
                         <option value="Estampados" {% if cor == 'Estampados' %}selected{% endif %}>Estampados</option>
                         {% for Cor in Cores %}
                             {% if 'estampa' not in Cor.name|lower %}
-                                <option value="{{ Cor.name }}" {% if cor == Cor.name %}selected{% endif %}>{{ Cor.name }}</option>
+                                <option value="{{ Cor.name }}" {% if cor == Cor.name %}selected{% endif %}>{{ Cor.code }} - {{ Cor.name }}</option>
                             {% endif %}
                         {% endfor %}
                     </select>

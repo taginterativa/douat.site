@@ -33,3 +33,8 @@ cms_cores_delete_all:
     pattern:  /delete_all
     defaults: { _controller: "CMSCoresBundle:Color:deleteAll" }
     requirements: { _method: post }
+
+cms_cores_paginate:
+     pattern:  /pagina/{page}
+     defaults: { _controller: "CMSCoresBundle:Color:paginate" }
+     requirements: { _method: get|post }

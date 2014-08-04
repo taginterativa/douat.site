@@ -1,0 +1,118 @@
+{% extends '::admin_template.html.twig' %}
+
+
+{% block title %}
+    Listando Paginass |
+{% endblock %}
+
+{% block content %}
+    <h1>
+        Listando Paginas
+                    <a class="btn btn-primary" href="{{ path('cms_paginas_new') }}">
+                Adicionar novo
+            </a>
+            </h1>
+
+    <form id="form-list" action="{{ path('cms_paginas_delete_all') }}" method="post">
+        <!-- Widget -->
+        <div class="widget widget-body-white widget-heading-simple">
+            <div class="widget-body">
+                <!-- Table -->
+                <table class="table table-striped checkboxs records_list">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                <div class="checkbox checkbox-single margin-none">
+                                    <label class="checkbox-custom">
+                                        <i class="fa fa-fw fa-square-o"></i>
+                                        <input type="checkbox">
+                                    </label>
+                                </div>
+                            </th>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Ativo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for entity in entities %}
+                        <tr class="gradeC">                            <td class="text-center">
+                                <div class="checkbox checkbox-single margin-none">
+                                    <label class="checkbox-custom">
+                                        <i class="fa fa-fw fa-square-o"></i>
+                                        <input type="checkbox" name="record[]" value="{{ entity.id }}">
+                                    </label>
+                                </div>
+                            </td>
+
+                            <td><a href="{{ path('cms_paginas_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.nome }}</td>
+                            <td>{{ entity.isActive }}</td>
+                            <td>
+                                <a href="{{ path('cms_paginas_edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
+                                {##<a href="{{ path('cms_paginas_delete', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-danger delete"  data-toggle="tooltip" data-original-title="Excluir" data-placement="top" ><i class="fa fa-trash-o"></i></a>##}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <!-- // Table END -->
+
+                {% if num_rows > 10 %}
+                    {% set pages = (num_rows/10)|round(0, 'ceil') %}
+
+                    {% if page > 1 %}
+                        {% set prev = page - 1 %}
+                    {% else %}
+                        {% set prev = 1 %}
+                    {% endif %}
+
+                    {% if page < pages %}
+                        {% set next = page + 1 %}
+                    {% else %}
+                        {% set next = pages %}
+                    {% endif %}
+
+                    <div class=" margin-none">
+                        <ul style="float: right;" class="pagination pagination-right margin-none">
+                            <li {% if page == 1 %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': 1}) }}">«</a></li>
+                            <li {% if page == 1 %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': prev}) }}">&lsaquo;</a></li>
+                            
+                            {% if page > 7 and (page + 7) < pages %}
+                                {% set inicio = page - 7 %}
+                                {% set fim = page + 7 %}
+                            {% elseif page > 7 and (page + 7) >= pages %}
+                                {% set inicio = pages - 15 %}
+                                {% set fim = pages %}
+                            {% else %}
+                                {% set inicio = 1 %}
+                                {% set fim = pages %}
+                            {% endif %}
+
+                            {% if inicio < 1 %}
+                                {% set inicio = 1 %}
+                            {% endif %}
+
+                            {% for i in inicio..fim %}
+                                <li {% if i == page %}{{ 'class="active"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': i}) }}">{{ i }}</a></li>
+                            {% endfor %}
+                            <li {% if page == pages %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': next}) }}">&rsaquo;</a></li>
+                            <li {% if page == pages %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': pages}) }}">»</a></li>
+                        </ul>
+                        <div style="clear: both;"></div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+                    <a class="btn btn-primary" href="{{ path('cms_paginas_new') }}">
+                Adicionar novo
+            </a>
+        
+                    <button type="submit" class="btn btn-danger delete">
+                Excluir selecionados
+            </button>
+        </form>
+
+{% endblock %}

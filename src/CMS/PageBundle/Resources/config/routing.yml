@@ -1,0 +1,7 @@
+cms_page_homepage:
+    pattern:  /cms_page
+    defaults: { _controller: CMSPageBundle:Default:index }
+
+CMSPageBundle_cms_paginas:
+    resource: "@CMSPageBundle/Resources/config/routing/paginas.yml"
+    prefix:   /cms/paginas

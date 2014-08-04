@@ -80,7 +80,7 @@
 		"font-styles": true,
 		"emphasis": true,
 		"lists": true,
-		"html": false,
+		"html": true,
 		"link": true,
 		"image": true,
 		events: {},
@@ -90,26 +90,55 @@
 				"i":  {},
 				"br": {},
 				"ol": {},
-				"ul": {},
 				"li": {},
 				"h1": {},
 				"h2": {},
+                "p" : {
+                    "check_attributes": {
+                        "class": "allow"
+                    }
+                },
+                "span" : {
+                    "check_attributes": {
+                        "style": "allow",
+                        "class": "allow"
+                    }
+                },
+                "article": {
+                    "check_attributes": {
+                        "class": "allow"
+                    }
+                },
+                "ul": {
+                    "check_attributes": {
+                        "class": "allow"
+                    }
+                },
+                "header": {
+                    "check_attributes": {
+                        "class": "allow"
+                    }
+                },
+                "strong": {
+                    "check_attributes": {
+                        "class": "allow"
+                    }
+                },
 				"u": 1,
 				"img": {
 					"check_attributes": {
 			            "width": "numbers",
 			            "alt": "alt",
-			            "src": "url",
+			            "src": "allow",
 			            "height": "numbers"
 			        }
 				},
 				"a":  {
-					set_attributes: {
-						target: "_blank",
-						rel:    "nofollow"
-					},
 					check_attributes: {
-						href:   "url" // important to avoid XSS
+						target: "allow",
+						rel:    "allow",
+                        "class": "allow",
+                        "href": "allow"
 					}
 				}
 			}

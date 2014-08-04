@@ -45,15 +45,36 @@ class RepresentanteController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('CMSRepresentanteBundle:Representante')->findAll();
+        $em       = $this->getDoctrine()->getManager();
+        $num_rows = count($em->getRepository('CMSRepresentanteBundle:Representante')->findAll());
+        $entities = $em->getRepository('CMSRepresentanteBundle:Representante')->findBy(array(),array(),10);
 
         return $this->render('CMSRepresentanteBundle:Representante:index.html.twig', array(
             'entities' => $entities,
-            'error' => null
+            'error' => null,
+            'page' => '1',
+            'num_rows' => $num_rows
         ));
     }
+
+    public function paginateAction($page)
+    {
+        $em       = $this->getDoctrine()->getManager();
+        $num_rows = count($em->getRepository('CMSRepresentanteBundle:Representante')->findAll());
+        $entities = $em->getRepository('CMSRepresentanteBundle:Representante')->findBy(array(),array(),10, ($page-1)*10);
+
+        return $this->render('CMSRepresentanteBundle:Representante:index.html.twig', array(
+            'entities' => $entities,
+            'error' => null,
+            'page' => $page,
+            'num_rows' => $num_rows
+        ));
+    }
+
+
+
+
+
     /**
      * Creates a new Representante entity.
      *

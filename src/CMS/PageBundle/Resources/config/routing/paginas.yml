@@ -1,0 +1,40 @@
+cms_paginas:
+    pattern:  /
+    defaults: { _controller: "CMSPageBundle:Paginas:index" }
+
+cms_paginas_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSPageBundle:Paginas:show" }
+
+cms_paginas_new:
+    pattern:  /new
+    defaults: { _controller: "CMSPageBundle:Paginas:new" }
+
+cms_paginas_create:
+    pattern:  /create
+    defaults: { _controller: "CMSPageBundle:Paginas:create" }
+    requirements: { _method: post }
+
+cms_paginas_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSPageBundle:Paginas:edit" }
+
+cms_paginas_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSPageBundle:Paginas:update" }
+    requirements: { _method: post|put }
+
+cms_paginas_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSPageBundle:Paginas:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_paginas_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSPageBundle:Paginas:deleteAll" }
+    requirements: { _method: post }
+
+cms_paginas_paginate:
+     pattern:  /pagina/{page}
+     defaults: { _controller: "CMSPageBundle:Paginas:paginate" }
+     requirements: { _method: get|post }

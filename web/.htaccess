@@ -90,5 +90,4 @@ DirectoryIndex app.php
       AddOutputFilterByType DEFLATE text/javascript
       AddOutputFilterByType DEFLATE text/plain
       AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject application/x-font-ttf image/svg+xml
 </ifModule>

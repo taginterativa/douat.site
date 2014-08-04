@@ -2,7 +2,7 @@
 <div id="menu" class="hidden-print hidden-xs ">
     <div id="sidebar-discover-wrapper">
         <ul class="list-unstyled">
-            <li class="active"><a href="surveys_multiple.html?lang=en" class="glyphicons home"><i></i><span>Dashboard</span></a></li>
+            <li class="active"><a href="{{ path('cms_dashboard_home') }}" class="glyphicons home"><i></i><span>Painel</span></a></li>
             <li>
                 <a href="#sidebar-discover-cameras" class="glyphicons plus" data-toggle="sidebar-discover"><i></i><span>Produtos</span></a>
                 <div id="sidebar-discover-cameras" class="sidebar-discover-menu">
@@ -19,6 +19,7 @@
                 </div>
             </li>
             <li><a href="{{ path('cms_representantes') }}" class="glyphicons group"><i></i><span>Representantes</span></a></li>
+            <li><a href="{{ path('cms_paginas') }}" class="glyphicons bookp"><i></i><span>Páginas</span></a></li>
             <li><a href="{{ path('cms_user') }}" class="glyphicons user"><i></i><span>Usuários</span></a></li>
         </ul>
     </div>

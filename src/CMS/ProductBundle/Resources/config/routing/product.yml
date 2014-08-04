@@ -38,3 +38,8 @@ cms_produtos_index_ajax:
     pattern:  /index_ajax
     defaults: { _controller: "CMSProductBundle:Product:paginationajax" }
     requirements: { _method: post|get }
+
+cms_product_paginate:
+    pattern:  /pagina/{page}
+    defaults: { _controller: "CMSProductBundle:Product:paginate" }
+    requirements: { _method: get|post }

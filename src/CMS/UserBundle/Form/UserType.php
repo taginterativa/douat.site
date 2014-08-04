@@ -17,7 +17,7 @@ class UserType extends AbstractType
         $builder
             ->add('nome', 'text', array('attr' => array('class' => 'form-control')))
             ->add('username', 'text', array('attr' => array('class' => 'form-control')))
-            ->add('password', 'password', array('attr' => array('class' => 'form-control')))
+            ->add('password', 'password', array('attr' => array('class' => 'form-control', 'required' => false)))
         ;
     }
     
