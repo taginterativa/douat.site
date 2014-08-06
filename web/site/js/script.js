@@ -81,7 +81,7 @@ $(function() {
     });
     $('.bloco-estampas').click(function() {
         var bg = $(this).data('bg');
-        $('.estampa-zoom').append('<img src="'+bg+'">');
+        $('.estampa-zoom').html('<img src="'+bg+'">');
         $('.estampa-zoom').show();
         $('.overlay').show();
         $('.estampa-zoom .fechar-foto').show();
@@ -266,6 +266,7 @@ $(function() {
         $('.img-malha').css('top', 0);
         $('.img-malha').css('height', 185+'px');
         $('.float-malha').fadeOut();
+        $('.estampa-zoom').fadeOut();
     });
     $('.bt-menu').click(function() {
     	if($(this).hasClass('aberto')) {
