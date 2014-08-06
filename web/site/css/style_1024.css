@@ -25,6 +25,30 @@
 	width: 140px;
 	background-position: 110px center;
 }
+.filtro select.select {
+	width: 140px;
+	float: left;
+	font-family: Tahoma;
+	color: #999999;
+	font-size: 14px !important;
+	height: 48px;
+	padding: 18px 10px 0 10px;
+	letter-spacing: 1px;
+	background: url(../images/seta-select.png) no-repeat 125px center #fff;
+	margin-right: 20px;
+}
+.filtro span.select {
+	font-family: 'bebas_neueregular';
+	width: 140px;
+	float: left;
+	color: #999999;
+	font-size: 18px;
+	height: 48px;
+	padding: 18px 10px 0 10px;
+	letter-spacing: 1px;
+	background: url(../images/seta-select.png) no-repeat 115px center #fff;
+	margin-right: 20px;
+}
 .lista-blocos {
 	width: 860px;
 }
