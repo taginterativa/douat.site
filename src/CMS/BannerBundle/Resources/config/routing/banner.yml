@@ -1,0 +1,40 @@
+cms_banner:
+    pattern:  /
+    defaults: { _controller: "CMSBannerBundle:Banner:index" }
+
+cms_banner__show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSBannerBundle:Banner:show" }
+
+cms_banner__new:
+    pattern:  /new
+    defaults: { _controller: "CMSBannerBundle:Banner:new" }
+
+cms_banner__create:
+    pattern:  /create
+    defaults: { _controller: "CMSBannerBundle:Banner:create" }
+    requirements: { _method: post }
+
+cms_banner__edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSBannerBundle:Banner:edit" }
+
+cms_banner__update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSBannerBundle:Banner:update" }
+    requirements: { _method: post|put }
+
+cms_banner__delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSBannerBundle:Banner:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_banner__delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSBannerBundle:Banner:deleteAll" }
+    requirements: { _method: post }
+
+cms_banner_paginate:
+     pattern:  /pagina/{page}
+     defaults: { _controller: "CMSBannerBundle:Banner:paginate" }
+     requirements: { _method: get|post }

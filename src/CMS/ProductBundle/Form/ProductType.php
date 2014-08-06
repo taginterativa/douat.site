@@ -39,7 +39,7 @@ class ProductType extends AbstractType
             ->add('acabamento')
             //->add('attachment', 'text', array('attr' => array('class' => 'form-control')))
             ->add('isActive', 'checkbox', array('required'=> false) )
-            ->add('productCategory', 'choice', array('choices'=> $this->getCategoryChoices()))
+            ->add('productCategory')
             ->add('productRelated', null, array('required' => false))
             ->add('productColor')
         ;

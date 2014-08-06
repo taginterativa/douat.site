@@ -1,6 +1,7 @@
 CMS\CoresBundle\Entity\Color:
     type: entity
     table: color
+    repositoryClass: CMS\CoresBundle\Entity\ColorRepository
     indexes:
         fk_color_pantone1_idx:
             columns:

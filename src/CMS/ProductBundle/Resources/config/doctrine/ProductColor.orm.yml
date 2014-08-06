@@ -27,7 +27,7 @@ CMS\ProductBundle\Entity\ProductColor:
             comment: ''
     manyToOne:
         color:
-            targetEntity: Color
+            targetEntity: CMS\CoresBundle\Entity\Color
             cascade: {  }
             mappedBy: null
             inversedBy: null

@@ -50,4 +50,9 @@ CMS\PageBundle\Entity\Paginas:
             gedmo:
                 timestampable:
                   on: update
+        isDark:
+            type: boolean
+            nullable: false
+            comment: ''
+            column: is_dark
     lifecycleCallbacks: {  }

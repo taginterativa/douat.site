@@ -30,7 +30,7 @@ class LoadPage implements FixtureInterface
 
         $pagina = new Paginas();
         $pagina->setId(3);
-        $pagina->setNome("A Douat");
+        $pagina->setNome("Nossas Malhas");
         $pagina->setDescricao(".");
         $pagina->setIsActive(true);
         $pagina->setCreatedAt(new \DateTime("now"));
@@ -39,13 +39,39 @@ class LoadPage implements FixtureInterface
 
         $pagina = new Paginas();
         $pagina->setId(4);
-        $pagina->setNome("Serviços prestados");
+        $pagina->setNome("Nossas Malhas Fitness");
         $pagina->setDescricao(".");
         $pagina->setIsActive(true);
         $pagina->setCreatedAt(new \DateTime("now"));
         $pagina->setUpdatedAt(new \DateTime("now"));
         $manager->persist($pagina);
 
+        $pagina = new Paginas();
+        $pagina->setId(5);
+        $pagina->setNome("Nossas Malhas Lingerie");
+        $pagina->setDescricao(".");
+        $pagina->setIsActive(true);
+        $pagina->setCreatedAt(new \DateTime("now"));
+        $pagina->setUpdatedAt(new \DateTime("now"));
+        $manager->persist($pagina);
+
+        $pagina = new Paginas();
+        $pagina->setId(6);
+        $pagina->setNome("Nossas Malhas Escolar");
+        $pagina->setDescricao(".");
+        $pagina->setIsActive(true);
+        $pagina->setCreatedAt(new \DateTime("now"));
+        $pagina->setUpdatedAt(new \DateTime("now"));
+        $manager->persist($pagina);
+
+        $pagina = new Paginas();
+        $pagina->setId(7);
+        $pagina->setNome("Nossas Malhas Praia");
+        $pagina->setDescricao(".");
+        $pagina->setIsActive(true);
+        $pagina->setCreatedAt(new \DateTime("now"));
+        $pagina->setUpdatedAt(new \DateTime("now"));
+        $manager->persist($pagina);
 
     	$manager->flush();
     }

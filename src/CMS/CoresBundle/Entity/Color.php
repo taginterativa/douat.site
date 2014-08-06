@@ -301,4 +301,9 @@ class Color
         // set the path property to the filename where you've saved the file
         $this->image = $this->getUploadDir() . '/' . $this->getImage()->getClientOriginalName();
     }
+
+    public function __toString()
+    {
+        return $this->getCode() . ' - ' . $this->getName();
+    }
 }

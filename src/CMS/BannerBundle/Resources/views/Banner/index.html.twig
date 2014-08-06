@@ -2,13 +2,14 @@
 
 
 {% block title %}
-    Listando Paginas |
+    Listando Banners |
 {% endblock %}
 
 {% block content %}
-    <h1>Listando Paginas</h1>
-
-    <form id="form-list" action="{{ path('cms_paginas_delete_all') }}" method="post">
+    <h1>Listando Banner
+        <a class="btn btn-primary" href="{{ path('cms_banner__new') }}">Adicionar novo</a>
+    </h1>
+    <form id="form-list" action="{{ path('cms_banner__delete_all') }}" method="post">
         <!-- Widget -->
         <div class="widget widget-body-white widget-heading-simple">
             <div class="widget-body">
@@ -23,9 +24,10 @@
                                         <input type="checkbox">
                                     </label>
                                 </div>
-                            </th>
+                            </th>                                
                             <th>Id</th>
-                            <th>Nome</th>
+                            <th>Título</th>
+                            <th>Texto</th>
                             <th>Ativo</th>
                             <th>Ações</th>
                         </tr>
@@ -41,12 +43,12 @@
                                 </div>
                             </td>
 
-                            <td><a href="{{ path('cms_paginas_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                            <td>{{ entity.nome }}</td>
+                            <td><a href="{{ path('cms_banner__show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.title }}</td>
+                            <td>{{ entity.text }}</td>
                             <td>{{ entity.isActive }}</td>
-                            <td>
-                                <a href="{{ path('cms_paginas_edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
-                                {##<a href="{{ path('cms_paginas_delete', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-danger delete"  data-toggle="tooltip" data-original-title="Excluir" data-placement="top" ><i class="fa fa-trash-o"></i></a>##}
+                            <td>    <a href="{{ path('cms_banner__edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
+    <a href="{{ path('cms_banner__delete', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-danger delete"  data-toggle="tooltip" data-original-title="Excluir" data-placement="top" ><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -71,8 +73,8 @@
 
                     <div class=" margin-none">
                         <ul style="float: right;" class="pagination pagination-right margin-none">
-                            <li {% if page == 1 %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': 1}) }}">«</a></li>
-                            <li {% if page == 1 %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': prev}) }}">&lsaquo;</a></li>
+                            <li {% if page == 1 %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_banner_paginate',{'page': 1}) }}">«</a></li>
+                            <li {% if page == 1 %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_banner_paginate',{'page': prev}) }}">&lsaquo;</a></li>
                             
                             {% if page > 7 and (page + 7) < pages %}
                                 {% set inicio = page - 7 %}
@@ -90,16 +92,25 @@
                             {% endif %}
 
                             {% for i in inicio..fim %}
-                                <li {% if i == page %}{{ 'class="active"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': i}) }}">{{ i }}</a></li>
+                                <li {% if i == page %}{{ 'class="active"' }}{% endif %}><a href="{{ path('cms_banner_paginate',{'page': i}) }}">{{ i }}</a></li>
                             {% endfor %}
-                            <li {% if page == pages %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': next}) }}">&rsaquo;</a></li>
-                            <li {% if page == pages %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_paginas_paginate',{'page': pages}) }}">»</a></li>
+                            <li {% if page == pages %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_banner_paginate',{'page': next}) }}">&rsaquo;</a></li>
+                            <li {% if page == pages %}{{ 'class="disabled"' }}{% endif %}><a href="{{ path('cms_banner_paginate',{'page': pages}) }}">»</a></li>
                         </ul>
                         <div style="clear: both;"></div>
                     </div>
                 {% endif %}
+
             </div>
         </div>
-    </form>
+
+                    <a class="btn btn-primary" href="{{ path('cms_banner__new') }}">
+                Adicionar novo
+            </a>
+        
+                    <button type="submit" class="btn btn-danger delete">
+                Excluir selecionados
+            </button>
+        </form>
 
 {% endblock %}

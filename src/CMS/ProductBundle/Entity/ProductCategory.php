@@ -352,4 +352,17 @@ class ProductCategory
         }
 
     }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return ProductCategory
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
 }

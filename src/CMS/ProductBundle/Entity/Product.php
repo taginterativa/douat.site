@@ -495,10 +495,10 @@ class Product
     /**
      * Add productColor
      *
-     * @param \CMS\ProductBundle\Entity\Color $productColor
+     * @param \CMS\CoresBundle\Entity\Color $productColor
      * @return Product
      */
-    public function addProductColor(\CMS\ProductBundle\Entity\Color $productColor)
+    public function addProductColor(\CMS\CoresBundle\Entity\Color $productColor)
     {
         $this->productColor[] = $productColor;
 
@@ -508,9 +508,9 @@ class Product
     /**
      * Remove productColor
      *
-     * @param \CMS\ProductBundle\Entity\Color $productColor
+     * @param \CMS\CoresBundle\Entity\Color $productColor
      */
-    public function removeProductColor(\CMS\ProductBundle\Entity\Color $productColor)
+    public function removeProductColor(\CMS\CoresBundle\Entity\Color $productColor)
     {
         $this->productColor->removeElement($productColor);
     }

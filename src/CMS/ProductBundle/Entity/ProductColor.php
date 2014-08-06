@@ -20,7 +20,7 @@ class ProductColor
     private $image;
 
     /**
-     * @var \CMS\ProductBundle\Entity\Color
+     * @var \CMS\CoresBundle\Entity\Color
      */
     private $color;
 
@@ -66,10 +66,10 @@ class ProductColor
     /**
      * Set color
      *
-     * @param \CMS\ProductBundle\Entity\Color $color
+     * @param \CMS\CoresBundle\Entity\Color $color
      * @return ProductColor
      */
-    public function setColor(\CMS\ProductBundle\Entity\Color $color = null)
+    public function setColor(\CMS\CoresBundle\Entity\Color $color = null)
     {
         $this->color = $color;
 
@@ -79,7 +79,7 @@ class ProductColor
     /**
      * Get color
      *
-     * @return \CMS\ProductBundle\Entity\Color 
+     * @return \CMS\CoresBundle\Entity\Color 
      */
     public function getColor()
     {

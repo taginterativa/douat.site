@@ -45,6 +45,11 @@ class Paginas
     private $updatedAt;
 
     /**
+     * @var boolean
+     */
+    private $isDark;
+
+    /**
      * Set id
      *
      * @param integer $id
@@ -205,6 +210,25 @@ class Paginas
         return $this->updatedAt;
     }
 
+    /**
+     * Set isDark
+     *
+     * @param bool $isDark
+     * @return Banner
+     */
+    public function setIsDark($isDark) {
+        $this->isDark = $isDark;
+        return $this;
+    }
+
+    /**
+     * Get isDark
+     *
+     * @return bool 
+     */
+    public function getIsDark() {
+        return $this->isDark;
+    }
 
     protected function getUploadRootDir()
     {

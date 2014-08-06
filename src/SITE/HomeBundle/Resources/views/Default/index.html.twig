@@ -13,62 +13,29 @@
     <main id="fullpage">
 
         <section class="control-scroll control-home section">
-            <div class="bg-home home-1 ativo" style="background: url({{ asset('site/images/bg-home.jpg') }}) no-repeat center top;"></div>
-            <div class="bg-home home-2" style="background: url({{ asset('site/images/bg-home2.jpg') }}) no-repeat center top;"></div>
-            <div class="bg-home home-3" style="background: url({{ asset('site/images/bg-home3.jpg') }}) no-repeat center top;"></div>
-            <div class="bg-home home-4" style="background: url({{ asset('site/images/bg-hometopo4.jpg') }}) no-repeat center top;"></div>
+            {% set num = 1 %}
+            {% for banner in banners %}
+                <div class="bg-home home-{{ num }} {% if num == 1 %}ativo{% endif %}" style="background: url({{ asset(banner.image) }}) no-repeat center top;"></div>
+                {% set num = 1 + num %}
+            {% endfor %}
+
             <div class="wrapper">
                 <span class="setas seta-esq">Esquerda</span>
                 <span class="setas seta-dir">Direita</span>
                 <article class="content-home">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-
-                            <div class="swiper-slide" data-slide="1">
-                                <header>
-                                    <h2>A malha que <span>movimenta você</span></h2>
-                                </header>
-                                <section>
-                                    <p>
-                                        Tecidos que envolvem movimentos, fios que transpiram tecnologia. Inspire-se com a poliamida que desenvolve uma trama de inovação, performance e conforto.
-                                    </p>
-                                    <span data-index="2" class="bt-default bt-default-conheca">Conheça nossas malhas</span>
-                                </section>
-                            </div>
-                            <div class="swiper-slide" data-slide="2">
-                                <header>
-                                    <h2>A malha que <span>movimenta as tendências</span></h2>
-                                </header>
-                                <section>
-                                    <p>
-                                        Desenvolvida com tecidos que combinam tradição e tecnologia às novas tendências, a linha Outono Inverno 2015 irá movimentar você.
-                                    </p>
-                                    <a href="{{ path('product_category_sub_list', {category_slug: 'lingerie', subcategory_slug: 'lancamentos'}) }}" class="bt-default">Conheça nossos lançamentos</a>
-                                </section>
-                            </div>
-                            <div class="swiper-slide" data-slide="3">
-                                <header>
-                                    <h2>A malha que <span>movimenta pessoas</span></h2>
-                                </header>
-                                <section>
-                                    <p>
-                                        Douat Têxtil é a pioneira na indústria de fios sintéticos, envolvendo pessoas em momentos de conforto, descontração e proteção há mais de 40 anos.
-                                    </p>
-                                    <a href="{{ path('site_page_about') }}" class="bt-default">Conheça a Douat</a>
-                                </section>
-                            </div>
-                            <div class="swiper-slide" data-slide="4">
-                                <header>
-                                    <h2>A malha que <span>movimenta com proteção</span></h2>
-                                </header>
-                                <section>
-                                    <p>
-                                        Performance e tecnologia aliadas para criar a linha Summer Protection UV, desenvolvida para movimentar-se ao ar livre com proteção contra os raios ultravioletas.
-                                    </p>
-                                    <a href="{{ path('product_category_sub_list', {category_slug: 'praia', subcategory_slug: 'lancamentos'}) }}" class="bt-default">Conheça a linha</a>
-                                </section>
-                            </div>
-
+                            {% set num = 1 %}
+                            {% for banner in banners %}
+                                <div class="swiper-slide {% if banner.isDark %}claro{% endif %} " data-slide="{{ num }}">
+                                    <header>{{ banner.title | raw }}</header>
+                                    <section>
+                                        {{ banner.text | raw }}
+                                        <a href="{{ banner.linkTarget }}" class="bt-default">{{ banner.linkDescription }}</a>
+                                    </section>
+                                </div>
+                                {% set num = 1 + num %}
+                            {% endfor %}
                         </div>
                     </div>
                 </article>
@@ -76,10 +43,11 @@
             <footer class="footer-home">
                 <div class="limiter">
                     <div class="marcadores-home">
-                        <span class="swiper-pagination-switch ativo">1</span>
-                        <span class="swiper-pagination-switch">2</span>
-                        <span class="swiper-pagination-switch">3</span>
-                        <span class="swiper-pagination-switch">4</span>
+                        {% if banners | length > 0 %}
+                            {% for i in 1 .. banners | length %}
+                                <span class="swiper-pagination-switch {% if i == 1 %}ativo{% endif %}">{{ i }}</span>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                     <aside>
                         <nav class="social-footer-home" style="visibility: hidden;">

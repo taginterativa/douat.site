@@ -133,7 +133,7 @@ CMS\ProductBundle\Entity\Product:
                     product_id_child:
                       referenceColumnName: id
         productColor:
-            targetEntity: Color
+            targetEntity: CMS\CoresBundle\Entity\Color
             cascade: {  }
             joinTable:
                 name: product_color
