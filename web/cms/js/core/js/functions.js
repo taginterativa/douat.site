@@ -27,8 +27,21 @@ $(document).ready(function(){
     });
 
     if ($('.select2-offscreen').length) { $('.select2-offscreen').select2(); }
-
-    if ($('textarea.wysihtml5').size() > 0) { $('textarea.wysihtml5').wysihtml5() };
+    if ($('textarea.summernote').size() > 0) {
+        
+        $('textarea.summernote').summernote({
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'italic', 'underline', 'clear']],
+          ['fontsize', ['fontsize']],
+          ['para', ['ul', 'ol']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture']],
+          ['view', ['codeview']]
+        ],
+        locale: 'pt-BR'
+      });
+    }
 
 
 });

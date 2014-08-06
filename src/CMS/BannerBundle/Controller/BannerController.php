@@ -199,6 +199,9 @@ class BannerController extends Controller
         if ($editForm->isValid()) {
             if(!is_null($editForm['image']->getData())) {
                 $entity->upload();
+                if(file_exists($image_file)) {
+                    unlink($image_file);
+                }
             } else {
                 $entity->setImage($image_file);
             }
@@ -248,8 +251,14 @@ class BannerController extends Controller
                 throw $this->createNotFoundException('Unable to find Banner entity.');
             }
 
+            $image_file = $entity->getImage();
+
             $em->remove($entity);
             $em->flush();
+
+            if(file_exists($image_file)) {
+                unlink($image_file);
+            }
 
             $this->get('session')->getFlashBag()->add('title', 'Banner');
             $this->get('session')->getFlashBag()->add('message', 'Banner excluido com sucesso');
@@ -257,7 +266,7 @@ class BannerController extends Controller
     }
 
 
-        return $this->redirect($this->generateUrl('cms_banner_'));
+        return $this->redirect($this->generateUrl('cms_banner'));
     }
 
     /**
@@ -293,8 +302,14 @@ class BannerController extends Controller
                     throw $this->createNotFoundException('Unable to find Banner entity.');
                 }
 
+                $image_file = $entity->getImage();
+
                 $em->remove($entity);
                 $em->flush();
+
+                if(file_exists($image_file)) {
+                    unlink($image_file);
+                }
 
                 $this->get('session')->getFlashBag()->add('title', 'Banner');
                 $this->get('session')->getFlashBag()->add('message', 'Lista de Banner excluidos com sucesso');

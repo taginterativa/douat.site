@@ -17,7 +17,7 @@ class PaginasType extends AbstractType
         $builder
             ->add('nome', 'text', array('attr' => array('class' => 'form-control')))
             ->add('imagem', 'file', array('required'  => false, 'data_class' => null, 'label' => 'Imagem de Fundo'))
-            ->add('descricao', 'textarea', array( 'attr' => array('class' => 'wysihtml5 form-control', 'style' => 'width: 100%; height: 500px;')) )
+            ->add('descricao', 'textarea', array( 'attr' => array('class' => 'summernote form-control', 'style' => 'width: 100%; height: 500px;')) )
             ->add('isActive', 'checkbox', array('attr' => array('required' => false), 'label' => 'Ativo'))
         ;
     }
