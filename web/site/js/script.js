@@ -81,7 +81,8 @@ $(function() {
     });
     $('.bloco-estampas').click(function() {
         var bg = $(this).data('bg');
-        $('.estampa-zoom').html('<img src="'+bg+'">');
+        $('.estampa-zoom').find('img').remove();
+        $('.estampa-zoom').append('<img src="'+bg+'">');
         $('.estampa-zoom').show();
         $('.overlay').show();
         $('.estampa-zoom .fechar-foto').show();
