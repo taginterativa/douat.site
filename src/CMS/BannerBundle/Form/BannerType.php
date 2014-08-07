@@ -16,8 +16,8 @@ class BannerType extends AbstractType
     {
         $builder
             //->add('title', 'text', array('attr' => array('class' => 'form-control'), 'label' => 'Título'))
-            ->add('title', 'textarea', array( 'attr' => array('class' => 'summernote form-control', 'style' => 'width: 100%; height: 100px;'), 'label' => 'Título'))
-            ->add('text', 'textarea', array( 'attr' => array('class' => 'summernote form-control', 'style' => 'width: 100%; height: 500px;'), 'label' => 'Texto'))
+            ->add('title', 'textarea', array( 'attr' => array('class' => 'summernote form-control', 'style' => 'width: 100%; height: 100px;'), 'label' => 'Título', 'required' => false))
+            ->add('text', 'textarea', array( 'attr' => array('class' => 'summernote form-control', 'style' => 'width: 100%; height: 500px;'), 'label' => 'Texto', 'required' => false))
             ->add('image', 'file', array('required'  => false, 'data_class' => null, 'label' => 'Imagem de fundo'))
             ->add('linkDescription', 'text', array('attr' => array('class' => 'form-control'), 'label' => 'Descrição do link'))
             ->add('linkTarget', 'text', array('attr' => array('class' => 'form-control'), 'label' => 'Endereço do link'))
@@ -25,7 +25,7 @@ class BannerType extends AbstractType
             ->add('isDark', 'checkbox', array('required' => false, 'label' => 'Texto escuro'))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
