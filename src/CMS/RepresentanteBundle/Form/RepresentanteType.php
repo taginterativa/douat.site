@@ -40,7 +40,7 @@ class RepresentanteType extends AbstractType
             //->add('cidade', 'choice')
             //->add('latitude', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
             //->add('longitude', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
-            ->add('isActive', 'checkbox');
+            ->add('isActive', 'checkbox', array('required' => false, 'label' => 'Ativo'));
 
 
         // Add listeners
