@@ -16,7 +16,7 @@ class DefaultController extends Controller
 
         $banners = $em->getRepository("CMSBannerBundle:Banner")->createQueryBuilder("b")
                         ->where("b.isActive = 1")
-                        ->orderBy('b.id', 'ASC')
+                        ->orderBy('b.position', 'ASC')
                         ->getQuery()
                         ->getResult();
 

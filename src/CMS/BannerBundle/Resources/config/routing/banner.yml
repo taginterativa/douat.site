@@ -38,3 +38,8 @@ cms_banner_paginate:
      pattern:  /pagina/{page}
      defaults: { _controller: "CMSBannerBundle:Banner:paginate" }
      requirements: { _method: get|post }
+
+cms_banner_position:
+     pattern:  /position/{id}/{option}
+     defaults: { _controller: "CMSBannerBundle:Banner:moveOrder" }
+     requirements: { _method: get }

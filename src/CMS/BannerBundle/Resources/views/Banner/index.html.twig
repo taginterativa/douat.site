@@ -44,11 +44,16 @@
                             </td>
 
                             <td><a href="{{ path('cms_banner__show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                            <td>{{ entity.title }}</td>
-                            <td>{{ entity.text }}</td>
-                            <td>{{ entity.isActive }}</td>
-                            <td>    <a href="{{ path('cms_banner__edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
+                            <td class="col-md-3">{{ entity.title }}</td>
+                            <td class="col-md-5">{{ entity.text }}</td>
+                            <td>{% if entity.isActive == 1 %}<i class="fa fa-check"></i>{% else %}<i class="fa fa-times"></i>{% endif %}</td>
+                            <td>
+    <a href="{{ path('cms_banner__edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
     <a href="{{ path('cms_banner__delete', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-danger delete"  data-toggle="tooltip" data-original-title="Excluir" data-placement="top" ><i class="fa fa-trash-o"></i></a>
+
+    <a href="{{ path('cms_banner_position', { 'id': entity.id, 'option': 'up'}) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Mover para cima" data-placement="top" ><i class="fa fa-arrow-up"></i></a>
+    <a href="{{ path('cms_banner_position', { 'id': entity.id, 'option': 'down' }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Mover para baixo" data-placement="top" ><i class="fa fa-arrow-down"></i></a>
+
                             </td>
                         </tr>
                     {% endfor %}

@@ -23,7 +23,7 @@ class BannerController extends Controller
     {
         $em       = $this->getDoctrine()->getManager();
         $num_rows = count($em->getRepository('CMSBannerBundle:Banner')->findAll());
-        $entities = $em->getRepository('CMSBannerBundle:Banner')->findBy(array(),array(),10);
+        $entities = $em->getRepository('CMSBannerBundle:Banner')->findBy(array(),array('position' => 'ASC'),10);
 
         return $this->render('CMSBannerBundle:Banner:index.html.twig', array(
             'entities' => $entities,
@@ -37,7 +37,7 @@ class BannerController extends Controller
     {
         $em       = $this->getDoctrine()->getManager();
         $num_rows = count($em->getRepository('CMSBannerBundle:Banner')->findAll());
-        $entities = $em->getRepository('CMSBannerBundle:Banner')->findBy(array(),array(),10, ($page-1)*10);
+        $entities = $em->getRepository('CMSBannerBundle:Banner')->findBy(array(),array('position' => 'ASC'),10, ($page-1)*10);
 
         return $this->render('CMSBannerBundle:Banner:index.html.twig', array(
             'entities' => $entities,
@@ -56,9 +56,19 @@ class BannerController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
+        $statement = $em->getConnection()->prepare("SELECT max(position)+1 AS 'position' FROM banner");
+        $statement->execute();
+        $row = $statement->fetch();
+        echo "aqui";
+        if(!$row || !$row['position']) {
+            $entity->setPosition(1);
+        } else {
+            $entity->setPosition($row['position']);
+        }
+
+        if ($form->isValid()) {
             if(!is_null($form['image']->getData())) {
                 $entity->upload();
             }
@@ -285,10 +295,10 @@ class BannerController extends Controller
             ->getForm()
         ;
     }
-/**
-    * Deletes a Banner entity.
-*
-    */
+    /**
+     * Deletes a Banner entity.
+     *
+     */
     public function deleteAllAction(Request $request)
     {
         $data_delete = $request->request->get('record');
@@ -315,6 +325,38 @@ class BannerController extends Controller
                 $this->get('session')->getFlashBag()->add('message', 'Lista de Banner excluidos com sucesso');
             }
         }
+        return $this->redirect($this->generateUrl('cms_banner'));
+    }
+
+    public function moveOrderAction($id, $option) {
+        $em = $this->getDoctrine()->getManager();
+        $row = null;
+        
+        if($option == "down") {
+            $statement = $em->getConnection()->prepare("SELECT id, position FROM banner WHERE position = (SELECT min(banner.position) FROM banner WHERE position > (SELECT position FROM banner WHERE id = :id))");
+            $statement->bindValue('id',$id);
+            $statement->execute();
+            $row = $statement->fetch();
+        }
+
+        if($option == "up") {
+            $statement = $em->getConnection()->prepare("SELECT id, position FROM banner WHERE position = (SELECT max(banner.position) FROM banner WHERE position < (SELECT position FROM banner WHERE id = :id))");
+            $statement->bindValue('id',$id);
+            $statement->execute();
+            $row = $statement->fetch();
+        }
+
+        if($row) {
+            $entity = $em->getRepository('CMSBannerBundle:Banner')->find($id);
+            $position = $entity->getPosition();
+            $entity->setPosition($row['position']);
+
+            $entity2 = $em->getRepository('CMSBannerBundle:Banner')->find($row['id']);
+            $entity2->setPosition($position);
+
+            $em->flush();
+        }
+
         return $this->redirect($this->generateUrl('cms_banner'));
     }
 

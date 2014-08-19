@@ -71,6 +71,14 @@ class Banner
     private $isDark=false;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="position", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $position;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -233,6 +241,27 @@ class Banner
      */
     public function getIsDark() {
         return $this->isDark;
+    }
+
+
+    /**
+     * Set position
+     *
+     * @param bool $position
+     * @return Banner
+     */
+    public function setPosition($position) {
+        $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return position 
+     */
+    public function getPosition() {
+        return $this->position;
     }
 
     protected function getUploadRootDir()
