@@ -7,3 +7,5 @@
 /vendor_/*
 /vendor/*
 /site/*
+/web/.htaccess
+/web/blog/wp-config.php

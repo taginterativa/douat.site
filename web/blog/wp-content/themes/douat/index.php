@@ -35,9 +35,9 @@
 
         <?php if (will_paginate()): ?>
 
-          <ul id="pagination">
-            <li class="previous"><?php posts_nav_link('','','&laquo; Previous Entries') ?></li>
-            <li class="future"><?php posts_nav_link('','Next Entries &raquo;','') ?></li>
+          <ul id="pagination" class="paginacao">
+            <li class="previous"><?php posts_nav_link('','','&laquo; Página anterior') ?></li>
+            <li class="future"><?php posts_nav_link('','Proxima página &raquo;','') ?></li>
           </ul>
 
         <?php endif; ?>

@@ -27,39 +27,6 @@ $(function() {
 		});
 	}
 
-	$('.only-mobile.nav-malhas').flexslider({
-		animation : 'slide',
-        selector: '.slide-mobile > li',
-		controlNav: false,
-        touch: true
-	});
-
-    var mySwiper = $('.swiper-container').swiper({
-        mode:'horizontal',
-        loop: true,
-        pagination: '.marcadores-home',
-        createPagination: false,
-        paginationClickable: true,
-        onSlideChangeStart: function(swiper, direction) {
-            //console.log(swiper.activeIndex);
-            var active = swiper.activeLoopIndex+1;
-            $('.bg-home').removeClass('ativo');
-            $('.home-'+active).addClass('ativo');
-            if($('.swiper-slide[data-slide="'+active+'"]').hasClass('claro')) {
-                $('.marcadores-home').addClass('claro');
-                $('body').addClass('claro');
-            } else {
-                $('.marcadores-home').removeClass('claro');
-                $('body').removeClass('claro');
-            }
-        }
-    });
-    $('.seta-esq').click(function() {
-        mySwiper.swipePrev();
-    });
-    $('.seta-dir').click(function() {
-        mySwiper.swipeNext();
-    });
 
     $('.icon-zoom').click(function() {
         var altura = $('.img-malha').data('altura');
@@ -96,7 +63,6 @@ $(function() {
 	$('.lt-ie10 [placeholder]').focus(placeholderFocus).blur(placeholderBlur).trigger('blur');
 	$('.lt-ie10 [placeholder]').parents('form').submit(placeholderSubmit);
 
-	inputMasks();
 
 	ajustaHome();
     ajustaMenu();
@@ -283,7 +249,6 @@ $(function() {
     	$('.lista-blocos li').removeClass('opacity');
     });
 
-    $(".form-default").validate();
 
     $('.troca-malha').mouseenter(function() {
     	var bg = $(this).data('bg');
@@ -307,12 +272,6 @@ $(function() {
 
 function ajustaMobile() {
     $('body').addClass('mobile');
-    $('.only-mobile.nav-malhas').flexslider({
-        animation : 'slide',
-        selector: '.slide-mobile > li',
-        controlNav: false,
-        touch: true
-    });
 }
 
 function retornaMobile() {
@@ -346,24 +305,6 @@ function ajustaHome() {
 	$('.secundary .limiter-secundary').css('padding-top',pos_conteudo+'px');
 }
 
-function inputMasks() {
-	$('input.tel').focus(function () {
-		$(this).mask('(99) 9999-9999?9', {
-			completed: function () {
-				$(this).mask('(99) 99999-9999');
-			}
-		})
-	});
-	$('input.cep').mask('99999-999');
-    if($('html').hasClass('lt-ie10')) {
-        $('input.data').focus(function() {
-            $('input.data').mask('99/99/9999');
-        });
-    } else {
-        $('input.data').mask('99/99/9999');
-    }
-
-}
 
 function dataBackgroundImage() {
 	var data = $(this).attr('data-background-image');

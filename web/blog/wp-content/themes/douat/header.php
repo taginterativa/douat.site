@@ -14,6 +14,11 @@
   <link rel="stylesheet" type="text/css" media="screen and (min-width: 580px) and (max-width: 1000px)" href="<?php bloginfo('template_url'); ?>/css/tablet.css" />
   <link rel="stylesheet" type="text/css" media="screen and (max-width: 580px)" href="<?php bloginfo('template_url'); ?>/css/mobile.css" />
 
+
+  <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
+  <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/modernizr.custom.16572.js"></script>
+  <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/script.js"></script>
+
 	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
 	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="<?php bloginfo('atom_url'); ?>" />
@@ -47,18 +52,18 @@
               <li><a href="malha.php">Praia</a></li>
             </ul>
           </li>
-          <li class="node-3"><a href="servicos.php">Serviços prestados</a></li>
+          <li class="node-3"><a href="servicos.php">Prestação de serviços</a></li>
           <li class="node-4"><a href="representantes.php">Representantes</a></li>
           <li class="node-5"><a href="trabalhe.php">Trabalhe Conosco</a></li>
           <li class="node-6"><a href="contato.php">Contato</a></li>
-          <li class="node-7 parent">
+          <!--<li class="node-7 parent">
             <a href="#">Mídias Sociais</a>
             <ul>
               <li><a href="#">Facebook</a></li>
               <li><a href="#">Instagram</a></li>
               <li><a href="#">Blog</a></li>
             </ul>
-          </li>
+          </li>-->
         </ul>
         <span class="fake-nav node-1" data-node="1" data-url="sobre.php"></span>
         <span class="fake-nav node-2" data-node="2" data-url="#"></span>
