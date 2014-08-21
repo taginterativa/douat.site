@@ -1,0 +1,16 @@
+[
+	{
+		"id":18,
+		"nome":"ALEXSSA REPRESENTAÇÕES LTDA",
+		"endereco":"R Magdalena Tagliaferro, 305 - Sala 01",
+		"bairro": "Vila Nova",
+		"cep": "89237-620",
+		"cidade": "Joinville",
+		"estado": "SC",
+		"telefone": "34319500",
+		"lng":"-48.9242523",
+		"lat":"-26.2905012",
+		"email": "alessandro@netvision.com.br",
+		"image":"\/images\/pin.png"
+	}
+]

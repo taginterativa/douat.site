@@ -1,0 +1,180 @@
+body.page-home {overflow: auto !important;}
+
+.only-mobile {display: block;}
+.only-desktop {display: none;}
+
+.bt-scroll {margin: 0;}
+.page-home .wrapper {width: 100%; padding: 0 !important;}
+.wrapper {width: 100% !important; padding: 0 20px 0 30px;}
+.bt-menu {right: 20px; top: 20px;}
+.header-container .logo {left: 20px; top: 30px;}
+.content-home {width: 100%; padding: 0; text-align: center;}
+.content-home p {display: none;}
+.content-home h2 {width: 100%; text-align: center; font-size: 105px; padding: 0 65px 0 65px;}
+.bt-default {float: none; display: inline-block; font-size: 47px; padding: 35px 15px 30px 15px; background: none !important; color: #fff !important;}
+.claro .bt-default {color: #000 !important;}
+.footer-home {z-index: 100;}
+.marcadores-home {right: 20px;}
+.secundary header {display: none;}
+.nav-malhas {float: left; width: 100%;}
+.nav-malhas li {position: static; width: 100%; background: none !important; height: auto;}
+.nav-malhas li:hover {background: none;}
+.nav-malhas li.ativo a {color: #fff;}
+.nav-malhas a {font-size: 36px;}
+.nav-malhas li span {font-size: 136px;}
+.nav-malhas li strong {
+  display: inline-block;
+  clear: both;
+  float: none;
+	font-family: 'bebas_neuebook';
+	font-size: 48px;
+	line-height: 22px;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 35px 15px 30px 15px;
+  width: auto;
+	border: 1px solid #fff;
+	letter-spacing: 2px;
+	transition: all 0.5s;
+	background: none;
+	cursor: pointer;
+  margin: 60px 0 0 0;
+}
+.social-footer {display: none;}
+.lk-tag {display: none;}
+.social-footer-home {display: none;}
+.header-container nav {top: 100px; width: 490px; margin-left: -245px;}
+
+.header-container nav li.node-1 {top: 124px; left: 50%; margin-left: -248px;}
+.header-container nav li.node-2 {top: 0; left: 50%; margin-left: -124px;}
+.header-container nav li.node-3 {top: 124px; left: 50%;}
+.header-container nav li.node-4 {top: 248px; left: 50%; margin-left: -124px;}
+.header-container nav li.node-5 {top: 372px; left: 50%; margin-left: -248px;}
+.header-container nav li.node-6 {top: 372px; left: 50%;}
+.header-container nav li.node-7 {top: 496px; left: 50%; margin-left: -124px;}
+
+.header-container .fake-nav.node-1 {top: 162px; left: 50%; margin-left: -210px;}
+.header-container .fake-nav.node-2 {top: 40px; left: 50%; margin-left: -86px;}
+.header-container .fake-nav.node-3 {top: 162px; left: 50%; margin-left: 36px;}
+.header-container .fake-nav.node-4 {top: 284px; left: 50%; margin-left: -86px;}
+.header-container .fake-nav.node-5 {top: 408px; left: 50%; margin-left: -210px;}
+.header-container .fake-nav.node-6 {top: 408px; left: 50%; margin-left: 36px;}
+.header-container .fake-nav.node-7 {top: 530px; left: 50%; margin-left: -86px; z-index: 201}
+
+.header-container nav li ul {
+	width: 720px;
+	margin-left: -245px;
+	top: 260px;
+}
+.header-container nav li li {margin-bottom: 20px;}
+.header-container nav li.node-7 ul {top: 230px;}
+
+.mapa, .form-default {padding-bottom: 100px;}
+
+.texto-sobre {width: 100%;}
+.page-contato, .page-trabalhe, .page-servicos, .page-sobre, .page-representantes {padding: 185px 0 0 0;}
+
+.img-destaque-topo {display: none;}
+.miolo-prod {padding: 170px 0 140px 0;}
+.filtro {display: none;}
+.filtros-links {
+	float: left;
+	width: 100%;
+	background: url(../images/seta-tablet.png) no-repeat right 20px #fff;
+	padding: 0;
+	margin: 0 0 20px 0;
+}
+	.filtros-links a {
+		border: none;
+		color: #999999;
+		font-size: 36px;
+		float: left;
+		width: 100%;
+		padding-left: 20px;
+		text-align: left;
+		display: none;
+		transition: none;
+	}
+	.filtros-links a:hover {
+		border: none;
+	}
+	.filtros-links a.ativo {
+		display: block;
+		border: none;
+		font-family: 'bebas_neueregular';
+	}
+.lista-blocos {
+	width: 100%;
+	margin: 0;
+}
+	.lista-blocos li {
+		float: left;
+		width: 50%;
+		margin: 0;
+		padding: 0 20px 0 0;
+	}
+	.lista-blocos li:nth-child(even) {
+		padding: 0 0 0 20px;
+	}
+	.lista-blocos li span {
+		height: auto;
+	}
+	.lista-blocos li span img {
+		width: 100%;
+	}
+
+.desc-prod aside .bt-default {display: none;}
+.desc-prod aside {margin-bottom: 20px;}
+
+.texto-servicos {
+	float: left;
+	width: 100%;
+}
+.texto-servicos .desc {
+	width: 100%;
+	padding: 0 0 10px 0;
+}
+.lista-servicos p {width: 100%; font-size: 20px; line-height: 24px; padding: 10px 0 0 0;}
+.texto-servicos .desc-bottom {
+	clear: both;
+	width: 100%;
+}
+.lista-servicos h2 {font-size: 24px; line-height: 26px;}
+.lista-servicos .img-servico {margin: 5px 0 0 0; height: 280px;}
+.lista-servicos li {padding: 0 0 30px 0;}
+.header-interna {margin-bottom: 20px;}
+
+.filtro-mapa {display: block;}
+.filtro.filtro-mapa .selectbox {width: 30%}
+.filtro.filtro-mapa .selectbox .label {width: 100%; background-position: 90% center;}
+.browse-wrap {display: none}
+
+
+.setas {
+	position: absolute;
+	width: 63px;
+	height: 63px;
+	background: url(../images/setashome.png) no-repeat 0 0;
+	text-indent: -9999px;
+	top: 100px;
+	z-index: 100;
+	cursor: pointer;
+	margin-top: 120px;
+}
+	.claro .setas {
+		background: url(../images/setashome_preto.png) no-repeat 0 0;
+	}
+	.setas.seta-esq {left: -125px;}
+	.setas.seta-esq:hover {background-position: left bottom;}
+	.setas.seta-dir {
+		right: -125px;
+		background-position: right 0;
+	}
+	.setas.seta-dir:hover {background-position: right bottom;}
+	.setas.seta-esq {
+		left: 10px;
+	}
+	.setas.seta-dir {
+		right: 10px;
+	}
+

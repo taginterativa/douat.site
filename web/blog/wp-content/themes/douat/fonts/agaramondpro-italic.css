@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'AdobeGaramondProItalic';
+    src: url('agaramondpro-italic.eot');
+    src: url('agaramondpro-italic.eot') format('embedded-opentype'),
+         url('agaramondpro-italic.woff') format('woff'),
+         url('agaramondpro-italic.ttf') format('truetype'),
+         url('agaramondpro-italic.svg#AdobeGaramondProItalic') format('svg');
+}

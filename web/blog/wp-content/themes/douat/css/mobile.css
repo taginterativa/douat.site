@@ -1,0 +1,275 @@
+body.page-home {overflow: auto !important;}
+
+.only-mobile {display: block;}
+.only-desktop {display: none;}
+
+.bt-scroll {margin: 0;}
+.bg-home {
+  background-size: auto 100% !important;
+}
+.page-home .wrapper {width: 100%; padding: 0 !important;}
+.wrapper {width: 100% !important; padding: 0 10px 0 15px;}
+.bt-menu {
+	right: 10px;
+	top: 10px;
+  width: 82px;
+  height: 82px;
+  line-height: 86px;
+  background-size: 100% !important;
+}
+.header-container .logo a {
+  width: 72px;
+  height: 72px;
+  background-size: 100% auto !important;
+}
+.footer-container {
+	padding-bottom: 8px;
+}
+.header-container .logo {left: 20px; top: 15px;}
+.content-home {width: 100%; padding: 0; text-align: center;}
+.content-home p {display: none;}
+.content-home h2 {width: 100%; text-align: center; font-size: 50px; padding: 0 30px 0 30px;}
+.bt-default {float: none; display: inline-block; font-size: 24px; padding: 15px 15px 10px 15px; background: none !important;}
+.footer-home {z-index: 1;}
+.marcadores-home {right: 20px;}
+.secundary header {display: none;}
+
+.nav-malhas {float: left; width: 100%;}
+.nav-malhas li {position: static; width: 100%; background: none !important; height: auto; padding: 0 0 0 0;}
+.nav-malhas li:hover {background: none;}
+.nav-malhas li.ativo a {color: #fff;}
+.nav-malhas a {font-size: 36px;}
+.nav-malhas li span {font-size: 75px;}
+.nav-malhas li strong {
+  display: inline-block;
+  clear: both;
+  float: none;
+	font-family: 'bebas_neuebook';
+	font-size: 24px;
+	line-height: 22px;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 15px 15px 10px 15px;
+  width: auto;
+	border: 1px solid #fff;
+	letter-spacing: 2px;
+	transition: all 0.5s;
+	background: none;
+	cursor: pointer;
+  margin: 15px 0 0 0;
+}
+.social-footer {display: none;}
+.lk-tag {display: none;}
+.social-footer-home {display: none;}
+
+.header-container nav {
+	top: 50px;
+}
+.header-container nav li {
+	width: 125px;
+	height: 125px;
+	padding: 50px 0 0 0;
+	background-size: 100% !important;
+}
+	.header-container nav li.ativo {
+		background-position:  0 5px !important;
+	}
+	.header-container nav li a {
+		font-size: 12px;
+	}
+
+.header-container nav li.node-1 {top: 54px; left: 50%; margin-left: -116px;}
+.header-container nav li.node-2 {top: 0; left: 50%; margin-left: -62px;}
+.header-container nav li.node-3 {top: 54px; left: 50%; margin-left: -8px;}
+.header-container nav li.node-4 {top: 108px; left: 50%; margin-left: -62px;}
+.header-container nav li.node-5 {top: 160px; left: 50%; margin-left: -116px;}
+.header-container nav li.node-6 {top: 160px; left: 50%; margin-left: -8px;}
+.header-container nav li.node-7 {top: 214px; left: 50%; margin-left: -62px;}
+
+.header-container .fake-nav {
+	width: 75px;
+	height: 75px;
+}
+.header-container .fake-nav.node-1 {top: 70px; left: 50%; margin-left: -90px;}
+.header-container .fake-nav.node-2 {top: 18px; left: 50%; margin-left: -37px; z-index: 41;}
+.header-container .fake-nav.node-3 {top: 70px; left: 50%; margin-left: 17px;}
+.header-container .fake-nav.node-4 {top: 123px; left: 50%; margin-left: -37px;}
+.header-container .fake-nav.node-5 {top: 176px; left: 50%; margin-left: -90px;}
+.header-container .fake-nav.node-6 {top: 176px; left: 50%; margin-left: 17px;}
+.header-container .fake-nav.node-7 {top: 228px; left: 50%; margin-left: -37px;}
+
+.header-container nav li ul {
+	width: 240px;
+	margin-left: -115px;
+	top: 105px;
+}
+.header-container nav li li {
+	width: 115px;
+	height: 115px;
+	background-size: 100% !important;
+	margin: 0 3px 0 0;
+}
+	.header-container nav li li a {
+		height: 115px;
+		padding: 54px 0 0 0;
+	}
+
+.texto-sobre {width: 100%; font-size: 18px; line-height: 20px;}
+.texto-sobre .tit-sobre {line-height: 36px;}
+.page-contato, .page-representantes, .page-sobre, .page-servicos, .page-trabalhe {padding: 110px 0 0 0;}
+
+.img-destaque-topo {display: none;}
+.miolo-prod {padding: 110px 0 40px 0;}
+.filtro {display: none;}
+
+.filtros-links {
+	float: left;
+	width: 100%;
+	background: url(../images/seta-tablet.png) no-repeat right 17px #fff;
+	background-size: 30px 10px;
+	padding: 0;
+	margin: 0 0 20px 0;
+}
+	.filtros-links a {
+		border: none;
+		color: #999999;
+		font-size: 16px;
+		float: left;
+		width: 100%;
+		padding-left: 20px;
+		text-align: left;
+		display: none;
+		transition: none;
+	}
+	.filtros-links a:hover {
+		border: none;
+	}
+	.filtros-links a.ativo {
+		display: block;
+		border: none;
+		font-family: 'bebas_neueregular';
+	}
+.lista-blocos {
+	width: 100%;
+	margin: 0;
+}
+	.lista-blocos li {
+		float: left;
+		width: 100%;
+		margin: 0;
+		padding: 0 0 20px 0;
+	}
+	.lista-blocos li span {
+		height: auto;
+	}
+	.lista-blocos li span img {
+		width: 100%;
+	}
+
+.header-interna {
+	margin-bottom: 10px;
+}
+.header-interna h2, .header-interna h3 {
+	font-size: 45px;
+	height: auto;
+}
+.desc-prod aside {
+	width: 100%;
+	padding-bottom: 20px;
+}
+.desc-prod aside .bt-default {display: none;}
+.cats-prod {display: none}
+.desc-prod div {width: 100%; padding-right: 0;}
+.desc-prod div p {
+	padding-bottom: 10px;
+}
+.topo-prod {
+	margin-bottom: 20px;
+}
+	.topo-prod .figure {float: left; width: 100%; overflow: hidden;}
+.topo-prod .lk-voltar {
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 10px 0 10px 0;
+}
+
+.icon-zoom {display: none;}
+
+.texto-servicos {
+	float: left;
+	width: 100%;
+}
+.texto-servicos .desc {
+	width: 100%;
+	font-size: 18px;
+	line-height: 22px;
+	padding: 0 0 10px 0;
+}
+.texto-servicos .desc-bottom {
+	clear: both;
+	width: 100%;
+	font-size: 18px;
+	line-height: 22px;
+}
+.lista-servicos p {width: 100%; font-size: 18px; line-height: 22px;}
+.lista-servicos h2 {font-size: 24px; line-height: 26px;}
+.lista-servicos .img-servico {margin: 5px 0 0 0; height: 280px;}
+.lista-servicos li {padding: 0 0 20px 0;}
+
+.filtro-mapa {display: block;}
+.filtro.filtro-mapa .selectbox {width: 100%; margin: 0 0 20px 0;}
+.filtro.filtro-mapa .selectbox .label {width: 100%; background-position: 90% center;}
+
+.intro-form {
+	font-size: 18px;
+	line-height: 22px;
+	padding: 0 0 10px 0;
+}
+.form-default {width: 100%;}
+.form-default input {
+	font-size: 14px;
+	line-height: 16px;
+	padding: 15px 10px 10px 10px;
+	margin: 0 0 4px 0;
+}
+.form-default input.input-half {
+	width: 100%;
+	margin: 0 0 4px 0;
+}
+.form-default .selectbox {
+	width: 100%;
+	margin: 0 0 4px 0;
+}
+.form-default .selectbox .label {
+	width: 100%;
+	height: auto;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 15px 10px 10px 10px;
+	background-position: 94% center;
+}
+.browse-wrap {display: none}
+
+.setas {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background: url(../images/setas-secundario.png) no-repeat 0 0;
+	text-indent: -9999px;
+	top: 100px;
+	z-index: 100;
+	cursor: pointer;
+	margin-top: 60px;
+}
+	.setas.seta-esq {
+		left: 5px;
+	}
+	.setas.seta-dir {
+		right: 5px;
+		background-position: right 0;
+	}
+
+#frame_mapa {
+	height: 250px !important;
+}

@@ -1,0 +1,57 @@
+.wrapper {
+	width: 800px;
+}
+	.page-malha .wrapper {
+		width: 790px;
+	}
+
+.content-home {
+	padding: 0 200px 0 0;
+}
+.secundary header h3 {display: none;}
+.secundary header h3.sub {display: block;}
+.secundary header {
+	width: 210px;
+}
+.setas {display: none;}
+/* Malha */
+.filtros-links a {
+	width: 250px;
+}
+.filtro .selectbox {
+	width: 140px;
+}
+.filtro .selectbox .label {
+	width: 140px;
+	background-position: 110px center;
+}
+.lista-blocos {
+	width: 860px;
+}
+.lista-blocos li {
+	width: 250px;
+}
+.filtro button {
+	width: 115px;
+}
+
+/* Malha detalhe */
+
+.desc-prod div {
+	width: 575px;
+	padding: 0 90px 20px 0;
+}
+.topo-prod figure {
+	float: left;
+	width: 100%;
+	overflow: hidden;
+}
+
+/* Representantes */
+.filtro.filtro-mapa .selectbox {
+	width: 322px;
+}
+.filtro.filtro-mapa .selectbox .label {
+	width: 322px;
+	background-position: 285px center;
+}
