@@ -46,16 +46,16 @@
           <li class="node-2 parent">
             <a href="malha.php">Malhas</a>
             <ul>
-              <li><a href="malha.php">Fitness</a></li>
-              <li><a href="malha.php">Lingerie</a></li>
-              <li><a href="malha.php">Escolar</a></li>
-              <li><a href="malha.php">Praia</a></li>
+              <li><a href="http://www.douattextil.com.br/malhas/fitness/colecao">Fitness</a></li>
+              <li><a href="http://www.douattextil.com.br/malhas/lingerie/colecao">Lingerie</a></li>
+              <li><a href="http://www.douattextil.com.br/malhas/escolar/colecao">Escolar</a></li>
+              <li><a href="http://www.douattextil.com.br/malhas/praia/colecao">Praia</a></li>
             </ul>
           </li>
-          <li class="node-3"><a href="servicos.php">Prestação de serviços</a></li>
-          <li class="node-4"><a href="representantes.php">Representantes</a></li>
-          <li class="node-5"><a href="trabalhe.php">Trabalhe Conosco</a></li>
-          <li class="node-6"><a href="contato.php">Contato</a></li>
+          <li class="node-3"><a href="http://www.douattextil.com.br/servicos">Prestação de serviços</a></li>
+          <li class="node-4"><a href="http://www.douattextil.com.br/representantes">Representantes</a></li>
+          <li class="node-5"><a href="http://www.douattextil.com.br/trabalhe-conosco">Trabalhe Conosco</a></li>
+          <li class="node-6"><a href="http://www.douattextil.com.br/contato">Contato</a></li>
           <!--<li class="node-7 parent">
             <a href="#">Mídias Sociais</a>
             <ul>
@@ -65,12 +65,12 @@
             </ul>
           </li>-->
         </ul>
-        <span class="fake-nav node-1" data-node="1" data-url="sobre.php"></span>
+        <span class="fake-nav node-1" data-node="1" data-url="http://www.douattextil.com.br/sobre"></span>
         <span class="fake-nav node-2" data-node="2" data-url="#"></span>
-        <span class="fake-nav node-3" data-node="3" data-url="servicos.php"></span>
-        <span class="fake-nav node-4" data-node="4" data-url="representantes.php"></span>
-        <span class="fake-nav node-5" data-node="5" data-url="trabalhe.php"></span>
-        <span class="fake-nav node-6" data-node="6" data-url="contato.php"></span>
+        <span class="fake-nav node-3" data-node="3" data-url="http://www.douattextil.com.br/servicos"></span>
+        <span class="fake-nav node-4" data-node="4" data-url="http://www.douattextil.com.br/representantes"></span>
+        <span class="fake-nav node-5" data-node="5" data-url="http://www.douattextil.com.br/trabalhe-conosco"></span>
+        <span class="fake-nav node-6" data-node="6" data-url="http://www.douattextil.com.br/contato"></span>
         <span class="fake-nav node-7" data-node="7" data-url="#"></span>
       </nav>
 
