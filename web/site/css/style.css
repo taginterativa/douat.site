@@ -359,7 +359,8 @@ p {
 			font-size: 24px;
 			color: #ffffff;
 			line-height: 32px;
-			font-family: 'AdobeGaramondProItalic';
+			font-family: "adobe-garamond-pro",Georgia;
+			font-style: italic;
 			letter-spacing: 1px;
 		}
 		.content-home .claro h2 {color: #000;}
@@ -1033,7 +1034,8 @@ main {
 	.desc-prod div p {
 		font-size: 18px;
 		color: #fff;
-		font-family: 'AdobeGaramondProItalic';
+		font-family: "adobe-garamond-pro",Georgia;
+		font-style: italic;4
 		letter-spacing: 1px;
 		line-height: 22px;
 		padding: 0 0 40px 0;
@@ -1125,7 +1127,8 @@ main {
 	color: #fff;
 	letter-spacing: 1px;
 	line-height: 28px;
-	font-family: 'AdobeGaramondProItalic';
+	font-family: "adobe-garamond-pro",Georgia;
+	font-style: italic;
 	padding: 0 0 28px 0;
 }
 	.intro-form a {
@@ -1308,7 +1311,8 @@ span.upload-path {
 	line-height: 32px;
 	float: left;
 	width: 675px;
-	font-family: 'AdobeGaramondProItalic';
+	font-family: "adobe-garamond-pro",Georgia;
+	font-style: italic;
 	padding: 0 0 40px 0;
 }
 	.texto-sobre .tit-sobre {
@@ -1333,7 +1337,8 @@ span.upload-path {
 .texto-servicos .desc {
 	font-size: 24px;
 	color: #ffffff;
-	font-family: 'AdobeGaramondProItalic';
+	font-family: "adobe-garamond-pro",Georgia;
+	font-style: italic;
 	width: 650px;
 	line-height: 30px;
 	padding: 0 0 70px 0;
@@ -1341,7 +1346,8 @@ span.upload-path {
 .texto-servicos .desc-bottom {
 	font-size: 24px;
 	color: #ffffff;
-	font-family: 'AdobeGaramondProItalic';
+	font-family: "adobe-garamond-pro",Georgia;
+	font-style: italic;
 	width: 650px;
 	line-height: 30px;
 	padding: 0 0 20px 0;
@@ -1380,7 +1386,8 @@ span.upload-path {
 	.lista-servicos p {
 		font-size: 24px;
 		color: #ffffff;
-		font-family: 'AdobeGaramondProItalic';
+		font-family: "adobe-garamond-pro",Georgia;
+		font-style: italic;
 		line-height: 30px;
 		padding: 20px 0 0 0;
 		clear: both;

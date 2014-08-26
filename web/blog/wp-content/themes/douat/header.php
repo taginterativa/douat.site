@@ -6,6 +6,9 @@
 
 	<title><?php if(is_home()) bloginfo('name'); else wp_title(''); ?></title>
 
+  <script type="text/javascript" src="//use.typekit.net/olx6mxm.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/idangerous.swiper.css" />
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/fonts.css" />
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/icons.css" />

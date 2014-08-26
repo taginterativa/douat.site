@@ -82,12 +82,3 @@
     font-weight: normal;
     font-style: normal;
 }
-
-@font-face {
-    font-family: 'AdobeGaramondProItalic';
-    src: url('../fonts/agaramondpro-italic.eot');
-    src: url('../fonts/agaramondpro-italic.svg#AdobeGaramondProItalic') format('svg'),
-         url('../fonts/agaramondpro-italic.eot') format('embedded-opentype'),
-         url('../fonts/agaramondpro-italic.woff') format('woff'),
-         url('../fonts/agaramondpro-italic.ttf') format('truetype');
-}
