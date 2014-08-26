@@ -17,7 +17,7 @@
                 <span class="data"><?php the_date(); ?> - Categorias: <?php the_category(', '); ?> - <?php comments_popup_link(__('Comentário (0)'), __('Comentário (1)'), __('Comentários (%)')); ?></span>
                 <!--<small><?php the_date(); ?> by <?php the_author(); ?></small>-->
 
-                <div class="post"><?php the_content(__('(more...)')); ?></div>
+                <div class="post"><?php the_content(__('Leia mais...')); ?></div>
 
               </li>
 
