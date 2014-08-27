@@ -5,10 +5,10 @@ var markers = {};
 function initialize() {
 	var myLatlng = new google.maps.LatLng(-26.321011, -48.8524804);
 	var myOptions = {
-		zoom: 13,
+		zoom: 5,
 		center: myLatlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		scrollwheel: false,
+		scrollwheel: true,
 		panControl: false,
 			panControlOptions: {
 			position: google.maps.ControlPosition.TOP_RIGHT
@@ -31,6 +31,15 @@ function initialize() {
 	}
 
 	var cont = 0;
+	var markers = [];
+	var imgcluster =  baseUrl.replace('app_dev.php', '')+'/site/images/agrupador_vermelho.png';
+	var styles = [[{
+		url: imgcluster,
+		height: 53,
+		width: 52,
+		textColor: '#ffffff',
+		textSize: 12
+	}]];
 	$.get(urlJson, function(data) {
 		$.each(data, function(index, item) {
 			//console.log(item);
@@ -51,6 +60,7 @@ function initialize() {
 			});
 			marker.set("id", id_marker);
 			marker.setMap(params.map);
+			markers.push(marker);
 
 			google.maps.event.addListener(marker, 'click', function() {
 				//console.log(marker);
@@ -78,6 +88,11 @@ function initialize() {
 			//console.log(markers);
 
 		});
+		var markerCluster = new MarkerClusterer(map, markers, {
+			maxZoom: 12,
+          	gridSize: 40,
+          	styles: styles[0]
+		});
 	}, "json");
 }
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -90,7 +105,7 @@ function carrega(lat,lng) {
 		zoom: 5,
 		center: myLatlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		scrollwheel: false,
+		scrollwheel: true,
 		panControl: false,
 			panControlOptions: {
 			position: google.maps.ControlPosition.TOP_RIGHT
