@@ -67,7 +67,7 @@ body {
 	background-position: center top;
 	background-repeat: repeat-y;
 	background-size: 100%;
-	background: url(../images/bg-blog.jpg) no-repeat top center fixed #999999;
+	background: url(../images/bg-blog.jpg) no-repeat top center #999999;
 }
 
 body, button,

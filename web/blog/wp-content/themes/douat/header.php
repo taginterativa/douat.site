@@ -83,7 +83,7 @@
   <div class="limiter">
     <div class="topo-blog">
       <h2><a href="<?php bloginfo('url'); ?>"><span>Blog</span> Douat</a></h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Um espaço para descobrir tudo que a Douat tem a oferecer.</p>
     </div>
   </div>
 
