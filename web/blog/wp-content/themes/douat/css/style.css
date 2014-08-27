@@ -456,6 +456,7 @@ p {
 main {
 	float: left;
 	width: 100%;
+	padding: 30px 0 0 0;
 }
 
 .control-scroll {
@@ -1331,7 +1332,7 @@ span.upload-path {
 	width: 100%;
 	text-align: center;
 	color: #fff;
-	padding: 230px 300px 30px 300px;
+	padding: 210px 300px 30px 300px;
 }
 	.topo-blog h2 {
 		font-family: 'bebas_neuebold';
