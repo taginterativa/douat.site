@@ -909,6 +909,9 @@ main {
 			float: left;
 			margin: 0 0 10px 0;
 			transition: all 0.8s;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100%;
 		}
 			.lista-blocos li span img {float: left;}
 		.lista-blocos li a {

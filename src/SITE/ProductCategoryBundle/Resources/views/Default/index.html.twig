@@ -57,7 +57,7 @@
                             {% if Product.isActive == 1 %}
                             <li>
                                 <a href="{{ path('product_show', {category_slug: Category.slug, product_slug: Product.slug}) }}">
-                                    <span><img src="{{ asset(Product.image) }}"></span>
+                                    <span style="background-image: url({{ asset(Product.image) }});"></span>
                                     <strong>{{ Product.name }}</strong>
                                 </a>
                             </li>
