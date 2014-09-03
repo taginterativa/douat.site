@@ -242,6 +242,22 @@ p {
 				padding: 100px 0 0 0;
 				text-align: center;
 			}
+			.header-container nav li li a span {
+				position: absolute;
+				top: 135px;
+				width: 117px;
+				height: 118px;
+				line-height: 118px;
+				background: url(../images/submenu-malhas.png) no-repeat -117px 0;
+				text-align: center;
+				color: #999999;
+				font-size: 18px;
+				display: none;
+			}
+			.header-container nav li li.ativo a span {display: block;}
+			.header-container nav li li a span:hover {background-position: 0 0;}
+			.header-container nav li li a span.liso {left: 0;}
+			.header-container nav li li a span.estampado {left: 125px;}
 
 	.header-container .fake-nav {
 		width: 175px;

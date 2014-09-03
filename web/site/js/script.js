@@ -215,6 +215,11 @@ $(function() {
         	$('.nav-header li').removeClass('hide');
         });
     }
+    $('.nav-header li a span').click(function() {
+        var url = $(this).data('url');
+        window.location = url;
+        return false;
+    });
 
     // Mobile
     $('.mobile .nav-header .parent a').click(function() {
