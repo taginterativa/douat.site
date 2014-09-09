@@ -127,6 +127,8 @@ class ProductCategoryRepository extends EntityRepository
                 $query->andWhere("cor.name LIKE '%" . str_replace('Estampados', 'Estampa', $request->get('cor')) . "%'");
             }
         }
+        /* Reordenacao pela posição selecionada no CMS*/
+        $query->add("orderBy","p.position ASC");
 
         return $query->getQuery()->getResult(\Doctrine\ORM\AbstractQuery::HYDRATE_OBJECT);
     }

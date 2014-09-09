@@ -251,13 +251,8 @@ class ProductController extends Controller
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        var_dump($request->request);
-        die;
-
         $entity = $em->getRepository('CMSProductBundle:Product')->find($id);
-
-
+        
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Product entity.');
         }
