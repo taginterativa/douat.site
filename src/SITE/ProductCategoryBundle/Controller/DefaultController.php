@@ -28,8 +28,13 @@ class DefaultController extends Controller
     }
 
 
-    public function categoryAction($category_slug, $subcategory_slug = null)
+    public function categoryAction($category_slug, $subcategory_slug = null, $textura)
     {
+        /* Adicionado a tag todos por causa do submenu de texturas */
+        if($subcategory_slug == "todos") {
+            $subcategory_slug = null;
+        }
+
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->findByCategoryAndSubCategory($category_slug, $subcategory_slug);
 
@@ -59,10 +64,38 @@ class DefaultController extends Controller
         foreach ($entity as $category) { 
             $products = $category->getProducts();
             foreach($products as $product) {
-                $allProducts[intval($product->getPosition())] = $product;
+                $adicionar = true;
+
+                /* Logica para diferenciar lisos e estampados */
+                if($textura != 'todos') {
+                    $adicionar = false;
+                    foreach($product->getProductColor() as $color) {
+                        if(strpos($color->getName(), "Estampa") === false) { //Nao encontrou
+                            if($textura == 'lisos') {
+                                $adicionar = true;
+                                break;
+                            } 
+                        } else {
+                            if($textura == 'estampados') {
+                                $adicionar = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                /* Se nao estiver ativo nao deve adicionar na array */
+                if(!$product->getIsActive()) {
+                    $adicionar = false;
+                }
+
+                if($adicionar) {
+                    /* A chave do produto é a posicao escolhida do CMS*/
+                    $allProducts[intval($product->getPosition())] = $product;
+                }
             }
         }
-        ksort($allProducts);
+        ksort($allProducts); //Reordena pela $key.
 
         return $this->render('ProductCategoryBundle:Default:index.html.twig', array(
             'Products'          => $allProducts,

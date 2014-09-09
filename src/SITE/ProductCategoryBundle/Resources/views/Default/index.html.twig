@@ -41,6 +41,7 @@
                     <select name="cor" id="cor" class="select">
                         <option value="">Cor</option>
                         <option value="Estampados" {% if cor == 'Estampados' %}selected{% endif %}>Estampados</option>
+                        <option value="Lisos" {% if cor == 'Lisos' %}selected{% endif %}>Lisos</option>
                         {% for Cor in Cores %}
                             {% if 'estampa' not in Cor.name|lower %}
                                 <option value="{{ Cor.name }}" {% if cor == Cor.name %}selected{% endif %}>{{ Cor.code }} - {{ Cor.name }}</option>
@@ -63,9 +64,7 @@
                             {% endif %}
                         {% endfor %}
                     {% else %}
-                        {% if subcategory_slug is not null %}
-                            <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
-                        {% endif %}
+                        <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
                     {% endif %}
                 </ul>
 

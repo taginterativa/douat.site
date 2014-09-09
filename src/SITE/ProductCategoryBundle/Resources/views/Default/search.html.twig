@@ -45,6 +45,7 @@
                     <select name="cor" id="cor" class="select">
                         <option value="">Cor</option>
                         <option value="Estampados" {% if cor == 'Estampados' %}selected{% endif %}>Estampados</option>
+                        <option value="Lisos" {% if cor == 'Lisos' %}selected{% endif %}>Lisos</option>
                         {% for Cor in Cores %}
                             {% if 'estampa' not in Cor.name|lower %}
                                 <option value="{{ Cor.name }}" {% if cor == Cor.name %}selected{% endif %}>{{ Cor.code }} - {{ Cor.name }}</option>
@@ -61,7 +62,7 @@
                             <li>
                                 <a href="{{ path('product_show', {category_slug: Product.ProductCategory.slug, product_slug: Product.slug}) }}">
                                     <span><img src="{{ asset(Product.image) }}"></span>
-                                    <strong>{{ Product.name }}</strong>
+                                    <strong>{{ Product.id }} - {{ Product.name }}</strong>
                                 </a>
                             </li>
                         {% endif %}

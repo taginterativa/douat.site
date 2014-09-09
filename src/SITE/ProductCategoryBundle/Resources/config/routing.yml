@@ -13,11 +13,11 @@ product_category_search:
 
 product_category_list:
     pattern:  /malhas/{category_slug}
-    defaults: { _controller: ProductCategoryBundle:Default:category }
+    defaults: { _controller: ProductCategoryBundle:Default:category, textura: "todos" }
 
 product_category_sub_list:
-    pattern:  /malhas/{category_slug}/{subcategory_slug}
-    defaults: { _controller: ProductCategoryBundle:Default:category }
+    pattern:  /malhas/{category_slug}/{subcategory_slug}/{textura}
+    defaults: { _controller: ProductCategoryBundle:Default:category, textura: "todos" }
 
 product_show:
     pattern:  /malha/{category_slug}/{product_slug}

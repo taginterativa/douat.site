@@ -124,7 +124,11 @@ class ProductCategoryRepository extends EntityRepository
             if($request->get('cor'))
             {
                 $query->innerJoin('p.productColor', 'cor');
-                $query->andWhere("cor.name LIKE '%" . str_replace('Estampados', 'Estampa', $request->get('cor')) . "%'");
+                if($request->get('cor') != "Lisos") {
+                    $query->andWhere("cor.name LIKE '%" . str_replace('Estampados', 'Estampa', $request->get('cor')) . "%'");
+                } else {
+                    $query->andWhere("cor.name NOT LIKE '%Estampa%'");
+                }
             }
         }
         /* Reordenacao pela posição selecionada no CMS*/
