@@ -31,13 +31,12 @@ class DefaultController extends Controller
     public function categoryAction($category_slug, $subcategory_slug = null)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')
-            ->findByCategoryAndSubCategory($category_slug, $subcategory_slug);
+        $entity = $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->findByCategoryAndSubCategory($category_slug, $subcategory_slug);
 
         if(count($entity))
         {
             if($entity[0]->getParent())
-            {
+        {
                 $titulo = $entity[0]->getParent()->getName();
                 $category_id = $entity[0]->getParent()->getId();
             }
@@ -55,9 +54,18 @@ class DefaultController extends Controller
             $image  = null;
         }
 
+        /* Reordenacao pela posição selecionada no CMS*/
+        $allProducts = array();
+        foreach ($entity as $category) { 
+            $products = $category->getProducts();
+            foreach($products as $product) {
+                $allProducts[intval($product->getPosition())] = $product;
+            }
+        }
+        ksort($allProducts);
 
         return $this->render('ProductCategoryBundle:Default:index.html.twig', array(
-            'Categories'        => $entity,
+            'Products'          => $allProducts,
             'TituloCategoria'   => $titulo,
             'HeadImage'         => $image,
             'Familias'          => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getFamilias(),
@@ -79,7 +87,7 @@ class DefaultController extends Controller
         $Category = $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->findOneBySlug($request->get('familia'));
 
         return $this->render('ProductCategoryBundle:Default:search.html.twig', array(
-            'Products'        => $entity,
+            'Products'          => $entity,
             'TituloCategoria'   => $Category->getName(),
             'HeadImage'         => $Category->getImage(),
             'Familias'          => $em->getRepository('CMS\ProductBundle\Entity\ProductCategory')->getFamilias(),

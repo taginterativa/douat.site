@@ -103,6 +103,11 @@ CMS\ProductBundle\Entity\Product:
             comment: ''
             default: '1'
             column: is_active
+        position:
+            type: integer
+            nullable: false
+            fixed: false
+            comment: ''
     manyToOne:
         productCategory:
             targetEntity: ProductCategory

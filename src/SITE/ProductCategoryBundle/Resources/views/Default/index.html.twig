@@ -51,26 +51,22 @@
                     <button type="submit">Filtrar</button>
                 </form>
                 <ul class="lista-blocos">
-                    {% for Category in Categories %}
-                        {% if Category.Products.count %}
-                            {% for Product in Category.Products %}
+                    {% if Products|length > 0 %}
+                        {% for Product in Products %}
                             {% if Product.isActive == 1 %}
-                            <li>
-                                <a href="{{ path('product_show', {category_slug: Category.slug, product_slug: Product.slug}) }}">
-                                    <span style="background-image: url({{ asset(Product.image) }});"></span>
-                                    <strong>{{ Product.name }}</strong>
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="{{ path('product_show', {category_slug: Product.productCategory.slug, product_slug: Product.slug}) }}">
+                                        <span style="background-image: url({{ asset(Product.image) }});"></span>
+                                        <strong>{{ Product.name }}</strong>
+                                    </a>
+                                </li>
                             {% endif %}
-                            {% endfor %}
-                        {% else %}
-                            {% if subcategory_slug is null %}
-
-                            {% else %}
-                                <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
-                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% if subcategory_slug is not null %}
+                            <strong class="nada-encontrado">Não há registros cadastrados nessa área até o momento.</strong>
                         {% endif %}
-                    {% endfor %}
+                    {% endif %}
                 </ul>
 
             </section>

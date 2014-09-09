@@ -43,3 +43,8 @@ cms_product_paginate:
     pattern:  /pagina/{page}
     defaults: { _controller: "CMSProductBundle:Product:paginate" }
     requirements: { _method: get|post }
+
+cms_product_position:
+     pattern:  /position/{id}/{option}/{page}
+     defaults: { _controller: "CMSProductBundle:Product:moveOrder", page: 1 }
+     requirements: { _method: get }

@@ -113,6 +113,11 @@ class Product
     private $productColor;
 
     /**
+     * @var integer
+     */
+    private $position = 0;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -523,6 +528,26 @@ class Product
     public function getProductColor()
     {
         return $this->productColor;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Product
+     */
+    public function setPosition($position) {
+        $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return position 
+     */
+    public function getPosition() {
+        return $this->position;
     }
 
     public function __toString()

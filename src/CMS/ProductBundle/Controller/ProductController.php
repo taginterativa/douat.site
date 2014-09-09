@@ -90,7 +90,7 @@ class ProductController extends Controller
     {
         $em       = $this->getDoctrine()->getManager();
         $num_rows = count($em->getRepository('CMSProductBundle:Product')->findAll());
-        $entities = $em->getRepository('CMSProductBundle:Product')->findBy(array(),array(),10, ($page-1)*10);
+        $entities = $em->getRepository('CMSProductBundle:Product')->findBy(array(),array('position' => 'ASC'), 10, ($page-1)*10);
 
         return $this->render('CMSProductBundle:Product:index.html.twig', array(
             'entities' => $entities,
@@ -109,8 +109,19 @@ class ProductController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
+        $em = $this->getDoctrine()->getManager();
+        $statement = $em->getConnection()->prepare("SELECT max(position)+1 AS 'position' FROM product");
+        $statement->execute();
+        $row = $statement->fetch();
+        
+        if(!$row || !$row['position']) {
+            $entity->setPosition(1);
+        } else {
+            $entity->setPosition($row['position']);
+        }
+
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            
             if(!is_null($form['image']->getData()))
             {
                 $entity->upload();
@@ -241,6 +252,9 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        var_dump($request->request);
+        die;
+
         $entity = $em->getRepository('CMSProductBundle:Product')->find($id);
 
 
@@ -336,31 +350,63 @@ class ProductController extends Controller
             ->getForm()
         ;
     }
-/**
-    * Deletes a Product entity.
-*
-    */
+    /**
+     * Deletes a Product entity.
+     * 
+     */
     public function deleteAllAction(Request $request)
-{
-    $data_delete = $request->request->get('record');
+    {
+        $data_delete = $request->request->get('record');
 
-    if($data_delete){
-        foreach($data_delete as $data){
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('CMSProductBundle:Product')->find($data);
+        if($data_delete){
+            foreach($data_delete as $data){
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('CMSProductBundle:Product')->find($data);
 
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Product entity.');
+                if (!$entity) {
+                    throw $this->createNotFoundException('Unable to find Product entity.');
+                }
+
+                $em->remove($entity);
+                $em->flush();
+
+                $this->get('session')->getFlashBag()->add('title', 'Product');
+                $this->get('session')->getFlashBag()->add('message', 'Lista de Product excluidos com sucesso');
             }
-
-            $em->remove($entity);
-            $em->flush();
-
-            $this->get('session')->getFlashBag()->add('title', 'Product');
-            $this->get('session')->getFlashBag()->add('message', 'Lista de Product excluidos com sucesso');
         }
+        return $this->redirect($this->generateUrl('cms_produtos'));
     }
 
+    public function moveOrderAction($id, $option, $page) {
+        $em = $this->getDoctrine()->getManager();
+        $tableName = $em->getClassMetadata('CMSProductBundle:Product')->getTableName();
+        $row = null;
+        
+        if($option == "down") {
+            $statement = $em->getConnection()->prepare("SELECT id, position FROM " . $tableName . " WHERE position = (SELECT min(t.position) FROM " . $tableName . " t WHERE position > (SELECT position FROM " . $tableName . " WHERE id = :id))");
+            $statement->bindValue('id',$id);
+            $statement->execute();
+            $row = $statement->fetch();
+        }
 
-    return $this->redirect($this->generateUrl('cms_produtos'));
-}}
+        if($option == "up") {
+            $statement = $em->getConnection()->prepare("SELECT id, position FROM " . $tableName . " WHERE position = (SELECT max(p.position) FROM " . $tableName . " p WHERE position < (SELECT position FROM " . $tableName . " WHERE id = :id))");
+            $statement->bindValue('id',$id);
+            $statement->execute();
+            $row = $statement->fetch();
+        }
+
+        if($row) {
+            $entity = $em->getRepository('CMSProductBundle:Product')->find($id);
+            $position = $entity->getPosition();
+            $entity->setPosition($row['position']);
+
+            $entity2 = $em->getRepository('CMSProductBundle:Product')->find($row['id']);
+            $entity2->setPosition($position);
+
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('cms_product_paginate', array("page" => $page)));
+    }
+}

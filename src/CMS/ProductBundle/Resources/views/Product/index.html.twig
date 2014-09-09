@@ -29,17 +29,17 @@
                                     </label>
                                 </div>
                             </th>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Createdat</th>
-                            <th>Updatedat</th>
-                            <th>Isactive</th>
+                            <th>Nome</th>
+                            <th>Categoria</th>
+                            <th>Atualizado em</th>
+                            <th>Ativo</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for entity in entities %}
-                        <tr class="gradeC">                            <td class="text-center">
+                        <tr class="gradeC">
+                            <td class="text-center">
                                 <div class="checkbox checkbox-single margin-none">
                                     <label class="checkbox-custom">
                                         <i class="fa fa-fw fa-square-o"></i>
@@ -48,13 +48,15 @@
                                 </div>
                             </td>
 
-                            <td><a href="{{ path('cms_produtos_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                            <td>{{ entity.name }}</td>
-                            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                            <td>{{ entity.isActive }}</td>
-                            <td>    <a href="{{ path('cms_produtos_edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
-    <a href="{{ path('cms_produtos_delete', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-danger delete"  data-toggle="tooltip" data-original-title="Excluir" data-placement="top" ><i class="fa fa-trash-o"></i></a>
+                            <td class="col-md-3"><a href="{{ path('cms_produtos_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                            <td class="col-md-3">{{ entity.productCategory }}</td>
+                            <td class="col-md-2">{% if entity.updatedAt %}{{ entity.updatedAt|date('d/m/Y H:i:s') }}{% endif %}</td>
+                            <td class="col-md-1">{% if entity.isActive == 1 %}<i class="fa fa-check"></i>{% else %}<i class="fa fa-times"></i>{% endif %}</td>
+                            <td>
+                                <a href="{{ path('cms_produtos_edit', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Editar" data-placement="top" ><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="{{ path('cms_produtos_delete', { 'id': entity.id }) }}" class="btn btn-stroke btn-circle btn-danger delete"  data-toggle="tooltip" data-original-title="Excluir" data-placement="top" ><i class="fa fa-trash-o"></i></a>
+                                <a href="{{ path('cms_product_position', { 'id': entity.id, 'option': 'up', page: page }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Mover para cima" data-placement="top" ><i class="fa fa-arrow-up"></i></a>
+                                <a href="{{ path('cms_product_position', { 'id': entity.id, 'option': 'down', page: page }) }}" class="btn btn-stroke btn-circle btn-primary edit" data-toggle="tooltip" data-original-title="Mover para baixo" data-placement="top" ><i class="fa fa-arrow-down"></i></a>
                             </td>
                         </tr>
                     {% endfor %}

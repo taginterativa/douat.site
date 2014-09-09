@@ -61,7 +61,7 @@ class BannerController extends Controller
         $statement = $em->getConnection()->prepare("SELECT max(position)+1 AS 'position' FROM banner");
         $statement->execute();
         $row = $statement->fetch();
-        echo "aqui";
+
         if(!$row || !$row['position']) {
             $entity->setPosition(1);
         } else {
