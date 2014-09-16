@@ -30,6 +30,10 @@ class DefaultController extends Controller
 
     public function categoryAction($category_slug, $subcategory_slug = null, $textura)
     {
+        if($textura != 'todos' && $category_slug != 'fitness') {
+            return $this->redirect($this->generateUrl('product_category_sub_list', array('category_slug' => $category_slug, 'subcategory_slug' => $subcategory_slug)));
+        }
+
         /* Adicionado a tag todos por causa do submenu de texturas */
         if($subcategory_slug == "todos") {
             $subcategory_slug = null;
