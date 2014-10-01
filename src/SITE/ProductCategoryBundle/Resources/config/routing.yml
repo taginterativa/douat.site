@@ -10,10 +10,9 @@ product_category_search:
     pattern:  /malhas/busca
     defaults: { _controller: ProductCategoryBundle:Default:busca }
 
-
 product_category_list:
-    pattern:  /malhas/{category_slug}
-    defaults: { _controller: ProductCategoryBundle:Default:category, textura: "todos" }
+    pattern:  /malhas/{category_slug}/{subcategory_slug}/{textura}
+    defaults: { _controller: ProductCategoryBundle:Default:category, textura: "todos", subcategory_slug: null }
 
 product_category_sub_list:
     pattern:  /malhas/{category_slug}/{subcategory_slug}/{textura}
@@ -22,6 +21,5 @@ product_category_sub_list:
 product_show:
     pattern:  /malha/{category_slug}/{product_slug}
     defaults: { _controller: ProductCategoryBundle:Product:index }
-
 
 
