@@ -606,4 +606,20 @@ class Product
         $this->image = $this->getUploadDir() . '/' . $this->getImage()->getClientOriginalName();
     }
 
+
+
+    public function uploadAttachment()
+    {
+        if (null === $this->getAttachment()) {
+            return;
+        }
+
+        $this->getAttachment()->move(
+            $this->getUploadRootDir(),
+            $this->getAttachment()->getClientOriginalName()
+        );
+
+        $this->attachment = $this->getUploadDir() . '/' . $this->getAttachment()->getClientOriginalName();
+    }
+
 }

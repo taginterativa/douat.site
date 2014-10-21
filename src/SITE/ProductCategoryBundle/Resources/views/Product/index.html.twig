@@ -65,7 +65,9 @@
                         </p>
                         PA = Poliamida | PES = Poliéster<br>
                         PUE = Elastano | CV = Viscose
-                        <!--<a href="#" class="bt-default open-ficha">Ficha técnica</a>-->
+                        {% if Product.attachment | length %}
+                            <a href="{{ asset(Product.attachment) }}" class="bt-default">Ficha técnica</a>
+                        {% endif %}
                     </aside>
                 </article>
                 <div class="float-malha"><span class="fechar-foto"></span><img src="{{ asset(Product.image) }}"></div>

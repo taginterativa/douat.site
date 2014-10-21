@@ -126,6 +126,12 @@ class ProductController extends Controller
             {
                 $entity->upload();
             }
+
+            if(!is_null($form['attachment']->getData()))
+            {
+                $entity->uploadAttachment();
+            }
+
             $em->persist($entity);
             $em->flush();
 
@@ -257,6 +263,7 @@ class ProductController extends Controller
             throw $this->createNotFoundException('Unable to find Product entity.');
         }
         $image_file = $entity->getImage();
+        $attachment_file = $entity->getAttachment();
 
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
@@ -264,14 +271,20 @@ class ProductController extends Controller
 
         if ($editForm->isValid()) {
 
-            if(!is_null($editForm['image']->getData()))
-            {
+            if(!is_null($editForm['image']->getData())) {
                 $entity->upload();
             }
-            else
-            {
+            else {
                 $entity->setImage($image_file);
             }
+
+            if(!is_null($editForm['attachment']->getData())) {
+                $entity->uploadAttachment();
+            }
+            else {
+                $entity->setAttachment($attachment_file);
+            }
+
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('title', 'Product');
