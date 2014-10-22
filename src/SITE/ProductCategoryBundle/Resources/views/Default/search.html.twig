@@ -31,7 +31,6 @@
                     <input type="hidden" name="acabamento" id="acabamento" value="{% if acabamento is not null %}{{ acabamento }}{% endif %}">
                     <input type="hidden" name="cor" id="cor" value="{% if cor is not null %}{{ cor }}{% endif %}">
                     <select name="familia" id="familia" class="select">
-                        <option value="">Família</option>
                         {% for Familia in Familias %}
                             <option value="{{ Familia.slug }}" {% if familia == Familia.slug %}selected{% endif %}>{{ Familia.name }}</option>
                         {% endfor %}
