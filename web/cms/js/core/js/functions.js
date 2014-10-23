@@ -28,7 +28,7 @@ $(document).ready(function(){
 
     if ($('.select2-offscreen').length) { $('.select2-offscreen').select2(); }
     if ($('textarea.summernote').size() > 0) {
-        
+
         $('textarea.summernote').summernote({
         toolbar: [
           ['style', ['style']],
@@ -41,6 +41,20 @@ $(document).ready(function(){
         ],
         locale: 'pt-BR'
       });
+    }
+
+    if($('.img-input').size() > 0) {
+        $('.img-input').each(function() {
+            var existe = 0;
+            var src = $(this).attr('src');
+            if(src.indexOf('jpg') > -1) {existe = 1;}
+            if(src.indexOf('png') > -1) {existe = 1;}
+            if(src.indexOf('gif') > -1) {existe = 1;}
+            if(existe == 0) {
+                var pdf = $(this).data('pdf');
+                $(this).attr('src', pdf);
+            }
+        });
     }
 
 
