@@ -1,5 +1,18 @@
 $(function() {
-
+    $(".states .item").click(function(){
+        $(".states .item").each(function(){
+            $(this).removeClass("active");
+        });
+        $(this).addClass("active");
+        $(".white_column:eq(1)").removeClass("opacity");
+    });
+    $(".cities .item").click(function(){
+        $(".cities .item").each(function(){
+            $(this).removeClass("active");
+        });
+        $(this).addClass("active");
+        $(".white_column:eq(2)").removeClass("opacity");
+    });
 
     //Verifica tela
     var largura = $(window).width();

@@ -77,7 +77,7 @@
                     {% for Related in Product.ProductRelated %}
                     <li>
                         <a href="{{ path('product_show', {category_slug: Related.ProductCategory.slug, product_slug: Related.slug}) }}">
-                            <span style="background-image: url({{ asset(Related.image) }});"></span>
+                            <span><img src="{{ asset(Product.image) }}" width="300" height="185"></span>
                             <strong>{{ Related.name }}</strong>
                         </a>
                     </li>
