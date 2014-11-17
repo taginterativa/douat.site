@@ -6,7 +6,7 @@ $(function() {
         $(this).addClass("active");
         $(".white_column:eq(1)").removeClass("opacity");
     });
-    $(".cities .item").click(function(){
+    $('body').on("click",".cities .item", function(){
         $(".cities .item").each(function(){
             $(this).removeClass("active");
         });

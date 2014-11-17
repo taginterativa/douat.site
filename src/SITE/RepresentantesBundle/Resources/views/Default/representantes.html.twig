@@ -1,0 +1,14 @@
+{% for representante in representantes %}
+	<div class="r_item">
+		<div class="ri_title">{{ representante.name }}</div>
+		<div class="ri_city">{{ representante.cidade.nome ~ " - " ~ representante.estado.sigla }}</div>
+
+		{% set phones = representante.phone|replace({" ":"",".":") "})|split("|") %}
+		{% for phone in phones %}
+			{% set phone = (")" in phone? "(" ~ phone:phone) %}
+			<div class="ri_phone">{{ phone }}</div>
+		{% endfor %}
+		
+		<div class="ri_email">{{ representante.email }}</div>
+	</div>
+{% endfor %}

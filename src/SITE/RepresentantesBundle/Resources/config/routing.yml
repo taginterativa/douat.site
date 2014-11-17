@@ -3,9 +3,15 @@ site_representantes_homepage:
     defaults: { _controller: SITERepresentantesBundle:Default:index }
 
 site_representantes_get_cidades:
-    pattern:  /representantes/get_cidades/{estado}
+    pattern:  /representantes/cidades
     defaults: { _controller: SITERepresentantesBundle:Default:getCidades }
+    requirements: { _method: post }
 
-site_representantes_json:
-    pattern:  /representantes/json
-    defaults: { _controller: SITERepresentantesBundle:Default:json }
+site_representantes_get_representantes:
+    pattern:  /representantes/representantes
+    defaults: { _controller: SITERepresentantesBundle:Default:getRepresentantes }
+    requirements: { _method: post }
+
+site_representantes_js_ajax:
+    pattern:  /representantes/js/representantes.js
+    defaults: { _controller: SITERepresentantesBundle:Default:js_ajax }
