@@ -561,16 +561,22 @@ main {
 		color: #ffffff;
 		text-transform: uppercase;
 		letter-spacing: 3px;
-	}
+	
+		width: 700px;
+		margin-top: -150px;
+		margin-left: 76px;
+}
 		.secundary.malha-praia header h3 {
 			color: #000;
 		}
 		.secundary header h3 span {
 			font-family: 'bebas_neuebold';
 			clear: both;
-			float: left;
+			/* float: left; */
 			width: 100%;
-		}
+		
+			margin-left: 10px;
+}
 
 .footer-container {
 	float: left;

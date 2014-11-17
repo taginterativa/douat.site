@@ -17,7 +17,7 @@
                             <a href="{{ path('product_category_sub_list', {category_slug: 'fitness', subcategory_slug: 'colecao'}) }}">
                                 Fitness
                                 <span class="liso" data-url="{{ path('product_category_sub_list', {category_slug: 'fitness', subcategory_slug: 'todos', textura: 'lisos'}) }}">Liso</span>
-                                <span class="estampado" data-url="{{ path('product_category_sub_list', {category_slug: 'fitness', subcategory_slug: 'todos', textura: 'estampados'}) }}">Estampado</span>
+                                <span style="position:relative;top:-150px;left:0px;" class="estampado" data-url="{{ path('product_category_sub_list', {category_slug: 'fitness', subcategory_slug: 'todos', textura: 'estampados'}) }}">Estampado</span>
                             </a>
                         </li>
                         <li>
@@ -30,9 +30,19 @@
                                 Escolar
                             </a>
                         </li>
-                        <li>
+                        <li style="position:relative;top: -124px;left: -370px;">
                             <a href="{{ path('product_category_sub_list', {category_slug: 'praia', subcategory_slug: 'colecao'}) }}">
                                 Praia
+                            </a>
+                        </li>
+                        <li style="position:relative;top: -105px;left: 124px;">
+                            <a href="{{ path('product_category_sub_list', {category_slug: 'praia', subcategory_slug: 'colecao'}) }}">
+                                Casual
+                            </a>
+                        </li>
+                        <li style="position:relative;top: -105px;left: 124px;">
+                            <a href="{{ path('product_category_sub_list', {category_slug: 'praia', subcategory_slug: 'colecao'}) }}">
+                                Jacquard
                             </a>
                         </li>
                     </ul>
