@@ -19,116 +19,19 @@
             <div class="white_column">
                 <div class="wc_title">Selecione um estado</div>
                 <div class="scrolling states">
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
-                    <div class="item">Santa catarina</div>
+                    {% for estado in estados %}
+                        <div class="item" data-uf="{{ estado.sigla }}">{{ estado.nome }}</div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="white_column opacity">
                 <div class="wc_title">Selecione uma cidade</div>
                 <div class="scrolling cities">
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
-                    <div class="item">Joinville</div>
                 </div>
             </div>
             <div class="white_column no-margin-right opacity">
                 <div class="wc_title">representantes</div>
                 <div class="scrolling representatives">
-                    <div class="r_item">
-                        <div class="ri_title">Nome do Presentante</div>
-                        <div class="ri_city">Joinville - SC</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_email">email@email.com</div>
-                    </div>
-                    <div class="r_item">
-                        <div class="ri_title">Nome do Presentante</div>
-                        <div class="ri_city">Joinville - SC</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_email">email@email.com</div>
-                    </div>
-                    <div class="r_item">
-                        <div class="ri_title">Nome do Presentante</div>
-                        <div class="ri_city">Joinville - SC</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_email">email@email.com</div>
-                    </div>
-                    <div class="r_item">
-                        <div class="ri_title">Nome do Presentante</div>
-                        <div class="ri_city">Joinville - SC</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_email">email@email.com</div>
-                    </div>
-                    <div class="r_item">
-                        <div class="ri_title">Nome do Presentante</div>
-                        <div class="ri_city">Joinville - SC</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_email">email@email.com</div>
-                    </div>
-                    <div class="r_item">
-                        <div class="ri_title">Nome do Presentante</div>
-                        <div class="ri_city">Joinville - SC</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_email">email@email.com</div>
-                    </div>
-                    <div class="r_item">
-                        <div class="ri_title">Nome do Presentante</div>
-                        <div class="ri_city">Joinville - SC</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_email">email@email.com</div>
-                    </div>
-                    <div class="r_item">
-                        <div class="ri_title">Nome do Presentante</div>
-                        <div class="ri_city">Joinville - SC</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_phone">(99) 9999-9999</div>
-                        <div class="ri_email">email@email.com</div>
-                    </div>
                 </div>
             </div>
 
@@ -139,6 +42,7 @@
 {% endblock %}
 
 {% block pageScripts %}
+    <script type="text/javascript" src="{{ path('site_representantes_js_ajax') }}"></script>
     <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="{{ asset('site/js/infobox.js') }}"></script>
     <script type="text/javascript" src="{{ asset('site/js/markerclusterer.js') }}"></script>
