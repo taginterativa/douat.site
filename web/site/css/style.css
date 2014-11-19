@@ -241,7 +241,11 @@ p {
 				height: 230px;
 				padding: 100px 0 0 0;
 				text-align: center;
-			}
+			
+				/* background: black; */
+				border-radius: 230px;
+				/* border: 1px solid #000; */
+}
 			.header-container nav li li a span {
 				position: absolute;
 				top: 135px;
@@ -1662,3 +1666,20 @@ span.upload-path {
 
 /* IE FIX ---------------------------------------------------------- */
 
+@media (min-width : 1000px) {
+	.praia_box{
+		position:relative !important;
+		top: -124px !important;
+		left: -370px !important;
+	}
+	.jacquard_box{
+		position:relative !important;
+		top: -105px !important;
+		left: 124px !important;
+	}
+	.casual_box{
+		position:relative !important;
+		top: -105px !important;
+		left: 124px !important;
+	}
+}

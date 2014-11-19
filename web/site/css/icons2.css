@@ -20,10 +20,28 @@
 
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased !important;
+	font-size: 294px !important;
+	margin-bottom: -76px;
+	margin-top: -85px;
+	-moz-osx-font-smoothing: grayscale !important;
+}
+@media (min-width : 1000px) {
+[class^="icon2-"], [class*=" icon2-"] {
+	font-family: 'icomoon2' !important;
+	speak: none !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	line-height: 1 !important;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased !important;
 	font-size: 120px !important;
 	margin-bottom: -32px;
 	margin-top: -27px;
 	-moz-osx-font-smoothing: grayscale !important;
+}
 }
 
 .icon2-jacquard:before {
