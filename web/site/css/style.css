@@ -1683,3 +1683,105 @@ span.upload-path {
 		left: 124px !important;
 	}
 }
+.color_slide{
+	overflow:hidden;
+	width:612px !important;
+	height:220px;
+	position:relative;
+}
+.color_slide .swiper-slide {
+	color:#fff;
+	width: 184px;
+	height: 184px;
+}
+.color_slide .swiper-slide .inner {
+	background-color:#fff;
+	color:#fff;
+	margin-left:10px;
+	width: 184px;
+	height: 184px;
+}
+.color_slide .swiper-slide p{
+	width:184px;
+	text-align:center;
+	margin-left:10px;
+	font-family: 'bebas_neueregular';
+	text-decoration: none;
+	font-style: normal;
+	position:relative;
+	top:10px;
+}
+.page_slider{
+	position:relative;
+	width: 613px !important;
+}
+.page_slider .arrow_left,.page_slider .arrow_right{
+	width:18px;
+	height:33px;
+	position:absolute;
+	background:#000;
+	top:76px;
+	z-index:9;
+	padding:0px !important;
+	cursor:pointer;
+}
+.page_slider .arrow_left{
+	left:-20px;
+	background:url(../images/arrow_left.png) no-repeat center center;
+}
+.page_slider .arrow_right{
+	right: -19px;
+	background:url(../images/arrow_right.png) no-repeat center center;
+}
+/*---------------------*/
+
+.color_slide2{
+	overflow:hidden;
+	width:612px !important;
+	height:220px;
+	position:relative;
+}
+.color_slide2 .swiper-slide {
+	color:#fff;
+	width: 184px;
+	height: 184px;
+}
+.color_slide2 .swiper-slide .inner {
+	background-color:#fff;
+	color:#fff;
+	margin-left:10px;
+	width: 184px;
+	height: 184px;
+}
+.color_slide2 .swiper-slide p{
+	width:184px;
+	text-align:center;
+	margin-left:10px;
+	font-family: 'bebas_neueregular';
+	text-decoration: none;
+	font-style: normal;
+	position:relative;
+	top:10px;
+}
+.page_slider{
+	position:relative;
+	width: 613px !important;
+}
+.page_slider .arrow_left,.page_slider .arrow_right{
+	width:18px;
+	height:33px;
+	position:absolute;
+	background:#000;
+	top:76px;
+	z-index:9;
+	padding:0px !important;
+	cursor:pointer;
+}
+.page_slider .arrow_left{
+	left:-20px;
+	background:url(../images/arrow_left.png) no-repeat center center;
+}
+.page_slider .arrow_right{
+	right: -19px;
+	background:url(../images/arrow_right.png) no-repeat center center;
+}

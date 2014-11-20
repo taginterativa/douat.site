@@ -75,11 +75,35 @@ $(function() {
             }
         }
     });
+    var colorSlide = $('.color_slide').swiper({
+        mode:'horizontal',
+        loop: true,
+        slidesPerView: 3
+    });
+    var colorSlide2 = $('.color_slide2').swiper({
+        mode:'horizontal',
+        loop: true,
+        slidesPerView: 3
+    });
     $('.seta-esq').click(function() {
         mySwiper.swipePrev();
     });
     $('.seta-dir').click(function() {
         mySwiper.swipeNext();
+    });
+
+    $('.color_slide_left').click(function() {
+        colorSlide.swipePrev();
+    });
+    $('.color_slide_right').click(function() {
+        colorSlide.swipeNext();
+    });
+
+    $('.color_slide2_left').click(function() {
+        colorSlide2.swipePrev();
+    });
+    $('.color_slide2_right').click(function() {
+        colorSlide2.swipeNext();
     });
 
     $('.icon-zoom').click(function() {
