@@ -1,3 +1,7 @@
+cms_configuracoes_cms_regiao:
+    resource: "@CMSConfiguracoesBundle/Resources/config/routing/regiao.yml"
+    prefix:   /cms/regiao
+
 cms_configuracoes_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: CMSConfiguracoesBundle:Default:index }

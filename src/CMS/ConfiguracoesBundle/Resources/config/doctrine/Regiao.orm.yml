@@ -1,0 +1,33 @@
+CMS\ConfiguracoesBundle\Entity\Regiao:
+    type: entity
+    table: regiao
+    repositoryClass: CMS\ConfiguracoesBundle\Entity\RegiaoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: 255
+    manyToOne:
+        estado:
+            targetEntity: Estado
+            joinColumn:
+                name: estado_id
+                referencedColumnName: id
+    manyToMany:
+        cidades:
+            targetEntity: Cidade
+            cascade: {  }
+            joinTable:
+                name: regiao_cidade
+                joinColumns:
+                    regiao_id:
+                      referenceColumnName: id
+                inverseJoinColumns:
+                    cidade_id:
+                      referenceColumnName: id
+    lifecycleCallbacks: {  }
