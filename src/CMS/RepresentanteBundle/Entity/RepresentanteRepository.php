@@ -39,16 +39,19 @@ class RepresentanteRepository extends EntityRepository
             ->getResult();
     }
 
-
-
-    public function getRepresentantesByCidade($cidade)
+    public function getRepresentantesByCidades($cidades)
     {
+        $params = "";
+        foreach($cidades as $cidade) {
+            $params .= (strlen($params) > 0?",":"");
+            $params .= $cidade->getId();
+        }
+
         return $this->getEntityManager()
             ->createQuery('SELECT r 
                              FROM CMSRepresentanteBundle:Representante r
             INNER JOIN r.cidade c
-                 WHERE c.id = ?1')
-            ->setParameter(1, $cidade)
+                 WHERE c.id in (' . $params . ')')
             ->getResult();
     }
 }

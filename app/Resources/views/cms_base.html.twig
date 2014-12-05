@@ -52,7 +52,7 @@
 </head>
 <body class="{% block classbody %}{% endblock %}">
 
-    {% if error %}
+    {% if error is defined and error %}
         <ul id="notyfy_container_top" class="notyfy_container">
             <li class="notyfy_wrapper notyfy_error" style="cursor: pointer;">
                 <div id="notyfy_819293391509206400" class="notyfy_bar">
@@ -93,13 +93,6 @@
         <script src="{{ asset('cms/js/plugins/preload/pace/pace.min.js?v=v1.0.1') }}"></script>
         <script src="{{ asset('cms/js/plugins/preload/pace/preload.pace.init.js?v=v1.0.1') }}"></script>
         <script src="{{ asset('cms/js/core/js/animations.init.js?v=v1.0.1') }}"></script>
-        <script src="{{ asset('cms/js/modules/admin/charts/flot/assets/lib/jquery.flot.js?v=v1.0.3-rc2') }}"></script>
-        <script src="{{ asset('cms/js/modules/admin/charts/flot/assets/lib/jquery.flot.resize.js?v=v1.0.3-rc2') }}"></script>
-        <script src="{{ asset('cms/js/modules/admin/charts/flot/assets/lib/plugins/jquery.flot.tooltip.min.js?v=v1.0.3-rc2') }}"></script>
-        <script src="{{ asset('cms/js/modules/admin/charts/flot/assets/custom/js/flotcharts.common.js?v=v1.0.3-rc2') }}"></script>
-        <script src="{{ asset('cms/js/modules/admin/charts/flot/assets/custom/js/flotchart-line-2.init.js?v=v1.0.3-rc2') }}"></script>
-        <script src="{{ asset('cms/js/modules/admin/charts/flot/assets/custom/js/flotchart-mixed-1.init.js?v=v1.0.3-rc2') }}"></script>
-        <script src="{{ asset('cms/js/modules/admin/charts/flot/assets/custom/js/flotchart-bars-horizontal.init.js?v=v1.0.3-rc2') }}"></script>
         <script src="{{ asset('cms/js/modules/admin/charts/easy-pie/assets/lib/js/jquery.easy-pie-chart.js?v=v1.0.3-rc2') }}"></script>
         <script src="{{ asset('cms/js/modules/admin/charts/easy-pie/assets/custom/easy-pie.init.js?v=v1.0.3-rc2') }}"></script>
         <script src="{{ asset('cms/js/modules/admin/charts/sparkline/jquery.sparkline.min.js?v=v1.0.3-rc2') }}"></script>
@@ -118,8 +111,6 @@
         <script src="{{ asset('cms/js/common/forms/elements/bootstrap-select/assets/lib/js/bootstrap-select.js?v=v1.0.3-rc2') }}"></script>
         <script src="{{ asset('cms/js/common/forms/elements/bootstrap-select/assets/custom/js/bootstrap-select.init.js?v=v1.0.3-rc2') }}"></script>
         <script src="{{ asset('cms/js/common/forms/elements/select2/assets/lib/js/select2.js?v=v1.0.3-rc2&sv=v0.0.1.1') }}"></script>
-        <script src="{{ asset('cms/js/common/forms/editors/wysihtml5/assets/lib/js/wysihtml5-0.3.0_rc2.js?v=v1.0.3-rc2&sv=v0.0.1.1')}}"></script>
-        <script src="{{ asset('cms/js/common/forms/editors/wysihtml5/assets/lib/js/bootstrap-wysihtml5-0.0.2.js?v=v1.0.3-rc2&sv=v0.0.1.1') }}"></script>
         <script src="{{ asset('cms/js/common/forms/elements/jasny-fileupload/assets/js/bootstrap-fileupload.js?v=v1.0.3-rc2&sv=v0.0.1.1') }}"></script>
         <script src="{{ asset('cms/js/common/tables/datatables/assets/lib/extras/FixedHeader/FixedHeader.js?v=v1.0.3-rc2&sv=v0.0.1.1') }}"></script>
         <script src="{{ asset('cms/js/common/tables/datatables/assets/lib/extras/ColReorder/media/js/ColReorder.min.js?v=v1.0.3-rc2&sv=v0.0.1.1') }}"></script>

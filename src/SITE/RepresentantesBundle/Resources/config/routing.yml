@@ -2,9 +2,9 @@ site_representantes_homepage:
     pattern:  /representantes
     defaults: { _controller: SITERepresentantesBundle:Default:index }
 
-site_representantes_get_cidades:
-    pattern:  /representantes/cidades
-    defaults: { _controller: SITERepresentantesBundle:Default:getCidades }
+site_representantes_get_regioes:
+    pattern:  /representantes/regioes
+    defaults: { _controller: SITERepresentantesBundle:Default:getRegioes }
     requirements: { _method: post }
 
 site_representantes_get_representantes:

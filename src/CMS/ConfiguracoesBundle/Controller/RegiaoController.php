@@ -253,31 +253,53 @@ class RegiaoController extends Controller
             ->getForm()
         ;
     }
-/**
-    * Deletes a Regiao entity.
-*
-    */
+    /**
+     * Deletes a Regiao entity.
+     *
+     */
     public function deleteAllAction(Request $request)
-{
-    $data_delete = $request->request->get('record');
+    {
+        $data_delete = $request->request->get('record');
 
-    if($data_delete){
-        foreach($data_delete as $data){
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('CMSConfiguracoesBundle:Regiao')->find($data);
+        if($data_delete){
+            foreach($data_delete as $data){
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('CMSConfiguracoesBundle:Regiao')->find($data);
 
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Regiao entity.');
+                if (!$entity) {
+                    throw $this->createNotFoundException('Unable to find Regiao entity.');
+                }
+
+                $em->remove($entity);
+                $em->flush();
+
+                $this->get('session')->getFlashBag()->add('title', 'Regiao');
+                $this->get('session')->getFlashBag()->add('message', 'Lista de Regiao excluidos com sucesso');
             }
-
-            $em->remove($entity);
-            $em->flush();
-
-            $this->get('session')->getFlashBag()->add('title', 'Regiao');
-            $this->get('session')->getFlashBag()->add('message', 'Lista de Regiao excluidos com sucesso');
         }
+        return $this->redirect($this->generateUrl('cms_regiao'));
     }
 
+    public function getCidadesAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
 
-    return $this->redirect($this->generateUrl('cms_regiao'));
-}}
+        $estadoId = $request->get("estado")?$request->get("estado"):0;
+        $regiaoId = $request->get("regiao")?$request->get("regiao"):0;
+
+        $estado  = $em->getRepository('CMSConfiguracoesBundle:Estado')->find($estadoId);
+        $cidades = $em->getRepository('CMSConfiguracoesBundle:Cidade')->findBy(array("estado" => $estado), array());
+        $regiao  = $em->getRepository('CMSConfiguracoesBundle:Regiao')->find($regiaoId);
+
+        $cidades_regiao = array();
+        if($regiao) {
+            foreach($regiao->getCidades() as $cidade) {
+                $cidades_regiao[] = $cidade->getId();
+            }
+        }
+
+        return $this->render('CMSConfiguracoesBundle:Regiao:getCidades.html.twig', array(
+            "cidades" => $cidades,
+            "regiao_cidades" => $cidades_regiao
+        ));
+    }
+}

@@ -4,11 +4,17 @@
 
 window.returntrigger = undefined;
 window.timerreturntrigger = undefined;
-$(document).ready(function(){
-   $('table td a.delete').click(function(e){
+
+$(document).ready(function() {
+    $("#cms_configuracoesbundle_regiao_estado").change(function() {
+        $("#s2id_cms_configuracoesbundle_regiao_cidades").find(".select2-search-choice").remove();
+        cms_configuracoesbundle_regiao_atualiza_cidades(null);
+    });
+
+    $('table td a.delete').click(function(e){
        abreConfirm("Deseja relamente excluir este registro?", 'link', $(this));
        return false;
-   });
+    });
 
     $('#form-list button.delete').click(function(){
         if($('.checkbox-single input:checked').size() > 0) {
@@ -57,8 +63,26 @@ $(document).ready(function(){
         });
     }
 
-
+    cms_configuracoesbundle_regiao_atualiza_cidades($("#cms_regiao_cidades_url").data("entity"));
 });
+
+function cms_configuracoesbundle_regiao_atualiza_cidades(regiao) {
+    $("#cms_configuracoesbundle_regiao_cidades").empty();
+
+    if($("#cms_configuracoesbundle_regiao_estado").val()) {
+        $.ajax({
+            url: $("#cms_regiao_cidades_url").data("url"),
+            data: { estado: $("#cms_configuracoesbundle_regiao_estado").val(), regiao: regiao },
+            type: 'POST',
+            success: function(result) {
+                $("#cms_configuracoesbundle_regiao_cidades").html(result);
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
+    }
+}
 
 function abreConfirm(message, type, element){
     bootbox.dialog({

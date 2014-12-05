@@ -16,21 +16,27 @@ class DefaultController extends Controller
         ));
     }
 
-    public function getCidadesAction(Request $request) {
+    public function getRegioesAction(Request $request) {
         $estadoSigla = $request->request->get("uf");
-
         $em = $this->getDoctrine()->getManager();
-        $cidades = $em->getRepository('CMS\RepresentanteBundle\Entity\Representante')->getCidadesByUF($estadoSigla);
-        return $this->render('SITERepresentantesBundle:Default:cidades.html.twig', array(
-            'cidades' => $cidades,
+
+        $estado = $em->getRepository('CMSConfiguracoesBundle:Estado')->findOneBy(array("sigla" => $estadoSigla));
+        if($estado)
+            $regioes = $em->getRepository('CMSConfiguracoesBundle:Regiao')->findBy(array("estado" => $estado));
+        else
+            $regioes = array();
+
+        return $this->render('SITERepresentantesBundle:Default:regioes.html.twig', array(
+            'regioes' => $regioes,
         ));
     }
 
     public function getRepresentantesAction(Request $request) {
-        $cidadeId = $request->request->get("id");
+        $regiaoId = $request->get("id");
 
         $em = $this->getDoctrine()->getManager();
-        $representantes = $em->getRepository('CMS\RepresentanteBundle\Entity\Representante')->getRepresentantesByCidade($cidadeId);
+        $regiao = $em->getRepository('CMSConfiguracoesBundle:Regiao')->find($regiaoId);
+        $representantes = $em->getRepository('CMSRepresentanteBundle:Representante')->getRepresentantesByCidades($regiao->getCidades());
 
         return $this->render('SITERepresentantesBundle:Default:representantes.html.twig', array(
             'representantes' => $representantes,

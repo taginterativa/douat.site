@@ -3,7 +3,6 @@ function carregarCidades(data) {
 	$('.scrolling.cities').html(data);
 	$('.scrolling.representatives').html("");
 	$('.scrolling.cities').children(".item").click(function( event ) {
-		console.log($(this).data("uf"));
 		$.ajax({
 			url:"{{ path('site_representantes_get_representantes') }}",
 			data: { id: $(this).data("id") },
@@ -19,9 +18,8 @@ function carregarCidades(data) {
 
 function carregarEstados() {
 	$('.scrolling.states').children(".item").click(function( event ) {
-		console.log($(this).data("uf"));
 		$.ajax({
-			url:"{{ path('site_representantes_get_cidades') }}",
+			url:"{{ path('site_representantes_get_regioes') }}",
 			data: { uf: $(this).data("uf") },
 			type: 'POST',
 			success:function(data){

@@ -43,56 +43,56 @@
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>-->
                         <div class="estampa-zoom"><span class="fechar-foto"></span></div>
-                        <strong class="tit-medio">{% if Product.ProductColor[0].image %}Estampas{% else %}Cores{% endif %} disponíveis</strong>
-                        {% for Cor in Product.ProductColor %}
-                            {% if Cor.image %}
-                            <a href="#" class="bloco-cor bloco-estampas" data-bg="{{ asset(Cor.image) }}" style="background: url('{{ asset(Cor.image) }}'); background-size: cover">{{ Cor.code }}</a>
-                            {% elseif Cor.Pantone %}
-                            <span class="bloco-cor" style="background: #{{ Cor.Pantone.hex }};">{{ Cor.code }}</span>
-                            {% else %}
-                            <span class="bloco-cor" style="background: #{{ Cor.hexadecimal }};">{{ Cor.code }}</span>
-                            {% endif %}
-                        {% endfor %}
-                        <div class="page_slider">
-                            <div class="arrow_left color_slide_left"></div>
-                            <div class="arrow_right color_slide_right"></div>
-                            <div class="color_slide">
-                              <div class="swiper-wrapper">
-                                  <div class="swiper-slide">
-                                    <div class="inner"></div>
-                                    <p>COLOR</p>
-                                  </div>
-                                  <div class="swiper-slide">
-                                    <div class="inner"></div>
-                                    <p>COLOR</p>
-                                  </div>
-                                  <div class="swiper-slide"> 
-                                    <div class="inner"></div>
-                                    <p>COLOR</p>
-                                  </div>
+                        {% if lisos|length > 0 %}
+                          <strong class="tit-medio">Cores Disponíveis</strong>
+                          <div class="page_slider">
+                              <div class="arrow_left color_slide_left"></div>
+                              <div class="arrow_right color_slide_right"></div>
+                              <div class="color_slide">
+                                <div class="swiper-wrapper">
+                                  {% for cor in lisos %}
+                                    {% if cor.image %}
+                                      {% set background = "background: url('" ~ asset(cor.image) ~ "'); background-size: cover" %}
+                                    {% elseif cor.Pantone %}
+                                      {% set background = "background: #" ~ cor.Pantone.hex  ~ ";" %}
+                                    {% else %}
+                                      {% set background = "background: #" ~ cor.hexadecimal ~ ";" %}
+                                    {% endif %}
+                                    <div class="swiper-slide">
+                                      <div class="inner" style="{{ background }}"></div>
+                                      <p>{{ cor.code }}</p>
+                                    </div>
+                                  {% endfor %}
+                                </div>
                               </div>
-                            </div>
-                        </div>
-                        <div class="page_slider">
-                            <div class="arrow_left color_slide2_left"></div>
-                            <div class="arrow_right color_slide2_right"></div>
-                            <div class="color_slide2">
-                              <div class="swiper-wrapper">
-                                  <div class="swiper-slide">
-                                    <div class="inner"></div>
-                                    <p>COLOR</p>
-                                  </div>
-                                  <div class="swiper-slide">
-                                    <div class="inner"></div>
-                                    <p>COLOR</p>
-                                  </div>
-                                  <div class="swiper-slide"> 
-                                    <div class="inner"></div>
-                                    <p>COLOR</p>
-                                  </div>
+                          </div>
+                        {% endif %}
+                        {% if estampados|length > 0 %}
+                          <strong class="tit-medio">Estampas Disponíveis</strong>
+                          <div class="page_slider">
+                              <div class="arrow_left color_slide_left"></div>
+                              <div class="arrow_right color_slide_right"></div>
+                              <div class="color_slide">
+                                <div class="swiper-wrapper">
+                                  {% for cor in estampados %}
+                                    {% if cor.image %}
+                                      {% set background = "background: url('" ~ asset(cor.image) ~ "'); background-size: cover" %}
+                                    {% elseif cor.Pantone %}
+                                      {% set background = "background: #" ~ cor.Pantone.hex  ~ ";" %}
+                                    {% else %}
+                                      {% set background = "background: #" ~ cor.hexadecimal ~ ";" %}
+                                    {% endif %}
+                                    <div class="swiper-slide">
+                                      <div class="inner" style="{{ background }}"></div>
+                                      <p>{{ cor.code }}</p>
+                                    </div>
+                                  {% endfor %}
+                                </div>
                               </div>
-                            </div>
-                        </div>
+                          </div>
+                        {% endif %}
+
+                        
                     </div>
                     <aside>
                         <strong class="tit-medio">Código: {{ Product.code }}</strong>
@@ -123,11 +123,10 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
-
             </section>
 
         </div>
-        <{% include 'site/footer.html.twig' %}
+        {% include 'site/footer.html.twig' %}
 
     </main>
 

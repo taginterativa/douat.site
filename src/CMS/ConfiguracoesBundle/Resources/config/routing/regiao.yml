@@ -33,3 +33,8 @@ cms_regiao_delete_all:
     pattern:  /delete_all
     defaults: { _controller: "CMSConfiguracoesBundle:Regiao:deleteAll" }
     requirements: { _method: post }
+
+cms_regiao_get_cidades:
+    pattern:  /getCidades
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:getCidades" }
+    requirements: { _method: get|post }
