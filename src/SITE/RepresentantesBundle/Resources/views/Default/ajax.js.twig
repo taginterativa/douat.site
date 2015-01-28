@@ -1,0 +1,33 @@
+
+function carregarCidades(data) {
+	$('.scrolling.cities').html(data);
+	$('.scrolling.representatives').html("");
+	$('.scrolling.cities').children(".item").click(function( event ) {
+		$.ajax({
+			url:"{{ path('site_representantes_get_representantes') }}",
+			data: { id: $(this).data("id") },
+			type: 'POST',
+			success:function(data){
+				console.log(data);
+				$('.scrolling.representatives').html(data);
+			}
+		});
+	});
+}
+
+
+function carregarEstados() {
+	$('.scrolling.states').children(".item").click(function( event ) {
+		$.ajax({
+			url:"{{ path('site_representantes_get_regioes') }}",
+			data: { uf: $(this).data("uf") },
+			type: 'POST',
+			success:function(data){
+				console.log(data);
+				carregarCidades(data);
+			}
+		});
+	});
+}
+
+carregarEstados();

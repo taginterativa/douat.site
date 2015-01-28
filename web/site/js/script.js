@@ -1,5 +1,18 @@
 $(function() {
-
+    $(".states .item").click(function(){
+        $(".states .item").each(function(){
+            $(this).removeClass("active");
+        });
+        $(this).addClass("active");
+        $(".white_column:eq(1)").removeClass("opacity");
+    });
+    $('body').on("click",".cities .item", function(){
+        $(".cities .item").each(function(){
+            $(this).removeClass("active");
+        });
+        $(this).addClass("active");
+        $(".white_column:eq(2)").removeClass("opacity");
+    });
 
     //Verifica tela
     var largura = $(window).width();
@@ -62,11 +75,35 @@ $(function() {
             }
         }
     });
+    var colorSlide = $('.color_slide').swiper({
+        mode:'horizontal',
+        loop: true,
+        slidesPerView: 3
+    });
+    var colorSlide2 = $('.color_slide2').swiper({
+        mode:'horizontal',
+        loop: true,
+        slidesPerView: 3
+    });
     $('.seta-esq').click(function() {
         mySwiper.swipePrev();
     });
     $('.seta-dir').click(function() {
         mySwiper.swipeNext();
+    });
+
+    $('.color_slide_left').click(function() {
+        colorSlide.swipePrev();
+    });
+    $('.color_slide_right').click(function() {
+        colorSlide.swipeNext();
+    });
+
+    $('.color_slide2_left').click(function() {
+        colorSlide2.swipePrev();
+    });
+    $('.color_slide2_right').click(function() {
+        colorSlide2.swipeNext();
     });
 
     $('.icon-zoom').click(function() {

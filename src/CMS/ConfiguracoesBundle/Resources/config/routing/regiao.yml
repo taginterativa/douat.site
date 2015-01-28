@@ -1,0 +1,40 @@
+cms_regiao:
+    pattern:  /
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:index" }
+
+cms_regiao_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:show" }
+
+cms_regiao_new:
+    pattern:  /new
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:new" }
+
+cms_regiao_create:
+    pattern:  /create
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:create" }
+    requirements: { _method: post }
+
+cms_regiao_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:edit" }
+
+cms_regiao_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:update" }
+    requirements: { _method: post|put }
+
+cms_regiao_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:delete" }
+    requirements: { _method: get|post|delete }
+
+cms_regiao_delete_all:
+    pattern:  /delete_all
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:deleteAll" }
+    requirements: { _method: post }
+
+cms_regiao_get_cidades:
+    pattern:  /getCidades
+    defaults: { _controller: "CMSConfiguracoesBundle:Regiao:getCidades" }
+    requirements: { _method: get|post }

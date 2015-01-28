@@ -10,11 +10,26 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('CMS\ProductBundle\Entity\Product')
-            ->findOneBySlug($product_slug);
+        $entity = $em->getRepository('CMS\ProductBundle\Entity\Product')->findOneBySlug($product_slug);
+
+        $lisos = array();
+        $estampados = array();
+
+        $list = $entity->getProductColor();
+        if(count($list)) {
+	        foreach($list as $productColor) {
+	        	if(strpos($productColor->getName(),"Estampa") !== false) {
+	        		$estampados[] = $productColor;
+	        	} else {
+	        		$lisos[] = $productColor;
+	        	}
+	        }
+	    }
 
         return $this->render('ProductCategoryBundle:Product:index.html.twig', array(
-            'Product' => $entity,
+            'Product'    => $entity,
+            'lisos'      => $lisos,
+            'estampados' => $estampados
         ));
     }
 }

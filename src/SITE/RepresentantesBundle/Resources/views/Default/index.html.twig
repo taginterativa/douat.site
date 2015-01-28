@@ -4,6 +4,7 @@
     <title>Douat Têxtil - A malha que movimenta você</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
+    <style>body{background-color: #999999 !important;}</style>
 {% endblock %}
 
 {% block body_class %}{{ "page-representantes" }}{% endblock %}
@@ -15,36 +16,22 @@
             <header class="header-interna">
                 <h2>Representantes</h2>
             </header>
-            <form class="filtro filtro-mapa" method="get" action="{{ path('site_representantes_homepage') }}">
-                <select name="estado" id="estado" class="select">
-                    <option value="">Estado</option>
-                    {% for Estado in Estados %}
-                        <option value="{{ Estado.sigla }}" {% if estado == Estado.nome %}selected{% endif %}>{{ Estado.nome }}</option>
+            <div class="white_column">
+                <div class="wc_title">Selecione um Estado</div>
+                <div class="scrolling states">
+                    {% for estado in estados %}
+                        <div class="item" data-uf="{{ estado.sigla }}">{{ estado.nome }}</div>
                     {% endfor %}
-                </select>
-                <select name="cidade" id="cidade" class="select">
-                    <option value="">Cidade</option>
-                    {% for Cidade in Cidades %}
-                        <option value="{{ Cidade.nome }}" {% if cidade == Cidade.nome %}selected{% endif %}>{{ Cidade.nome }}</option>
-                    {% endfor %}
-                </select>
-                <button type="submit">Filtrar</button>
-            </form>
-            <div class="mapa">
-                <div id="frame_mapa" style="width:100%; height:480px;" data-url="images"></div>
+                </div>
             </div>
-
-            <div id="dados_map">
-                <div class="dados_map">
-                    <div class="controla_dados" id="controla_dados">
-                        <strong id="unidade_map"></strong><br />
-                        <span id="endereco"></span> <span id="bairro"></span><br>
-                        <span id="cidaderep"></span> - <span id="estadorep"></span><br>
-                        <span id="telefone"></span><br>
-                        <span id="latitude"></span>
-                        <span id="longitude"></span>
-                        <a href="" id="email"></a>
-                    </div>
+            <div class="white_column opacity">
+                <div class="wc_title">Selecione uma região</div>
+                <div class="scrolling cities">
+                </div>
+            </div>
+            <div class="white_column no-margin-right opacity">
+                <div class="wc_title">representantes</div>
+                <div class="scrolling representatives">
                 </div>
             </div>
 
@@ -55,6 +42,7 @@
 {% endblock %}
 
 {% block pageScripts %}
+    <script type="text/javascript" src="{{ path('site_representantes_js_ajax') }}"></script>
     <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="{{ asset('site/js/infobox.js') }}"></script>
     <script type="text/javascript" src="{{ asset('site/js/markerclusterer.js') }}"></script>

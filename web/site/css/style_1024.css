@@ -18,6 +18,10 @@
 .filtros-links a {
 	width: 250px;
 }
+	.desc-prod aside {
+		position:relative !important;
+		right:-76px !important;
+	}
 .filtro .selectbox {
 	width: 140px;
 }

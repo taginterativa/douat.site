@@ -23,37 +23,35 @@ class RepresentanteRepository extends EntityRepository
             ->getResult();
     }
 
-    public function getCidadesByUF($estado)
+    public function getCidadesByUF($sigla)
     {
         return $this->getEntityManager()
-            ->createQuery(
-                'SELECT c FROM CMSConfiguracoesBundle:Cidade c
-                WHERE c.id IN ( SELECT cid.id FROM CMSRepresentanteBundle:Representante r
-                    INNER JOIN r.estado es
-                    INNER JOIN r.cidade cid
-                    WHERE es.sigla = \'' . $estado . '\')
-                ORDER BY c.nome ASC'
+            ->createQuery('SELECT c 
+                             FROM CMSConfiguracoesBundle:Cidade c
+                            WHERE c.id IN (SELECT cid.id 
+                                             FROM CMSRepresentanteBundle:Representante r
+                                       INNER JOIN r.estado es
+                                       INNER JOIN r.cidade cid
+                                            WHERE es.sigla = ?1)
+                         ORDER BY c.nome ASC'
             )
+            ->setParameter(1, $sigla)
             ->getResult();
     }
 
-
-
-    public function search($estado, $cidade = null)
+    public function getRepresentantesByCidades($cidades)
     {
-
-        $SQL = 'SELECT r FROM CMSRepresentanteBundle:Representante r
-                    INNER JOIN r.estado es
-                    INNER JOIN r.cidade cid
-                    WHERE es.sigla = \'' . $estado . '\'';
-
-        if(!is_null($cidade))
-        {
-            $SQL .= ' AND cid.nome = \'' . $cidade . '\'';
+        $params = "";
+        foreach($cidades as $cidade) {
+            $params .= (strlen($params) > 0?",":"");
+            $params .= $cidade->getId();
         }
 
         return $this->getEntityManager()
-            ->createQuery($SQL)
+            ->createQuery('SELECT r 
+                             FROM CMSRepresentanteBundle:Representante r
+            INNER JOIN r.cidade c
+                 WHERE c.id in (' . $params . ')')
             ->getResult();
     }
 }

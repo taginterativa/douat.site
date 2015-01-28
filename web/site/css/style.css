@@ -241,7 +241,11 @@ p {
 				height: 230px;
 				padding: 100px 0 0 0;
 				text-align: center;
-			}
+			
+				/* background: black; */
+				border-radius: 230px;
+				/* border: 1px solid #000; */
+}
 			.header-container nav li li a span {
 				position: absolute;
 				top: 135px;
@@ -561,16 +565,22 @@ main {
 		color: #ffffff;
 		text-transform: uppercase;
 		letter-spacing: 3px;
-	}
+	
+		width: 700px;
+		margin-top: -150px;
+		margin-left: 76px;
+}
 		.secundary.malha-praia header h3 {
 			color: #000;
 		}
 		.secundary header h3 span {
 			font-family: 'bebas_neuebold';
 			clear: both;
-			float: left;
+			/* float: left; */
 			width: 100%;
-		}
+		
+			margin-left: 10px;
+}
 
 .footer-container {
 	float: left;
@@ -777,10 +787,10 @@ main {
 		margin-right: 20px;
 	}
 	.filtro.filtro-mapa select.select {
-		width: 370px;
+		width: 270px;
 	}
 	.filtro.filtro-mapa span.select {
-		width: 370px;
+		width: 270px;
 		background: url(../images/seta-select.png) no-repeat 330px center #fff;
 	}
 
@@ -1553,7 +1563,100 @@ span.upload-path {
 	/* ... */
 
 }
-
+.white_column{
+	width:30%;
+	margin-right:5%;
+	background-color:#fff;
+	float:left;
+	height:672px;
+	margin-bottom:67px;
+	position:relative;
+	box-sizing:border-box;
+	padding-top:12px;
+	padding-left:12px;
+}
+.scrolling{
+	width:100%;
+	height:90%;
+	overflow: auto;
+}
+.white_column.opacity{
+	opacity:0.5;
+}
+.white_column.no-margin-right{
+	margin-right:0px;
+}
+.white_column .wc_title{
+	font-family: 'bebas_neuebold';
+	color: #999999;
+	text-transform:uppercase;
+	font-size: 20px;
+	letter-spacing:1px;
+	margin-bottom:20px;
+}
+.white_column .item{
+	font-family: 'bebas_neueregular';
+	color: #999999;
+	text-transform:uppercase;
+	font-size: 20px;
+	letter-spacing:1px;
+	box-sizing:border-box;
+	padding:10px;
+	-webkit-transition:0.5s;
+	-moz-transition:0.5s;
+	-o-transition:0.5s;
+	transition:0.5s;
+	cursor:pointer;
+}
+.white_column .item:hover{
+	font-family: 'bebas_neueregular';
+	background-color: #999999;
+	color:#fff;
+	text-transform:uppercase;
+	font-size: 20px;
+	letter-spacing:1px;
+	box-sizing:border-box;
+	padding:10px;
+}
+.white_column .item.active{
+	font-family: 'bebas_neueregular';
+	background:url(../images/arrow.jpg) no-repeat 100% 50%;
+	background-color: #999999;
+	color:#fff;
+	text-transform:uppercase;
+	font-size: 20px;
+	letter-spacing:1px;
+	box-sizing:border-box;
+	padding:10px;
+}
+.r_item{
+	margin-bottom:20px;
+}
+.ri_title{
+	font-family: Tahoma;
+	color: #999999;
+	font-size: 14px;
+	color: #555;
+	font-weight:bold;
+}
+.ri_city{
+	font-family: Tahoma;
+	color: #999999;
+	font-size: 14px;
+	margin-bottom:5px;
+}
+.ri_phone{
+	font-family: Tahoma;
+	color: #999999;
+	font-size: 14px;
+}
+.ri_email{
+	font-family: Tahoma;
+	color: #999999;
+	font-size: 10px;
+	text-transform:underline;
+	margin-top:5px;
+}
 /* MEDIA ----------------------------------------------------------- */
 
 
@@ -1563,3 +1666,122 @@ span.upload-path {
 
 /* IE FIX ---------------------------------------------------------- */
 
+@media (min-width : 1000px) {
+	.praia_box{
+		position:relative !important;
+		top: -124px !important;
+		left: -370px !important;
+	}
+	.jacquard_box{
+		position:relative !important;
+		top: -105px !important;
+		left: 124px !important;
+	}
+	.casual_box{
+		position:relative !important;
+		top: -105px !important;
+		left: 124px !important;
+	}
+}
+.color_slide{
+	overflow:hidden;
+	width:612px !important;
+	height:220px;
+	position:relative;
+}
+.color_slide .swiper-slide {
+	color:#fff;
+	width: 184px;
+	height: 184px;
+}
+.color_slide .swiper-slide .inner {
+	background-color:#fff;
+	color:#fff;
+	margin-left:10px;
+	width: 184px;
+	height: 184px;
+}
+.color_slide .swiper-slide p{
+	width:184px;
+	text-align:center;
+	margin-left:10px;
+	font-family: 'bebas_neueregular';
+	text-decoration: none;
+	font-style: normal;
+	position:relative;
+	top:10px;
+}
+.page_slider{
+	position:relative;
+	width: 613px !important;
+}
+.page_slider .arrow_left,.page_slider .arrow_right{
+	width:18px;
+	height:33px;
+	position:absolute;
+	background:#000;
+	top:76px;
+	z-index:9;
+	padding:0px !important;
+	cursor:pointer;
+}
+.page_slider .arrow_left{
+	left:-20px;
+	background:url(../images/arrow_left.png) no-repeat center center;
+}
+.page_slider .arrow_right{
+	right: -19px;
+	background:url(../images/arrow_right.png) no-repeat center center;
+}
+/*---------------------*/
+
+.color_slide2{
+	overflow:hidden;
+	width:612px !important;
+	height:220px;
+	position:relative;
+}
+.color_slide2 .swiper-slide {
+	color:#fff;
+	width: 184px;
+	height: 184px;
+}
+.color_slide2 .swiper-slide .inner {
+	background-color:#fff;
+	color:#fff;
+	margin-left:10px;
+	width: 184px;
+	height: 184px;
+}
+.color_slide2 .swiper-slide p{
+	width:184px;
+	text-align:center;
+	margin-left:10px;
+	font-family: 'bebas_neueregular';
+	text-decoration: none;
+	font-style: normal;
+	position:relative;
+	top:10px;
+}
+.page_slider{
+	position:relative;
+	width: 613px !important;
+}
+.page_slider .arrow_left,.page_slider .arrow_right{
+	width:18px;
+	height:33px;
+	position:absolute;
+	background:#000;
+	top:76px;
+	z-index:9;
+	padding:0px !important;
+	cursor:pointer;
+}
+.page_slider .arrow_left{
+	left:-20px;
+	background:url(../images/arrow_left.png) no-repeat center center;
+}
+.page_slider .arrow_right{
+	right: -19px;
+	background:url(../images/arrow_right.png) no-repeat center center;
+}
