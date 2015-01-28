@@ -37,11 +37,12 @@
 
                 <article class="desc-prod">
                     <div>
-                        <!--
+                        {% if Product.description | length > 10 %}
                         <strong class="tit-medio">Sobre o tecido</strong>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>-->
+                          {{ Product.description }}
+                        </p>
+                        {% endif %}
                         <div class="estampa-zoom"><span class="fechar-foto"></span></div>
                         {% if lisos|length > 0 %}
                           <strong class="tit-medio">Estampas Ácidas</strong>
